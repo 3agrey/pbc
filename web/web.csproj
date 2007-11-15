@@ -1,0 +1,486 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7B742887-D6BE-427F-9539-7B3FA2E30F13}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AIM.PBC.Web</RootNamespace>
+    <AssemblyName>AIM.PBC.Web</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AIM.NCore.DataTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\components\NCore.DataTypes\bin\Release\AIM.NCore.DataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="RadCalendar.Net2, Version=1.7.1.0, Culture=neutral, PublicKeyToken=a1432cd341173140, processorArchitecture=MSIL" />
+    <Reference Include="RadChart.Net2, Version=2.6.1.0, Culture=neutral, PublicKeyToken=d14f3dcc8e3e8763, processorArchitecture=MSIL" />
+    <Reference Include="RadInput.Net2, Version=1.3.1.0, Culture=neutral, PublicKeyToken=4b5a52e6671b1616, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\Accounts.aspx" />
+    <Content Include="Images\MenuBar\menu_bg.gif" />
+    <Content Include="Images\MenuBar\menu_l.gif" />
+    <Content Include="Images\MenuBar\menu_r.gif" />
+    <Content Include="Images\MenuBar\spacer.gif" />
+    <Content Include="Images\PageEdge_B.gif" />
+    <Content Include="Images\PageEdge_BL.gif" />
+    <Content Include="Images\PageEdge_BR.gif" />
+    <Content Include="Images\PageEdge_L.gif" />
+    <Content Include="Images\PageEdge_R.gif" />
+    <Content Include="Images\PageEdge_U.gif" />
+    <Content Include="Images\PageEdge_UL.gif" />
+    <Content Include="Images\PageEdge_UR.gif" />
+    <Content Include="Images\spacer.gif" />
+    <Content Include="Private\Images\LiveSupport.gif" />
+    <Content Include="Private\Images\ReportByAccounts.png" />
+    <Content Include="Private\Images\ReportByTransactions.png" />
+    <Content Include="Images\VeriSign.gif" />
+    <Content Include="Images\WindowPanel\blue_b.gif" />
+    <Content Include="Images\WindowPanel\blue_bl.gif" />
+    <Content Include="Images\WindowPanel\blue_br.gif" />
+    <Content Include="Images\WindowPanel\blue_l.gif" />
+    <Content Include="Images\WindowPanel\blue_r.gif" />
+    <Content Include="Images\WindowPanel\blue_u.gif" />
+    <Content Include="Images\WindowPanel\blue_ul.gif" />
+    <Content Include="Images\WindowPanel\blue_ur.gif" />
+    <Content Include="Images\WindowPanel\gray_b.gif" />
+    <Content Include="Images\WindowPanel\gray_bl.gif" />
+    <Content Include="Images\WindowPanel\gray_br.gif" />
+    <Content Include="Images\WindowPanel\gray_l.gif" />
+    <Content Include="Images\WindowPanel\gray_r.gif" />
+    <Content Include="Images\WindowPanel\gray_u.gif" />
+    <Content Include="Images\WindowPanel\gray_ul.gif" />
+    <Content Include="Images\WindowPanel\gray_ur.gif" />
+    <Content Include="Images\WindowPanel\spacer.gif" />
+    <Content Include="Images\WindowPanel\window_bl.gif" />
+    <Content Include="Images\WindowPanel\window_br.gif" />
+    <Content Include="Images\WindowPanel\window_ul.gif" />
+    <Content Include="Images\WindowPanel\window_ur.gif" />
+    <Content Include="Private\Controls\Footer.ascx" />
+    <Content Include="Private\Controls\Head.ascx" />
+    <Content Include="Private\Controls\Header.ascx" />
+    <Content Include="Private\Default.aspx" />
+    <Content Include="Private\ReportByAccounts.aspx" />
+    <Content Include="Private\ReportByTransactions.aspx" />
+    <Content Include="CustomErrors\AccessDenied.aspx" />
+    <Content Include="Private\EditPercentageTransfer.aspx" />
+    <Content Include="Private\EditPeriodicalTransfer.aspx" />
+    <Content Include="Private\EditSingleTransfer.aspx" />
+    <Content Include="Private\EditTransfer.aspx" />
+    <Content Include="Private\EditAccount.aspx" />
+    <Content Include="Private\Images\Accounts.png" />
+    <Content Include="Private\Images\Charts.png" />
+    <Content Include="Private\Images\Locked.png" />
+    <Content Include="Private\Images\Reports.png" />
+    <Content Include="Private\Images\Transfers.png" />
+    <Content Include="Private\Reports.aspx" />
+    <Content Include="RadControls\Calendar\Outlook\Calendar.css" />
+    <Content Include="RadControls\Calendar\Outlook\Img\arrowLeft.gif" />
+    <Content Include="RadControls\Calendar\Outlook\Img\arrowRight.gif" />
+    <Content Include="RadControls\Calendar\Outlook\Img\calendarBg.gif" />
+    <Content Include="RadControls\Calendar\Outlook\Img\datePickerPopup.gif" />
+    <Content Include="RadControls\Calendar\Outlook\Img\datePickerPopupHover.gif" />
+    <Content Include="RadControls\Calendar\Outlook\Img\fastNavLeft.gif" />
+    <Content Include="RadControls\Calendar\Outlook\Img\fastNavRight.gif" />
+    <Content Include="RadControls\Calendar\Outlook\Img\hoverBg.gif" />
+    <Content Include="RadControls\Calendar\Outlook\Img\MonthYearFastNavBtnBg.gif" />
+    <Content Include="RadControls\Calendar\Outlook\Img\selectBg.gif" />
+    <Content Include="RadControls\Calendar\Outlook\Img\tableLayoutBg.gif" />
+    <Content Include="RadControls\Calendar\Outlook\Img\titlebarBg.gif" />
+    <Content Include="RadControls\Calendar\Outlook\Img\todaySelect.gif" />
+    <Content Include="RadControls\Calendar\Outlook\Img\wrapperBg.gif" />
+    <Content Include="RadControls\Input\Outlook\Img\default.gif" />
+    <Content Include="RadControls\Input\Outlook\Img\error.gif" />
+    <Content Include="RadControls\Input\Outlook\Img\focus.gif" />
+    <Content Include="RadControls\Input\Outlook\Img\over.gif" />
+    <Content Include="RadControls\Input\Outlook\Styles.css" />
+    <Content Include="Styles\MenuBar.css" />
+    <Content Include="Styles\Panel.css" />
+    <Content Include="Private\Transfers.aspx" />
+    <Content Include="Images\ClientMessage\Error.png" />
+    <Content Include="Images\ClientMessage\Info.png" />
+    <Content Include="Images\ClientMessage\Warning.png" />
+    <Content Include="Styles\ClientMessage.css" />
+    <Content Include="Styles\Default.css" />
+    <Content Include="Controls\Footer.ascx" />
+    <Content Include="Controls\Head.ascx" />
+    <Content Include="Controls\Header.ascx" />
+    <Content Include="Private\Login.aspx" />
+    <Content Include="Private\Logout.aspx" />
+    <Content Include="_Template.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppCode\UI\Controls\PivotGrid\HtmlPivotGrid.cs" />
+    <Compile Include="AppCode\UI\Controls\PivotGrid\PivotGridDataCellEventArgs.cs" />
+    <Compile Include="AppCode\UI\Controls\PivotGrid\PivotGridFieldInfo.cs" />
+    <Compile Include="AppCode\UI\Controls\PivotGrid\PivotGridFieldInfoCollection.cs" />
+    <Compile Include="AppCode\UI\Controls\PivotGrid\PivotGrid.cs" />
+    <Compile Include="AppCode\UI\Controls\PivotGrid\PivotGridAxisCellEventArgs.cs" />
+    <Compile Include="App_GlobalResources\Global.ru-RU.designer.cs">
+      <DependentUpon>Global.ru-RU.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Global.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Global.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Charts.aspx.cs">
+      <DependentUpon>Charts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Charts.aspx.designer.cs">
+      <DependentUpon>Charts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\ChartByAccounts.aspx.cs">
+      <DependentUpon>ChartByAccounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\ChartByAccounts.aspx.designer.cs">
+      <DependentUpon>ChartByAccounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\EditDepositTransfer.aspx.cs">
+      <DependentUpon>EditDepositTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\EditDepositTransfer.aspx.designer.cs">
+      <DependentUpon>EditDepositTransfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Accounts.aspx.designer.cs">
+      <DependentUpon>Accounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppCode\UI\Controls\AccountDropDownList.cs" />
+    <Compile Include="AppCode\UI\Controls\MenuBar.cs" />
+    <Compile Include="AppCode\UI\Controls\MenuItem.cs" />
+    <Compile Include="AppCode\UI\Controls\MenuItemList.cs" />
+    <Compile Include="AppCode\UI\Controls\Panel.cs" />
+    <Compile Include="AppCode\UI\Controls\PanelMode.cs" />
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Controls\Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Controls\Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Controls\Head.ascx.cs">
+      <DependentUpon>Head.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Controls\Head.ascx.designer.cs">
+      <DependentUpon>Head.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Controls\Header.ascx.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Controls\Header.ascx.designer.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\ReportByAccounts.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ReportByAccounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\ReportByAccounts.aspx.designer.cs">
+      <DependentUpon>ReportByAccounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\ReportByTransactions.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ReportByTransactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\ReportByTransactions.aspx.designer.cs">
+      <DependentUpon>ReportByTransactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomErrors\AccessDenied.aspx.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomErrors\AccessDenied.aspx.designer.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\EditPercentageTransfer.aspx.cs">
+      <DependentUpon>EditPercentageTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\EditPercentageTransfer.aspx.designer.cs">
+      <DependentUpon>EditPercentageTransfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\EditPeriodicalTransfer.aspx.cs">
+      <DependentUpon>EditPeriodicalTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\EditPeriodicalTransfer.aspx.designer.cs">
+      <DependentUpon>EditPeriodicalTransfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\EditSingleTransfer.aspx.cs">
+      <DependentUpon>EditSingleTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\EditSingleTransfer.aspx.designer.cs">
+      <DependentUpon>EditSingleTransfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\EditTransfer.aspx.cs">
+      <DependentUpon>EditTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\EditTransfer.aspx.designer.cs">
+      <DependentUpon>EditTransfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\EditAccount.aspx.cs">
+      <DependentUpon>EditAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\EditAccount.aspx.designer.cs">
+      <DependentUpon>EditAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppCode\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppCode\QueryParamInvalidException.cs" />
+    <Compile Include="AppCode\QueryParamMissingException.cs" />
+    <Compile Include="AppCode\SessionManager.cs" />
+    <Compile Include="AppCode\Settings.cs" />
+    <Compile Include="AppCode\UI\Controls\ClientMessage.cs" />
+    <Compile Include="AppCode\UI\Controls\ClientMessageTypes.cs" />
+    <Compile Include="Controls\Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Head.ascx.cs">
+      <DependentUpon>Head.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Head.ascx.designer.cs">
+      <DependentUpon>Head.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Header.ascx.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Header.ascx.designer.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Accounts.aspx.cs">
+      <DependentUpon>Accounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Reports.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Transfers.aspx.cs">
+      <DependentUpon>Transfers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Transfers.aspx.designer.cs">
+      <DependentUpon>Transfers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="_Template.aspx.cs">
+      <DependentUpon>_Template.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_Template.aspx.designer.cs">
+      <DependentUpon>_Template.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\core\core.csproj">
+      <Project>{C86B4234-8312-4F25-A54C-31B5BE300BF7}</Project>
+      <Name>core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\Charts.aspx" />
+    <Content Include="Private\ChartByAccounts.aspx" />
+    <Content Include="Private\Images\ChartByAccounts.png" />
+    <Content Include="Private\Register.aspx" />
+    <Content Include="Private\Images\spacer.gif" />
+    <Content Include="Private\Web.config" />
+    <Content Include="RadControls\Chart\Image.aspx" />
+    <Content Include="RadControls\LicenseFile.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RadControls\Chart\Intellisense\chart.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RadControls\Chart\Intellisense\RadChart.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\App_LocalResources\Default.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\App_LocalResources\Default.aspx.ru-RU.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\App_LocalResources\Accounts.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\App_LocalResources\Accounts.aspx.ru-RU.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Global.resx">
+      <SubType>Designer</SubType>
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Global.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Global.ru-RU.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Global.ru-RU.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\App_LocalResources\Reports.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\App_LocalResources\Reports.aspx.ru-RU.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\App_LocalResources\ReportByTransactions.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\App_LocalResources\ReportByTransactions.aspx.ru-RU.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\App_LocalResources\EditTransfer.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\App_LocalResources\EditTransfer.aspx.ru-RU.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Private\EditDepositTransfer.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\App_LocalResources\EditDepositTransfer.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\App_LocalResources\EditDepositTransfer.aspx.ru-RU.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v8.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1071</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/pbc</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

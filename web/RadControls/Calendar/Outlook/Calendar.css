@@ -1,0 +1,142 @@
+/* r.a.d.calendar OUTLOOK skin */
+
+table.calendarWrapper
+{
+	background: #fff;
+	cursor: default;
+	font: normal 8pt Tahoma;
+	border: solid 1px #7f9db9;
+}
+
+.TableLayout
+{
+	margin: 0px 7px;
+	background: url('img/titlebarBg.gif') repeat-x left 15px;
+}
+
+.TableLayout td a
+{
+	text-align: right;
+	width: 13px;
+	height: 12px;
+	padding: 1px;
+	display: block;
+	text-decoration: none;
+	color: #000;
+	cursor: default;
+}
+
+.DaysOfWeek
+{
+	color: #000004;
+	text-align: right;
+	text-transform: uppercase;
+	height: 16px;
+}
+
+.otherMonth
+{
+	color: #aca899;
+	text-align: right;
+}
+
+.outOfRange
+{
+	color: #aca899;
+	text-align: right;
+	background: #fff;
+}
+
+.titlebar
+{
+	font: normal 8pt Tahoma;
+	height: 16px;
+	width: 100%;
+	background-color: #9ebef5;
+	border: 1px solid #9ebef5;
+}
+
+.MonthYearFastNav
+{
+	border: 1px solid #9ebef5;
+	background: #fff;
+	font: normal 8pt Tahoma;
+	color: #000;
+	border-collapse: collapse;
+	filter: progid:DXImageTransform.Microsoft.Shadow(direction=140,color=#666666,strength=3);
+	cursor: default;
+}
+
+.MonthYearFastNav td
+{
+	vertical-align: middle;
+}
+
+.MonthYearFastNav td.selected
+{
+	background: #fbe694;
+	color: #000;
+	text-align: center;
+}
+
+.MonthYearFastNav td.bottom
+{
+	text-align: right;
+	padding-left: 9px;
+}
+
+.MonthYearFastNav td input
+{
+	background: #9ebef5;
+	border: solid 1px #000;
+	font: normal 8pt Tahoma;
+	color: #000000;
+	float: left;
+	width: auto;
+	margin-right: 1px;
+}
+
+.radCalDefault a,
+.radCalHover a,
+.radCalWeekendDefault a, 
+.radCalWeekendHover a
+{
+	background: #fff;
+	border: solid 1px #fff;
+	text-align: right;
+	width: 15px;
+	height: 13px;
+	display: block;
+	text-decoration: none;
+	color: #000;
+}
+
+.radCalToday a
+{
+	background: #fff;
+	border: solid 1px #bb5503;
+}
+
+.radCalTodaySelected a
+{
+	background: #fbe694;
+	border: solid 1px #bb5503;
+}
+
+.radCalTodaySelected
+{
+	background: #fbe694  !important;
+}
+
+.radCalSelect a,
+.radCalWeekendSelect a
+{
+	background: #fbe694;
+	border: solid 1px #fbe694;
+}
+
+.radCalSelect,
+.radCalWeekendSelect
+{
+	background: #fbe694 !important;
+}

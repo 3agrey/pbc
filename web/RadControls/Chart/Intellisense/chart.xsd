@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema targetNamespace="http://schemas.telerik.com/Intellisense/Chart" elementFormDefault="qualified" xmlns="http://schemas.telerik.com/Intellisense/Chart" xmlns:mstns="http://schemas.telerik.com/Intellisense/Chart" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+			Schema for r.a.d.chart v2.0
+			Copyright 2005 telerik. All rights reserved.
+		</xs:documentation>
+	</xs:annotation>
+	<xs:element name="chart" type="chartdef"></xs:element>
+	<xs:complexType name="chartdef">
+		<xs:attribute name="baroverlappercent" type="xs:float" />
+		<xs:attribute name="barwidthpercent" type="xs:float" />
+		<xs:attribute name="chartimageformat" type="chartimageformatdef" />
+		<xs:attribute name="company" type="xs:string" />
+		<xs:attribute name="contentfile" type="xs:string" />
+		<xs:attribute name="createimagemap" type="xs:boolean" />
+		<xs:attribute name="enableviewstate" type="xs:boolean" />
+		<xs:attribute name="height" type="xs:int" />
+		<xs:attribute name="imagequality" type="imagequalitydef" />
+		<xs:attribute name="licensefile" type="xs:string" />
+		<xs:attribute name="radcontrolsdir" type="xs:string" />
+		<xs:attribute name="seriesorientation" type="seriesorientationdef" />
+		<xs:attribute name="tempimagesfolder" type="xs:string" />
+		<xs:attribute name="textquality" type="textqualitydef" />
+		<xs:attribute name="usesession" type="xs:boolean" />
+		<xs:attribute name="visible" type="xs:boolean" />
+		<xs:attribute name="width" type="xs:int" />
+		<xs:choice>
+			<xs:element minOccurs="0" maxOccurs="1" name="background" type="backgrounddef" />
+			<xs:element minOccurs="0" maxOccurs="1" name="plotarea" type="plotareadef" />
+			<xs:element minOccurs="0" maxOccurs="1" name="title" type="titledef" />
+			<xs:element minOccurs="0" maxOccurs="1" name="legend" type="legenddef" />
+			<xs:element minOccurs="0" maxOccurs="1" name="gridlines" type="gridlinesdef" />
+			<xs:element minOccurs="0" maxOccurs="1" name="margins" type="margindef" />
+			<xs:element minOccurs="0" maxOccurs="1" name="xaxis" type="xaxisdef" />
+			<xs:element minOccurs="0" maxOccurs="1" name="yaxis" type="yaxisdef" />
+			<xs:element minOccurs="0" maxOccurs="1" name="seriescollection" type="seriescollectiondef" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="seriescollectiondef">
+		<xs:choice>
+			<xs:element name="series" type="seriesdef" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="seriesdef">
+		<xs:attribute name="defaultlabel" type="xs:string" />
+		<xs:attribute name="offset" type="xs:int" />
+		<xs:attribute name="showlabelconnectors" type="xs:boolean" />
+		<xs:attribute name="showlabels" type="xs:bool" />
+		<xs:attribute name="valueformat" type="xs:string" />
+		<xs:attribute name="bubblesize" type="xs:int" />
+		<xs:attribute name="linewidth" type="xs:int" />
+		<xs:attribute name="piexoffset" type="xs:int" />
+		<xs:attribute name="pieyoffset" type="xs:int" />
+		<xs:attribute name="diameterscale" type="xs:float" />
+		<xs:attribute name="explodepercent" type="xs:int" />
+		<xs:attribute name="notoverlaplabels" type="xs:boolean" />
+		<xs:attribute name="startangle" type="xs:int" />
+		<xs:attribute name="pointcolor" type="xs:string" />
+		<xs:attribute name="pointmark" type="pointmarkdef" />
+		<xs:attribute name="pointsize" type="xs:int" />
+		<xs:attribute name="legendmode" type="legendmodedef" />
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="type" type="seriestypedef" use="required" />
+		<xs:choice>
+			<xs:element name="labels" type="serieslabelsdef" />
+			<xs:element name="items" type="seriesitemsdef" />
+			<xs:group minOccurs="0" maxOccurs="1" ref="rectshapeappearancedef" />
+			<xs:element name="imagemap" type="imagemapdef" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="serieslabelsdef">
+		<xs:attribute name="alignment" type="alignmentdef" />
+		<xs:attribute name="distance" type="xs:int" />
+		<xs:attribute name="horpadding" type="xs:int" />
+		<xs:attribute name="rotationangle" type="vs:float" />
+		<xs:attribute name="color" type="xs:string" />
+		<xs:attribute name="font" type="xs:string" />
+		<xs:attribute name="verpadding" type="xs:int" />
+		<xs:attribute name="visible" type="xs:boolean" />
+		<xs:choice>
+			<xs:group minOccurs="0" maxOccurs="1" ref="rectshapeappearancedef"></xs:group>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="seriestypedef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Bar" />
+			<xs:enumeration value="StackedBar" />
+			<xs:enumeration value="StackedBar100" />			
+			<xs:enumeration value="Line" />
+			<xs:enumeration value="Area" />
+			<xs:enumeration value="StackedArea" />
+			<xs:enumeration value="StackedArea100" />			
+			<xs:enumeration value="Pie" />			
+			<xs:enumeration value="Gantt" />
+			<xs:enumeration value="Bezier" />
+			<xs:enumeration value="Spline" />
+			<xs:enumeration value="Bubble" />
+			<xs:enumeration value="Point" />			
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="sereslabeldef">
+		<xs:attribute name="delimiter" type="xs:string" />
+		<xs:attribute name="offset" type="xs:int" />
+		<xs:attributeGroup ref="labeldef" />
+	</xs:complexType>
+	<xs:complexType name="seriesitemsdef">
+		<xs:choice>
+			<xs:element name="item" type="seriesitemdef" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="seriesitemdef">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="xvalue" type="xs:float" />
+		<xs:attribute name="xvalue2" type="xs:float" />
+		<xs:attribute name="yvalue" type="xs:float" />
+		<xs:attribute name="yvalue2" type="xs:float" />
+		<xs:attribute name="exploded" type="xs:boolean" />
+		<xs:attribute name="label" type="xs:string" />
+		<xs:attribute name="pointsize" type="xs:int" />
+		<xs:choice>
+			<xs:group ref="rectshapeappearancedef" />
+			<xs:element name="itemmap" type="imagemapdef" />
+			<xs:element name="legendmap" type="imagemapdef" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="None" />
+			<xs:enumeration value="Rectangle" />
+			<xs:enumeration value="Circle" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Bar" />
+			<xs:enumeration value="Line" />
+			<xs:enumeration value="Area" />
+			<xs:enumeration value="Pie" />
+			<xs:enumeration value="StackedBar" />
+			<xs:enumeration value="StackedBar100" />
+			<xs:enumeration value="StackedArea" />
+			<xs:enumeration value="StackedArea100" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="None" />
+			<xs:enumeration value="Circle" />
+			<xs:enumeration value="Rectangle" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="yaxisdef">
+		<xs:attribute name="style" type="yaxisstyledef" />
+		<xs:choice minOccurs="0" maxOccurs="1">
+			<xs:element name="label" type="axislabeldef" />
+			<xs:element name="range" type="axisrangedef" />
+		</xs:choice>
+		<xs:attributeGroup ref="commonaxisattributesdef" />
+		<xs:choice>
+			<xs:element name="item" type="axisitemdef" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="axisrangedef">
+		<xs:attribute name="min" type="xs:float" />
+		<xs:attribute name="max" type="xs:float" />
+		<xs:attribute name="step" type="xs:float" />
+	</xs:complexType>
+	<xs:complexType name="xaxisdef">
+		<xs:attribute name="autoshrink" type="xs:boolean" />
+		<xs:attribute name="layoutstyle" type="axislayoutstyledef" />
+		<xs:choice minOccurs="0" maxOccurs="1">
+			<xs:element name="label" type="axislabeldef" />
+		</xs:choice>
+		<xs:choice>
+			<xs:element name="item" type="axisitemdef" />
+		</xs:choice>
+		<xs:attributeGroup ref="commonaxisattributesdef" />
+	</xs:complexType>
+	<xs:simpleType name="axislayoutstyledef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Normal" />
+			<xs:enumeration value="Inside" />
+			<xs:enumeration value="Between" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="axisitemdef">
+		<xs:attribute name="name" type="vs:string" />
+		<xs:attribute name="color" type="vs:string" />
+	</xs:complexType>
+	<xs:attributeGroup name="commonaxisattributesdef">
+		<xs:attribute name="autoscale" type="vs:boolean" />
+		<xs:attribute name="color" type="vs:string" />
+		<xs:attribute name="width" type="vs:int" />
+		<xs:attribute name="customformat" type="vs:string" />
+		<xs:attribute name="itemcolor" type="vs:string" />
+		<xs:attribute name="itemfont" type="vs:string" />
+		<xs:attribute name="iszerobased" type="vs:boolean" />
+		<xs:attribute name="labelrotationangle" type="vs:int" />
+		<xs:attribute name="layoutstyle" type="axislayoutstyledef" />
+		<xs:attribute name="markcolor" type="vs:int" />
+		<xs:attribute name="marklength" type="vs:int" />
+		<xs:attribute name="markwidth" type="vs:int" />
+		<xs:attribute name="maxitemscount" type="vs:int" />
+		<xs:attribute name="showlabels" type="vs:boolean" />
+		<xs:attribute name="showmarks" type="vs:boolean" />
+		<xs:attribute name="spacetoitem" type="vs:int" />
+		<xs:attribute name="spacetolabel" type="vs:int" />
+		<xs:attribute name="step" type="vs:float" />
+		<xs:attribute name="valueformat" type="vs:valueformatdef" />
+		<xs:attribute name="visible" type="vs:boolean" />
+		<xs:attribute name="visible" type="axisvisiblevaluesdef" />
+	</xs:attributeGroup>
+	<xs:simpleType name="xaxislayoutstyle">
+		<xs:restriction base="xsd:string">
+			<xs:enumeration value="Normal" />
+			<xs:enumeration value="Inside" />
+			<xs:enumeration value="Between" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="axislabeldef">
+		<xs:attributeGroup ref="labeldef" />
+		<xs:choice>
+			<xs:group ref="rectshapeappearancedef" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="yaxisstyledef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Normal" />
+			<xs:enumeration value="Extended" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="margindef">
+		<xs:attribute name="left" type="vs:string" />
+		<xs:attribute name="right" type="vs:string" />
+		<xs:attribute name="top" type="vs:string" />
+		<xs:attribute name="bottom" type="vs:string" />
+	</xs:complexType>
+	<xs:complexType name="gridlinesdef">
+		<xs:attributeGroup ref="gridlinesattributesdef" />
+		<xs:choice>
+			<xs:element name="verticalgridlines" type="vgridlinesdef" />
+			<xs:element name="horizontalgridlines" type="hgridlinesdef" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="vgridlinesdef">
+		<xs:attributeGroup ref="gridlinesattributesdef" />
+	</xs:complexType>
+	<xs:complexType name="hgridlinesdef">
+		<xs:attributeGroup ref="gridlinesattributesdef" />
+	</xs:complexType>
+	<xs:attributeGroup name="gridlinesattributesdef">
+		<xs:attribute name="visible" type="vs:boolean" />
+		<xs:attribute name="width" type="vs:int" />
+		<xs:attribute name="color" type="vs:string" />
+		<xs:attribute name="layoutstyle" type="gridlineslayoutstyledef" />
+		<xs:attribute name="penstyle" type="penstyledef" />
+	</xs:attributeGroup>
+	<xs:complexType name="legenddef">
+		<xs:attribute name="autosize" type="xs:boolean" />
+		<xs:attribute name="halignment" type="haligndef" />
+		<xs:attribute name="heightratio" type="xs:float" />
+		<xs:attribute name="hspacing" type="xs:int" />
+		<xs:attribute name="itemcolor" type="xs:string" />
+		<xs:attribute name="itemfont" type="xs:string" />
+		<xs:attribute name="itemmark" type="itemmarkdef" />
+		<xs:attribute name="location" type="locationdef" />
+		<xs:attribute name="position" type="positiondef" />
+		<xs:attribute name="reverseitemorder" type="xs:boolean" />
+		<xs:attribute name="valignment" type="valigndef" />
+		<xs:attribute name="visible" type="xs:boolean" />
+		<xs:attribute name="vspacing" type="xs:int" />
+		<xs:attribute name="widthratio" type="xs:float" />
+		<xs:choice>
+			<xs:group ref="rectshapeappearancedef" />
+			<xs:element name="items" type="legenditems" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="legenditems">
+		<xs:choice>
+			<xs:element name="item" type="legenditemdef" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="legenditemdef">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="mark" type="itemmarkdef" />
+		<xs:choice>
+			<xs:group ref="rectshapeappearancedef" />
+			<xs:element name="imagemap" type="imagemapdef" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="backgrounddef">
+		<xs:group minOccurs="0" maxOccurs="1" ref="rectshapeappearancedef" />
+	</xs:complexType>
+	<xs:complexType name="plotareadef">
+		<xs:group minOccurs="0" maxOccurs="1" ref="rectshapeappearancedef" />
+	</xs:complexType>
+	<xs:complexType name="titledef">
+		<xs:attribute name="location" type="locationdef" />
+		<xs:attribute name="position" type="positiondef" />
+		<xs:attributeGroup ref="labeldef" />
+		<xs:choice>
+			<xs:group minOccurs="0" maxOccurs="1" ref="rectshapeappearancedef" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:attributeGroup name="labeldef">
+		<xs:attribute name="halign" type="haligndef" />
+		<xs:attribute name="valign" type="valigndef" />
+		<xs:attribute name="textdirection" type="textdirectiondef" />
+		<xs:attribute name="xoffset" type="xs:int" />
+		<xs:attribute name="yoffset" type="xs:int" />
+		<xs:attributeGroup ref="commonlabelattributesdef" />
+	</xs:attributeGroup>
+	<xs:attributeGroup name="rotatinglabeldef">
+		<xs:attributeGroup ref="commonlabelattributesdef" />
+		<xs:attribute name="rotationangle" type="vs:float" />
+	</xs:attributeGroup>
+	<xs:attributeGroup name="commonlabelattributesdef">
+		<xs:attribute name="text" type="xs:string" />
+		<xs:attribute name="color" type="xs:string" />
+		<xs:attribute name="font" type="xs:string" />
+		<xs:attribute name="visible" type="xs:boolean" />
+		<xs:attribute name="horpadding" type="xs:int" />
+		<xs:attribute name="verpadding" type="xs:int" />
+	</xs:attributeGroup>
+	<xs:simpleType name="textdirectiondef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Normal" />
+			<xs:enumeration value="Left" />
+			<xs:enumeration value="Right" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="valigndef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Top" />
+			<xs:enumeration value="Middle" />
+			<xs:enumeration value="Bottom" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="haligndef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Left" />
+			<xs:enumeration value="Center" />
+			<xs:enumeration value="Right" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:group name="rectshapeappearancedef">
+		<xs:choice>
+			<xs:element name="corners" type="cornersdef" minOccurs="0" maxOccurs="1" />
+			<xs:element name="appearance" type="appearancedef" minOccurs="0" maxOccurs="1" />
+			<xs:element name="border" type="borderdef" minOccurs="0" maxOccurs="1" />
+		</xs:choice>
+	</xs:group>
+	<xs:complexType name="labeldef">
+		<xs:group ref="label" minOccurs="0" maxOccurs="1" />
+	</xs:complexType>
+	<xs:complexType name="rectshapedef">
+		<xs:choice>
+			<xs:element name="corners" type="cornersdef" minOccurs="0" maxOccurs="1" />
+			<xs:element name="appearance" type="appearancedef" minOccurs="0" maxOccurs="1" />
+			<xs:element name="border" type="borderdef" minOccurs="0" maxOccurs="1" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="cornersdef">
+		<xs:attribute name="topleft" type="cornertypedef" />
+		<xs:attribute name="topright" type="cornertypedef" />
+		<xs:attribute name="bottomleft" type="cornertypedef" />
+		<xs:attribute name="bottomright" type="cornertypedef" />
+		<xs:attribute name="roundsize" type="xs:int" />
+	</xs:complexType>
+	<xs:simpleType name="cornertypedef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="rectangle" />
+			<xs:enumeration value="round" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="borderdef">
+		<xs:attribute name="width" type="xs:int" />
+		<xs:attribute name="color" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="appearancedef">
+		<xs:attribute name="fillstyle" type="fillstyledef" />
+		<xs:attribute name="gammacorrection" type="xs:boolean" />
+		<xs:attribute name="gradientfillstyle" type="gradientfillstyledef" />
+		<xs:attribute name="gradientfocus" type="xs:float" />
+		<xs:attribute name="hatchstyle" type="hatchstyledef" />
+		<xs:attribute name="imagealign" type="imagealigndef" />
+		<xs:attribute name="imagemode" type="imagemodedef" />
+		<xs:attribute name="imageurl" type="xs:string" />
+		<xs:attribute name="maincolor" type="xs:string" default="Black" />
+		<xs:attribute name="secondcolor" type="xs:string" default="Black" />
+	</xs:complexType>
+	<xs:simpleType name="gradientfocusdef">
+		<xs:restriction base="xs:float">
+			<xs:minInclusive value="0" />
+			<xs:maxInclusive value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="fillstyledef">
+		<xs:restriction>
+			<xs:enumeration value="Solid" />
+			<xs:enumeration value="Gradient" />
+			<xs:enumeration value="Hatch" />
+			<xs:enumeration value="Image" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="imagemodedef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Align" />
+			<xs:enumeration value="Stretch" />
+			<xs:enumeration value="Tile" />
+			<xs:enumeration value="TileFlipX" />
+			<xs:enumeration value="TileFlipY" />
+			<xs:enumeration value="TileFlipXY" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="imagealigndef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TopLeft" />
+			<xs:enumeration value="Top" />
+			<xs:enumeration value="TopRight" />
+			<xs:enumeration value="Left" />
+			<xs:enumeration value="Center" />
+			<xs:enumeration value="Right" />
+			<xs:enumeration value="BottomLeft" />
+			<xs:enumeration value="BottomCenter" />
+			<xs:enumeration value="BottomRight" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="hatchstyledef">
+		<xs:restriction base="xsd:string">
+			<xs:enumeration value="Horizontal" />
+			<xs:enumeration value="Min" />
+			<xs:enumeration value="Vertical" />
+			<xs:enumeration value="ForwardDiagonal" />
+			<xs:enumeration value="BackwardDiagonal" />
+			<xs:enumeration value="Cross" />
+			<xs:enumeration value="LargeGrid" />
+			<xs:enumeration value="Max" />
+			<xs:enumeration value="DiagonalCross" />
+			<xs:enumeration value="Percent05" />
+			<xs:enumeration value="Percent10" />
+			<xs:enumeration value="Percent20" />
+			<xs:enumeration value="Percent25" />
+			<xs:enumeration value="Percent30" />
+			<xs:enumeration value="Percent40" />
+			<xs:enumeration value="Percent50" />
+			<xs:enumeration value="Percent60" />
+			<xs:enumeration value="Percent70" />
+			<xs:enumeration value="Percent75" />
+			<xs:enumeration value="Percent80" />
+			<xs:enumeration value="Percent90" />
+			<xs:enumeration value="LightDownwardDiagonal" />
+			<xs:enumeration value="LightUpwardDiagonal" />
+			<xs:enumeration value="DarkDownwardDiagonal" />
+			<xs:enumeration value="DarkUpwardDiagonal" />
+			<xs:enumeration value="WideDownwardDiagonal" />
+			<xs:enumeration value="WideUpwardDiagonal" />
+			<xs:enumeration value="LightVertical" />
+			<xs:enumeration value="LightHorizontal" />
+			<xs:enumeration value="NarrowVertical" />
+			<xs:enumeration value="NarrowHorizontal" />
+			<xs:enumeration value="DarkVertical" />
+			<xs:enumeration value="DarkHorizontal" />
+			<xs:enumeration value="DashedDownwardDiagonal" />
+			<xs:enumeration value="DashedUpwardDiagonal" />
+			<xs:enumeration value="DashedHorizontal" />
+			<xs:enumeration value="DashedVertical" />
+			<xs:enumeration value="SmallConfetti" />
+			<xs:enumeration value="LargeConfetti" />
+			<xs:enumeration value="ZigZag" />
+			<xs:enumeration value="Wave" />
+			<xs:enumeration value="DiagonalBrick" />
+			<xs:enumeration value="HorizontalBrick" />
+			<xs:enumeration value="Weave" />
+			<xs:enumeration value="Plaid" />
+			<xs:enumeration value="Divot" />
+			<xs:enumeration value="DottedGrid" />
+			<xs:enumeration value="DottedDiamond" />
+			<xs:enumeration value="Shingle" />
+			<xs:enumeration value="Trellis" />
+			<xs:enumeration value="Sphere" />
+			<xs:enumeration value="SmallGrid" />
+			<xs:enumeration value="SmallCheckerBoard" />
+			<xs:enumeration value="LargeCheckerBoard" />
+			<xs:enumeration value="OutlinedDiamond" />
+			<xs:enumeration value="SolidDiamond" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="gradientfillstyledef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Horizontal" />
+			<xs:enumeration value="Vertical" />
+			<xs:enumeration value="ForwardDiagonal" />
+			<xs:enumeration value="BackwardDiagonal" />
+			<xs:enumeration value="Center" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="chartimageformatdef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MemoryBmp" />
+			<xs:enumeration value="Bmp" />
+			<xs:enumeration value="Emf" />
+			<xs:enumeration value="Wmf" />
+			<xs:enumeration value="Gif" />
+			<xs:enumeration value="Jpeg" />
+			<xs:enumeration value="Png" />
+			<xs:enumeration value="Tiff" />
+			<xs:enumeration value="Exif" />
+			<xs:enumeration value="Icon" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="imagequalitydef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Default" />
+			<xs:enumeration value="AntiAlias" />
+			<xs:enumeration value="HighQuality" />
+			<xs:enumeration value="HighSpeed" />
+			<xs:enumeration value="None" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="textqualitydef">
+		<xs:restriction>
+			<xs:enumeration value="SystemDefault" />
+			<xs:enumeration value="SingleBitPerPixel" />
+			<xs:enumeration value="SingleBitPerPixelGridFit" />
+			<xs:enumeration value="AntiAlias" />
+			<xs:enumeration value="AntiAliasGridFit" />
+			<xs:enumeration value="ClearTypeGridFit" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="locationdef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="InsidePlotArea" />
+			<xs:enumeration value="OutsidePlotArea" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="positiondef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Left" />
+			<xs:enumeration value="Right" />
+			<xs:enumeration value="Top" />
+			<xs:enumeration value="Bottom" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="itemmarkdef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Rectangle" />
+			<xs:enumeration value="Circle" />
+			<xs:enumeration value="Triangle" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="gridlineslayoutstyledef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Normal" />
+			<xs:enumeration value="Expanded" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="penstyledef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Dash" />
+			<xs:enumeration value="DashDot" />
+			<xs:enumeration value="DashDotDot" />
+			<xs:enumeration value="Dot" />
+			<xs:enumeration value="Solid" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="pointmarkdef">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="None" />
+			<xs:enumeration value="Rectangle" />
+			<xs:enumeration value="Circle" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="seriesorientationdef">
+		<xs:restriction base="xsd:string">
+			<xs:enumeration value="Vertical" />
+			<xs:enumeration value="Horizontal" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="imagemapdef">
+		<xs:attribute name="attributes" type="xs:string" />
+		<xs:attribute name="href" type="xs:string" />
+		<xs:attribute name="tooltip" type="xs:string" />
+	</xs:complexType>
+	<xs:simpleType name="axisvisiblevaluesdef">
+		<xs:restriction base="xsd:string">
+			<xs:enumeration value="All" />
+			<xs:enumeration value="Positive" />
+			<xs:enumeration value="Negative" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="valueformatdef">
+		<xs:restriction base="xsd:string">
+			<xs:enumeration value="None" />
+			<xs:enumeration value="Currency" />
+			<xs:enumeration value="Scientific" />
+			<xs:enumeration value="General" />
+			<xs:enumeration value="Number" />
+			<xs:enumeration value="Percent" />
+			<xs:enumeration value="ShortDate" />
+			<xs:enumeration value="ShoerTime" />
+			<xs:enumeration value="LongDate" />
+			<xs:enumeration value="LongTime" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="legendmodedef">
+		<xs:restriction base="xsd:string">
+			<xs:enumeration value="Nothing" />
+			<xs:enumeration value="SeriesName" />
+			<xs:enumeration value="ItemLabels" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="alignmentdef">
+		<xs:restriction base="xsd:string">
+			<xs:enumeration value="TopLeft" />
+			<xs:enumeration value="TopCenter" />
+			<xs:enumeration value="TopRight" />
+			<xs:enumeration value="MiddleLeft" />
+			<xs:enumeration value="MiddleCenter" />
+			<xs:enumeration value="MiddleRight" />
+			<xs:enumeration value="BottomLeft" />
+			<xs:enumeration value="BottomCenter" />
+			<xs:enumeration value="BottomRight" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

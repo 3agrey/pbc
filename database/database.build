@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<project xmlns="http://nant.sf.net/release/0.85-rc4/nant.xsd"
+	name="database"
+	default="reinstall"
+>
+
+	<property name="debug" value="true"/>
+	
+	<target name="uninstall" depends="dropDatabase"/>
+	<target name="install" depends="createDatabase, createViews, createFunctions, createTriggers, createProcedures, grantPermissions, installData, shrinkDatabase"/>
+	<target name="reinstall" depends="uninstall, install"/>
+
+	<target name="dropDatabase">
+		<exec program="dba" commandline="-e sa _Uninstall\Database.sql" />
+		<exec program="dba" commandline="-e sa _Uninstall\Logins.sql" />
+	</target>
+
+	<target name="createDatabase">
+		<exec program="dba" commandline="-e sa _Install\Database.sql" />
+		<exec program="dba" commandline="-e sa _Install\Logins.sql" />
+		<exec program="dba" commandline="-e sa _Install\Schema.sql" />
+		<exec program="dba" commandline="-e sa _Install\Triggers.sql" />
+	</target>
+	
+	<target name="createViews">
+		<exec program="dba" commandline="-e sa _Install\Views.sql" />
+	</target>
+
+	<target name="createFunctions">
+		<exec program="dba" commandline="-se pbcadmin *\Functions\*.sql"/>
+	</target>
+
+	<target name="createTriggers">
+		<exec program="dba" commandline="-se pbcadmin *\Triggers\*.sql"/>
+	</target>
+
+	<target name="createProcedures">
+		<exec program="dba" commandline="-se pbcadmin *\Procedures\*.sql"/>
+	</target>
+
+	<target name="grantPermissions">
+		<exec program="dba" commandline="-e sa _Install\GrantPermissions.sql" />
+	</target>
+
+	<target name="installData">
+		<exec program="dba" commandline="-e sa _Install\Data.sql" />
+	</target>
+
+	<target name="shrinkDatabase">
+		<exec program="dba" commandline="-e sa _Install\ShrinkDatabase.sql" />
+	</target>
+
+</project>

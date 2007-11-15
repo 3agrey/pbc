@@ -1,0 +1,678 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:vs="http://schemas.microsoft.com/Visual-Studio-Intellisense" xmlns="http://schemas.telerik.com/Intellisense/RadChart" elementFormDefault="qualified" targetNamespace="http://schemas.telerik.com/Intellisense/RadChart" vs:friendlyName="r.a.d.chart Visual Studio IntelliSense schema" vs:ishtmlschema="false" vs:iscasesensitive="false" vs:requireattributequotes="true" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:annotation>
+		<xsd:documentation>Visual Studio</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="RadChart" type="RadChartDef" form="qualified" />
+	<!-- ================ COMPLEX TYPES ================== -->
+	<!-- GRIDLINES  -->
+	<xsd:complexType name="ChartGridlinesDef">
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element form="unqualified" name="HorizontalGridlines" type="ChartHorizontalGridlinesDef" />
+			<xsd:element form="unqualified" name="VerticalGridlines" type="ChartVerticalGridlinesDef" />
+		</xsd:choice>
+	</xsd:complexType>
+	<!-- HORIZONRAL GRIDLINES  -->
+	<xsd:complexType name="ChartHorizontalGridlinesDef">
+		<xsd:attributeGroup ref="GridlinesDef" />
+	</xsd:complexType>
+	<!-- VERTICAL GRIDLINES  -->
+	<xsd:complexType name="ChartVerticalGridlinesDef">
+		<xsd:attributeGroup ref="GridlinesDef" />
+	</xsd:complexType>
+	<!-- GRIDLINES ATTRIBUTES -->
+	<xsd:attributeGroup name="GridlinesDef">
+		<xsd:attribute vs:builder="color" name="Color" type="xsd:string" />
+		<xsd:attribute name="LayoutStyle" type="ChartGridlineLayoutStyle" />
+		<xsd:attribute name="PenStyle" type="ChartGridlinesPenStyle" />
+		<xsd:attribute name="Visible" type="xsd:boolean" />
+		<xsd:attribute name="Width" type="xsd:int" />
+	</xsd:attributeGroup>
+	<!-- X AXIS -->
+	<xsd:complexType name="ChartXAxisDef" vs:noambientcontentmodel="true">
+		<xsd:attribute name="AutoScale" type="xsd:boolean" />
+		<xsd:attribute name="AutoShrink" type="xsd:boolean" />
+		<xsd:attribute vs:builder="color" name="AxisColor" type="xsd:string" />
+		<xsd:attribute name="AxisWidth" type="xsd:int" />
+		<xsd:attribute name="CustomFormat" type="xsd:string" />
+		<xsd:attribute vs:builder="color" name="DefaultItemColor" type="xsd:string" />
+		<xsd:attribute name="DefaultItemFont" type="xsd:string" />
+		<xsd:attribute name="IsZeroBased" type="xsd:boolean" />		
+		<xsd:attribute name="LabelRotationAngle" type="xsd:int" />
+		<xsd:attribute name="LayoutStyle" type="ChartAxisLayoutStyle" />
+		<xsd:attribute name="MarkColor" type="xsd:string" vs:builder="color" />		
+		<xsd:attribute name="MarkLength" type="xsd:int" />
+		<xsd:attribute name="MarkWidth" type="xsd:int" />
+		<xsd:attribute name="MaxItemsCount" type="xsd:int" />
+		<xsd:attribute name="MaxValue" type="xsd:double" />
+		<xsd:attribute name="MinValue" type="xsd:double" />
+		<xsd:attribute name="ShowLabels" type="xsd:boolean" />`				
+		<xsd:attribute name="ShowMarks" type="xsd:boolean" />
+		<xsd:attribute name="SpaceToItem" type="xsd:int" />
+		<xsd:attribute name="SpaceToLabel" type="xsd:int" />
+		<xsd:attribute name="Step" type="xsd:double" />
+		<xsd:attribute name="Visible" type="xsd:boolean" />	
+		<xsd:attribute name="ValueFormat" type="ValueFormatDef" />	
+		<xsd:attribute name="VisibleValues" type="VisibleValuesDef" />	
+					
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element form="unqualified" name="Label" type="AlignedLabelDef" />
+			<xsd:element form="unqualified" name="Items" type="ChartAxisItemCollectionDef" />
+		</xsd:choice>																				
+	</xsd:complexType>
+	<!-- LEGEND -->
+	<xsd:complexType name="ChartLegendDef" vs:noambientcontentmodel="true">
+		<xsd:attribute name="AutoSize" type="xsd:boolean" />
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element form="unqualified" name="Background" type="ChartRectShapeDef" />
+		</xsd:choice>
+		<xsd:attribute name="HAlignment" type="ChartHAlignment" />
+		<xsd:attribute name="HeightRatio" type="xsd:double" />
+		<xsd:attribute name="HSpacing" type="xsd:int" />
+		<xsd:attribute name="ItemColor" type="xsd:string" vs:builder="color" />
+		<xsd:attribute name="ItemFont" type="xsd:string" />
+		<xsd:attribute name="ItemMark" type="ChartLegendItemMark" />
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element form="unqualified" name="Items" type="LegendItemCollectionDef" />
+		</xsd:choice>
+		<xsd:attribute name="LegendFrame" type="xsd:string" />
+		<xsd:attribute name="Location" type="ChartLocation" />
+		<xsd:attribute name="Position" type="ChartPosition" />
+		<xsd:attribute name="ReverseItemOrder" type="xsd:boolean" />
+		<xsd:attribute name="VAlignment" type="ChartVAlignment" />
+		<xsd:attribute name="Visible" type="xsd:boolean" />
+		<xsd:attribute name="VSpacing" type="xsd:int" />
+		<xsd:attribute name="WidthRatio" type="xsd:double" />
+	</xsd:complexType>
+	<!-- LEGEND ITEMS COLLECTION -->
+	<xsd:complexType name="LegendItemCollectionDef" vs:noambientcontentmodel="true">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="ChartLegendItem" type="ChartLegendItemDef" />
+		</xsd:choice>
+	</xsd:complexType>
+	<!-- LEGEND ITEM -->
+	<xsd:complexType name="ChartLegendItemDef" vs:noambientcontentmodel="true">
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element name="Appearance" type="ChartRectShapeDef" form="unqualified" />
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:string" />
+		<xsd:attributeGroup ref="ImageMapAttributeGroup" />
+		<xsd:attribute name="ItemMark" type="ItemMarkDef" />
+	</xsd:complexType>
+	<!-- SERIES COLLECTION -->
+	<xsd:complexType name="ChartSeriesCollectionDef" vs:noambientcontentmodel="true">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="ChartSeries" type="ChartSeriesDef" />
+		</xsd:choice>
+	</xsd:complexType>
+	<!-- SERIES -->
+	<xsd:complexType name="ChartSeriesDef" vs:noambientcontentmodel="true">
+		<xsd:attribute name="DefaultLabel" type="xsd:string" />
+		<xsd:attribute name="LabelOffset" type="xsd:int" />
+		<xsd:attribute name="ShowLabelConnectors" type="xsd:boolean" />
+		<xsd:attribute name="ShowLabels" type="xsd:boolean" />
+		<xsd:attribute name="ValueFormat" type="xsd:string" />
+		<xsd:attribute name="BubbleSize" type="xsd:int" />
+		<xsd:attribute name="LineWidth" type="xsd:int" />
+		<xsd:attribute name="CenterXOffset" type="xsd:int" />
+		<xsd:attribute name="CenterYOffset" type="xsd:int" />
+		<xsd:attribute name="DiameterScale" type="xsd:float" />
+		<xsd:attribute name="ExplodePercent" type="xsd:float" />
+		<xsd:attribute name="NotOverlapLabels" type="xsd:boolean" />
+		<xsd:attribute name="StartAngle" type="xsd:float" />
+		<xsd:attribute name="PointColor" type="xsd:string" vs:builder="color" />
+		<xsd:attribute name="PointMark" type="PointMarkDef" />
+		<xsd:attribute name="PointSize" type="xsd:int" />
+		<xsd:attribute name="LegendDisplayMode" type="LegendDisplayModeDef" />
+		<xsd:attribute name="MainColor" type="xsd:string" vs:builder="color" />
+		<xsd:attribute name="Name" type="xsd:string" />
+		<xsd:attribute name="Type" type="ChartSeriesTypeDef" />
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element name="Items" type="SeriesItemCollectionDef" form="unqualified" vs:noambientcontentmodel="true" />
+			<xsd:element name="Appearance" type="ChartRectShapeDef" form="unqualified" />
+			<xsd:element name="LabelAppearance" type="LabelAppearanceDef" form="unqualified" />
+			<xsd:element name="ImageMap" type="ImageMapElDef" form="unqualified" />
+		</xsd:choice>
+	</xsd:complexType>
+	<!-- SERIES LABEL APPEARANCE -->
+	<xsd:complexType name="LabelAppearanceDef" vs:noambientcontentmodel="true">
+		<xsd:attribute name="Alignment" type="AlignmentDef" />
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element name="Background" type="ChartRectShapeDef" form="unqualified" />
+		</xsd:choice>
+		<xsd:attribute name="Distance" type="xsd:int" />
+		<xsd:attribute name="HorPadding" type="xsd:int" />
+		<xsd:attribute name="RotationAngle" type="xsd:float" />
+		<xsd:attribute name="TextColor" type="xsd:string" vs:builder="color" />
+		<xsd:attribute name="TextFont" type="xsd:string" />
+		<xsd:attribute name="VerPadding" type="xsd:int" />
+		<xsd:attribute name="Visible" type="xsd:boolean" />
+	</xsd:complexType>
+	<!-- SERIES ITEMS COLLECTION -->
+	<xsd:complexType name="SeriesItemCollectionDef" vs:noambientcontentmodel="true">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="ChartSeriesItem" minOccurs="0" maxOccurs="1" type="ChartSeriesItemDef" />
+		</xsd:choice>
+	</xsd:complexType>
+	<!-- SERIES ITEM -->
+	<xsd:complexType name="ChartSeriesItemDef" vs:noambientcontentmodel="true">
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element name="Appearance" type="ChartRectShapeDef" form="unqualified" />
+			<xsd:element name="ItemMap" type="ImageMapElDef" form="unqualified" />
+			<xsd:element name="LegendMap" type="ImageMapElDef" form="unqualified" />
+		</xsd:choice>
+		<xsd:attribute name="XValue" type="xsd:float" />
+		<xsd:attribute name="XValue2" type="xsd:float" />
+		<xsd:attribute name="YValue" type="xsd:float" />
+		<xsd:attribute name="YValue2" type="xsd:float" />
+		<xsd:attribute name="Exploded" type="xsd:boolean" />
+		<xsd:attribute name="Label" type="xsd:string" />
+		<xsd:attribute name="MainColor" type="xsd:string" vs:builder="color" />
+		<xsd:attribute name="Name" type="xsd:string" />
+		<xsd:attribute name="PointSize" type="xsd:int" />
+	</xsd:complexType>
+	<!-- Y AXIS -->
+	<xsd:complexType name="ChartYAxisDef" vs:noambientcontentmodel="true">
+		<xsd:attribute name="AutoScale" type="xsd:boolean" />
+		<xsd:attribute name="AxisColor" type="xsd:string" vs:builder="color" />
+		<xsd:attribute name="AxisStyle" type="ChartYAxisStyle" />
+		<xsd:attribute name="AxisWidth" type="xsd:int" />
+		<xsd:attribute name="CustomFormat" type="xsd:string" />
+		<xsd:attribute name="DefaultItemColor" type="xsd:string" vs:builder="color" />
+		<xsd:attribute name="DefaultItemFont" type="xsd:string" />
+		<xsd:attribute name="IsZeroBased" type="xsd:boolean" />
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element form="unqualified" name="Items" type="ChartAxisItemCollectionDef" />
+			<xsd:element form="unqualified" name="Label" type="AlignedLabelDef" />
+		</xsd:choice>
+		<xsd:attribute name="LabelRotationAngle" type="xsd:int" />
+		<xsd:attribute name="MarkColor" type="xsd:string" vs:builder="color" />
+		<xsd:attribute name="MarkLength" type="xsd:int" />
+		<xsd:attribute name="MarkWidth" type="xsd:int" />
+		<xsd:attribute name="MaxItemsCount" type="xsd:int" />
+		<xsd:attribute name="MaxValue" type="xsd:double" />
+		<xsd:attribute name="MinValue" type="xsd:double" />
+		<xsd:attribute name="ShowLabels" type="xsd:boolean" />
+		<xsd:attribute name="ShowMarks" type="xsd:boolean" />
+		<xsd:attribute name="SpaceToItem" type="xsd:int" />
+		<xsd:attribute name="SpaceToLabel" type="xsd:int" />
+		<xsd:attribute name="Step" type="xsd:double" />
+		<xsd:attribute name="ValueFormat" type="ValueFormatDef" />
+		<xsd:attribute name="Visible" type="xsd:boolean" />
+	</xsd:complexType>
+	<!-- ALLIGNED LABEL -->
+	<xsd:complexType name="ChartAlignedLabelDef">
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element form="unqualified" name="Background" type="ChartRectShapeDef" />
+		</xsd:choice>
+		<xsd:attributeGroup ref="AlignedLabelAttributeGroup" />
+	</xsd:complexType>
+	<!-- TITLE -->
+	<xsd:complexType name="ChartTitleDef" vs:noambientcontentmodel="true">
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element form="unqualified" name="Background" type="ChartRectShapeDef" />
+		</xsd:choice>
+		<xsd:attributeGroup ref="AlignedLabelAttributeGroup" />
+		<xsd:attribute name="Location" type="ChartLocation" />
+		<xsd:attribute name="Position" type="ChartPosition" />
+		<xsd:attribute name="TitleFrame" type="xsd:string" />
+	</xsd:complexType>
+	<!-- BASIC LABEL ATTRIBUTE GROUP -->
+	<xsd:attributeGroup name="BasicLabelAttributeGroup">
+		<xsd:attribute name="Text" type="xsd:string" />
+		<xsd:attribute name="TextFont" type="xsd:string" />
+		<xsd:attribute name="TextColor" type="xsd:string" vs:builder="color" />
+		<xsd:attribute name="Visible" type="xsd:boolean" />
+		<xsd:attribute name="HorPadding" type="xsd:int" />
+		<xsd:attribute name="VerPadding" type="xsd:int" />
+	</xsd:attributeGroup>
+	<!-- ALIGNED LABEL ATTRIBUTE GROUP -->
+	<xsd:attributeGroup name="AlignedLabelAttributeGroup">
+		<xsd:attributeGroup ref="BasicLabelAttributeGroup" />
+		<xsd:attribute name="HAlignment" type="ChartHAlignment" />
+		<xsd:attribute name="VAlignment" type="ChartVAlignment" />
+		<xsd:attribute name="HSpacing" type="xsd:int" />
+		<xsd:attribute name="VSpacing" type="xsd:int" />
+		<xsd:attribute name="TextDirection" type="ChartTextDirection" />
+	</xsd:attributeGroup>
+	<!-- ALLIGNED LABEL -->
+	<xsd:complexType name="AlignedLabelDef" vs:noambientcontentmodel="true">
+		<xsd:attributeGroup ref="AlignedLabelAttributeGroup" />
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element form="unqualified" name="Background" type="ChartRectShapeDef" />
+		</xsd:choice>
+	</xsd:complexType>
+	<!-- BACKGROUND -->
+	<xsd:complexType name="ChartBackgroundDef" vs:noambientcontentmodel="true">
+		<xsd:attribute vs:builder="color" name="BorderColor" type="xsd:string" />
+		<xsd:attribute name="BorderWidth" type="xsd:int" />
+		<xsd:attribute name="FillStyle" type="FillStyle" />
+		<xsd:attribute name="GammaCorrection" type="xsd:boolean" />
+		<xsd:attribute name="GradientFillStyle" type="GradientFillStyle" />
+		<xsd:attribute name="GradientFocus" type="xsd:float" />
+		<xsd:attribute name="HatchStyle" type="HatchStyle" />
+		<xsd:attribute name="ImageAlign" type="ImageAlign" />
+		<xsd:attribute name="ImageMode" type="ImageMode" />
+		<xsd:attribute name="ImageUrl" type="xsd:string" />
+		<xsd:attribute vs:builder="color" name="MainColor" type="xsd:string" />
+		<xsd:attribute vs:builder="color" name="SecondColor" type="xsd:string" />
+	</xsd:complexType>
+	<!-- PLOT AREA -->
+	<xsd:complexType name="ChartPlotAreaDef" vs:noambientcontentmodel="true">
+		<xsd:attributeGroup ref="RectAppearanceDef" />
+	</xsd:complexType>
+	<!-- RECT APPEARANCE ATTRIBUTE GROUP-->
+	<xsd:attributeGroup name="RectAppearanceDef">
+		<xsd:attribute vs:builder="color" name="BorderColor" type="xsd:string" />
+		<xsd:attribute name="BorderWidth" type="xsd:int" />
+		<xsd:attribute name="FillStyle" type="FillStyle" />
+		<xsd:attribute name="GammaCorrection" type="xsd:boolean" />
+		<xsd:attribute name="GradientFillStyle" type="GradientFillStyle" />
+		<xsd:attribute name="GradientFocus" type="xsd:float" />
+		<xsd:attribute name="HatchStyle" type="HatchStyle" />
+		<xsd:attribute name="ImageAlign" type="ImageAlign" />
+		<xsd:attribute name="ImageMode" type="ImageMode" />
+		<xsd:attribute name="ImageUrl" type="xsd:string" />
+		<xsd:attribute vs:builder="color" name="MainColor" type="xsd:string" />
+		<xsd:attribute vs:builder="color" name="SecondColor" type="xsd:string" />
+		<xsd:attribute name="Corners-TopLeft" type="CornerType" />
+		<xsd:attribute name="Corners-TopRight" type="CornerType" />
+		<xsd:attribute name="Corners-BottomLeft" type="CornerType" />
+		<xsd:attribute name="Corners-BottomRight" type="CornerType" />
+		<xsd:attribute name="Corners-RoundSize" type="xsd:int" />
+	</xsd:attributeGroup>
+	<!-- RECT SHAPE APPEARANCE -->
+	<xsd:complexType name="ChartRectShapeDef" vs:noambientcontentmodel="true">
+		<xsd:attributeGroup ref="RectAppearanceDef" />
+	</xsd:complexType>
+	<!-- AXIS ITEM COLLECTION -->
+	<xsd:complexType name="ChartAxisItemCollectionDef" vs:noambientcontentmodel="true">
+		<xsd:choice minOccurs="0" maxOccurs="Unbounded">
+			<xsd:element name="ChartAxisItem" type="ChartAxisItemDef" form="qualified" />
+		</xsd:choice>
+	</xsd:complexType>
+	<!-- AXIS -->
+	<xsd:complexType name="ChartAxisItemDef" vs:noambientcontentmodel="true">
+		<xsd:attribute name="Label" type="xsd:string" />
+		<xsd:attribute name="Color" type="xsd:string" vs:builder="color" />
+		<xsd:attribute name="Value" type="xsd:float" />
+		<xsd:attribute name="Visible" type="xsd:boolean" />
+	</xsd:complexType>
+	<!-- CHART -->
+	<xsd:complexType vs:noambientcontentmodel="true" name="RadChartDef">
+		<xsd:attribute name="ID" type="xsd:string" />
+		<xsd:attribute name="Runat">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="server" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="BarOverlapPercent" type="xsd:decimal" />
+		<xsd:attribute name="BarWidthPercent" type="xsd:decimal" />
+		<xsd:attribute name="ChartImageFormat" type="ChartImageFormatDef" />
+		<xsd:attribute name="Company" type="xsd:string" />
+		<xsd:attribute name="ContentFile" type="xsd:string" />
+		<xsd:attribute name="CreateImageMap" type="xsd:boolean" />
+		<xsd:attribute name="EnableViewState" type="xsd:boolean" />
+		<xsd:attribute name="Height" type="xsd:unsignedInt" />
+		<xsd:attribute name="ImageQuality" type="ImageQuality" />
+		<xsd:attribute name="LicenseFile" type="xsd:string" />
+		<xsd:attribute name="LicenseKey" type="xsd:string" />
+		<xsd:attribute name="Margins-Bottom" type="xsd:string" />
+		<xsd:attribute name="Margins-Left" type="xsd:string" />
+		<xsd:attribute name="Margins-Right" type="xsd:string" />
+		<xsd:attribute name="Margins-Top" type="xsd:string" />
+		<xsd:attribute name="RadControlsDir" type="xsd:string" />
+		<xsd:attribute name="SeriesOrientation" type="SeriesOrientationDef" />
+		<xsd:attribute name="TempImagesFolder" type="xsd:string" />
+		<xsd:attribute name="TextQuality" type="TextQuality" />
+		<xsd:attribute name="UseSession" type="xsd:boolean" />
+		<xsd:attribute name="Visible" type="xsd:boolean" />
+		<xsd:attribute name="Width" type="xsd:unsignedInt" />
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element name="Title1" type="ChartTitleDef" form="unqualified" />
+			<xsd:element name="XAxis" type="ChartXAxisDef" form="unqualified" />
+			<xsd:element name="YAxis" type="ChartYAxisDef" form="unqualified" />
+			<xsd:element name="Legend" type="ChartLegendDef" form="unqualified" />
+			<xsd:element name="Background" type="ChartBackgroundDef" form="unqualified" />
+			<xsd:element name="PlotArea" type="ChartPlotAreaDef" form="unqualified" />
+			<xsd:element name="ChartSeriesCollection" type="ChartSeriesCollectionDef" form="unqualified" />
+			<xsd:element name="Gridlines" type="ChartGridlinesDef" form="unqualified" />
+		</xsd:choice>
+		<xsd:attribute vs:omtype="event" name="OnDisposed" />
+		<xsd:attribute vs:omtype="event" name="OnDataBinding" />
+		<xsd:attribute vs:omtype="event" name="OnInit" />
+		<xsd:attribute vs:omtype="event" name="OnLoad" />
+		<xsd:attribute vs:omtype="event" name="OnPreRender" />
+		<xsd:attribute vs:omtype="event" name="OnUnload" />
+		<xsd:attribute vs:omtype="event" name="OnClick" />
+	</xsd:complexType>
+	<!-- ================= SIMPLE TYPES ================== -->
+	<!-- ChartYAxisStyle -->
+	<xsd:simpleType name="ChartYAxisStyle">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Normal" />
+			<xsd:enumeration value="Extended" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ChartAxisLayoutStyle -->
+	<xsd:simpleType name="ChartAxisLayoutStyle">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Normal" />
+			<xsd:enumeration value="Inside" />
+			<xsd:enumeration value="Between" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ImageAlign -->
+	<xsd:simpleType name="ImageAlign">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="TopLeft" />
+			<xsd:enumeration value="Top" />
+			<xsd:enumeration value="TopRight" />
+			<xsd:enumeration value="Left" />
+			<xsd:enumeration value="Center" />
+			<xsd:enumeration value="Right" />
+			<xsd:enumeration value="BottomLeft" />
+			<xsd:enumeration value="BottomCenter" />
+			<xsd:enumeration value="BottomRight" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ChartGridlineLayoutStyle -->
+	<xsd:simpleType name="ChartGridlineLayoutStyle">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Normal" />
+			<xsd:enumeration value="Expanded" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- HatchStyle -->
+	<xsd:simpleType name="HatchStyle">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Horizontal" />
+			<xsd:enumeration value="Min" />
+			<xsd:enumeration value="Vertical" />
+			<xsd:enumeration value="ForwardDiagonal" />
+			<xsd:enumeration value="BackwardDiagonal" />
+			<xsd:enumeration value="Cross" />
+			<xsd:enumeration value="LargeGrid" />
+			<xsd:enumeration value="Max" />
+			<xsd:enumeration value="DiagonalCross" />
+			<xsd:enumeration value="Percent05" />
+			<xsd:enumeration value="Percent10" />
+			<xsd:enumeration value="Percent20" />
+			<xsd:enumeration value="Percent25" />
+			<xsd:enumeration value="Percent30" />
+			<xsd:enumeration value="Percent40" />
+			<xsd:enumeration value="Percent50" />
+			<xsd:enumeration value="Percent60" />
+			<xsd:enumeration value="Percent70" />
+			<xsd:enumeration value="Percent75" />
+			<xsd:enumeration value="Percent80" />
+			<xsd:enumeration value="Percent90" />
+			<xsd:enumeration value="LightDownwardDiagonal" />
+			<xsd:enumeration value="LightUpwardDiagonal" />
+			<xsd:enumeration value="DarkDownwardDiagonal" />
+			<xsd:enumeration value="DarkUpwardDiagonal" />
+			<xsd:enumeration value="WideDownwardDiagonal" />
+			<xsd:enumeration value="WideUpwardDiagonal" />
+			<xsd:enumeration value="LightVertical" />
+			<xsd:enumeration value="LightHorizontal" />
+			<xsd:enumeration value="NarrowVertical" />
+			<xsd:enumeration value="NarrowHorizontal" />
+			<xsd:enumeration value="DarkVertical" />
+			<xsd:enumeration value="DarkHorizontal" />
+			<xsd:enumeration value="DashedDownwardDiagonal" />
+			<xsd:enumeration value="DashedUpwardDiagonal" />
+			<xsd:enumeration value="DashedHorizontal" />
+			<xsd:enumeration value="DashedVertical" />
+			<xsd:enumeration value="SmallConfetti" />
+			<xsd:enumeration value="LargeConfetti" />
+			<xsd:enumeration value="ZigZag" />
+			<xsd:enumeration value="Wave" />
+			<xsd:enumeration value="DiagonalBrick" />
+			<xsd:enumeration value="HorizontalBrick" />
+			<xsd:enumeration value="Weave" />
+			<xsd:enumeration value="Plaid" />
+			<xsd:enumeration value="Divot" />
+			<xsd:enumeration value="DottedGrid" />
+			<xsd:enumeration value="DottedDiamond" />
+			<xsd:enumeration value="Shingle" />
+			<xsd:enumeration value="Trellis" />
+			<xsd:enumeration value="Sphere" />
+			<xsd:enumeration value="SmallGrid" />
+			<xsd:enumeration value="SmallCheckerBoard" />
+			<xsd:enumeration value="LargeCheckerBoard" />
+			<xsd:enumeration value="OutlinedDiamond" />
+			<xsd:enumeration value="SolidDiamond" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ImageQuality -->
+	<xsd:simpleType name="ImageQuality">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Default" />
+			<xsd:enumeration value="AntiAlias" />
+			<xsd:enumeration value="HighQuality" />
+			<xsd:enumeration value="HighSpeed" />
+			<xsd:enumeration value="None" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- CornerType -->
+	<xsd:simpleType name="CornerType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Rectangle" />
+			<xsd:enumeration value="Round" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ChartGridlinesPenStyle -->
+	<xsd:simpleType name="ChartGridlinesPenStyle">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Dash" />
+			<xsd:enumeration value="DashDot" />
+			<xsd:enumeration value="DashDotDot" />
+			<xsd:enumeration value="Dot" />
+			<xsd:enumeration value="Solid" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- GradientFillStyle -->
+	<xsd:simpleType name="GradientFillStyle">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Horizontal" />
+			<xsd:enumeration value="Vertical" />
+			<xsd:enumeration value="ForwardDiagonal" />
+			<xsd:enumeration value="BackwardDiagonal" />
+			<xsd:enumeration value="Center" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ChartLegendItemMark -->
+	<xsd:simpleType name="ChartLegendItemMark">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Rectangle" />
+			<xsd:enumeration value="Circle" />
+			<xsd:enumeration value="Triangle" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ChartVAlignment -->
+	<xsd:simpleType name="ChartVAlignment">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Top" />
+			<xsd:enumeration value="Middle" />
+			<xsd:enumeration value="Bottom" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ChartPosition -->
+	<xsd:simpleType name="ChartPosition">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Left" />
+			<xsd:enumeration value="Right" />
+			<xsd:enumeration value="Top" />
+			<xsd:enumeration value="Bottom" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- TextQuality -->
+	<xsd:simpleType name="TextQuality">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="SystemDefault" />
+			<xsd:enumeration value="SingleBitPerPixel" />
+			<xsd:enumeration value="SingleBitPerPixelGridGit" />
+			<xsd:enumeration value="AntiAlias" />
+			<xsd:enumeration value="AntiAliasGridFit" />
+			<xsd:enumeration value="ClearTypeGridFit" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!--  ChartLocation -->
+	<xsd:simpleType name="ChartLocation">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="InsidePlotArea" />
+			<xsd:enumeration value="OutsidePlotArea" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!--  ChartTextDirection -->
+	<xsd:simpleType name="ChartTextDirection">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Normal" />
+			<xsd:enumeration value="Left" />
+			<xsd:enumeration value="Right" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!--  ImageMode -->
+	<xsd:simpleType name="ImageMode">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Align" />
+			<xsd:enumeration value="Stretch" />
+			<xsd:enumeration value="Tile" />
+			<xsd:enumeration value="TileFlipX" />
+			<xsd:enumeration value="TileFlipY" />
+			<xsd:enumeration value="TileFlipXY" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!--  FillStyle -->
+	<xsd:simpleType name="FillStyle">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Solid" />
+			<xsd:enumeration value="Gradient" />
+			<xsd:enumeration value="Hatch" />
+			<xsd:enumeration value="Image" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!--  ChartHAlignment -->
+	<xsd:simpleType name="ChartHAlignment">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Left" />
+			<xsd:enumeration value="Center" />
+			<xsd:enumeration value="Right" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!--  Point Mark -->
+	<xsd:simpleType name="PointMarkdef">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="None" />
+			<xsd:enumeration value="Rectangle" />
+			<xsd:enumeration value="Circle" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!--  Point Mark -->
+	<xsd:simpleType name="ChartSeriesTypeDef">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Bar" />
+			<xsd:enumeration value="StackedBar" />
+			<xsd:enumeration value="StackedBar100" />
+			<xsd:enumeration value="Line" />			
+			<xsd:enumeration value="Area" />
+			<xsd:enumeration value="StackedArea" />
+			<xsd:enumeration value="StackedArea100" />			
+			<xsd:enumeration value="Pie" />			
+			<xsd:enumeration value="Gantt" />
+			<xsd:enumeration value="Bezier" />
+			<xsd:enumeration value="Spline" />
+			<xsd:enumeration value="Bubble" />
+			<xsd:enumeration value="Point" />																
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Chart Image Format -->
+	<xsd:simpleType name="ChartImageFormatDef">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="MemoryBmp" />
+			<xsd:enumeration value="Bmp" />
+			<xsd:enumeration value="Emf" />
+			<xsd:enumeration value="Wmf" />
+			<xsd:enumeration value="Gif" />
+			<xsd:enumeration value="Jpeg" />
+			<xsd:enumeration value="Png" />
+			<xsd:enumeration value="Tiff" />
+			<xsd:enumeration value="Exif" />
+			<xsd:enumeration value="Icon" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Series Orientation -->
+	<xsd:simpleType name="SeriesOrientationDef">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Vertical" />
+			<xsd:enumeration value="Horizontal" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Image Map -->
+	<xsd:attributeGroup name="ImageMapAttributeGroup">
+		<xsd:attribute name="ImageMap-Attributes" type="xsd:string" />
+		<xsd:attribute name="ImageMap-ToolTip" type="xsd:string" />
+		<xsd:attribute name="ImageMap-HRef" type="xsd:string" />
+	</xsd:attributeGroup>
+	<!-- Item Mark  -->
+	<xsd:simpleType name="ItemMarkDef">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Rectangle" />
+			<xsd:enumeration value="Circle" />
+			<xsd:enumeration value="Triangle" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ValueFormat  -->
+	<xsd:simpleType name="ValueFormatDef">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="None" />
+			<xsd:enumeration value="Currency" />
+			<xsd:enumeration value="Scientific" />
+			<xsd:enumeration value="General" />
+			<xsd:enumeration value="Number" />
+			<xsd:enumeration value="Percent" />
+			<xsd:enumeration value="ShortDate" />
+			<xsd:enumeration value="ShortTime" />
+			<xsd:enumeration value="LongDate" />
+			<xsd:enumeration value="LongTime" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- VisibleValues  -->
+	<xsd:simpleType name="VisibleValuesDef">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="All" />
+			<xsd:enumeration value="Positive" />
+			<xsd:enumeration value="Negative" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- VisibleValues  -->
+	<xsd:simpleType name="LegendDisplayModeDef">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Nothing" />
+			<xsd:enumeration value="SeriesName" />
+			<xsd:enumeration value="ItemLabels" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Alignment  -->
+	<xsd:simpleType name="Alignment">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="TopLeft" />
+			<xsd:enumeration value="TopCenter" />
+			<xsd:enumeration value="TopRight" />
+			<xsd:enumeration value="MiddleLeft" />
+			<xsd:enumeration value="MiddleCenter" />
+			<xsd:enumeration value="MiddleRight" />
+			<xsd:enumeration value="BottomLeft" />
+			<xsd:enumeration value="BottomCenter" />
+			<xsd:enumeration value="BottomRight" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ImageMap -->
+	<xsd:complexType name="ImageMapElDef">
+		<xsd:attribute name="Attributes" type="xsd:string" />
+		<xsd:attribute name="ToolTip" type="xsd:string" />
+		<xsd:attribute name="HRef" type="xsd:string" />
+	</xsd:complexType>
+</xsd:schema>

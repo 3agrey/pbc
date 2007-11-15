@@ -1,0 +1,40 @@
+﻿.clientMessageDiv
+{
+	margin-right: 10px;
+}
+.clientMessageTable
+{
+	border: dashed 1px #cccccc;
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 9pt;
+	font-weight: bold;
+	text-align: left;
+	background-color: #ffffcc;
+}
+.clientMessageCellImage
+{
+	vertical-align: middle;
+	width: 32px;
+}
+.clientMessageCellTextInfo
+{
+	vertical-align: middle;
+	text-align: left;
+	color: blue;
+}
+.clientMessageCellTextWarning
+{
+	vertical-align: middle;
+	text-align: left;
+	color: black;
+}
+.clientMessageCellTextError
+{
+	vertical-align: middle;
+	text-align: left;
+	color: red;
+}
+.clientMessageImage
+{
+	vertical-align: middle;
+}

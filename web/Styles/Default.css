@@ -1,0 +1,106 @@
+body
+{
+	margin: 0px 0px 0px 0px;
+	background-color: #F0F0F0;
+}
+body, table, input
+{
+	font-family: Verdana, Arial, Times New Roman;
+	font-size: 11px;
+}
+/* Page Edges */
+.pageEdge_UL
+{
+	width: 20px;
+	height: 20px;
+	background-image: url(../Images/PageEdge_UL.gif);
+	background-position: center;
+}
+.pageEdge_U
+{
+	background-image: url(../Images/PageEdge_U.gif);
+	background-position: top;
+	background-repeat: repeat-x;
+}
+.pageEdge_UR
+{
+	width: 20px;
+	height: 20px;
+	background-image: url(../Images/PageEdge_UR.gif);
+	background-position: center;
+}
+.pageEdge_BL
+{
+	width: 20px;
+	height: 20px;
+	background-image: url(../Images/PageEdge_BL.gif);
+	background-position: center;
+}
+.pageEdge_B
+{
+	background-image: url(../Images/PageEdge_B.gif);
+	background-position: bottom;
+	background-repeat: repeat-x;
+}
+.pageEdge_BR
+{
+	width: 20px;
+	height: 20px;
+	background-image: url(../Images/PageEdge_BR.gif);
+	background-position: center;
+}
+.pageEdge_L
+{
+	background-image: url(../Images/PageEdge_L.gif);
+	background-position: left;
+	background-repeat: repeat-y;
+}
+.pageEdge_C
+{
+	background-color: #FFFFFF;
+}
+.pageEdge_R
+{
+	background-image: url(../Images/PageEdge_R.gif);
+	background-position: right;
+	background-repeat: repeat-y;
+}
+.copyright
+{
+	font-size: 9px;
+	color: #737373;
+}
+.input
+{
+	border: solid 1px #7f9db9;
+	background-color: #fefee1;
+}
+.link
+{
+	color: #6066ac;
+	text-decoration: none;
+}
+.subLink
+{
+	color: #3366FF;
+	text-decoration: none;
+	font-size: 9px;
+}
+.message
+{
+	color: #990000;
+}
+.error
+{
+	color: #ff0000;
+}
+.middleImage
+{
+	vertical-align: middle;
+	border: 0px;
+}
+.required
+{
+	width: 8px;
+	color: #ff0000;
+}

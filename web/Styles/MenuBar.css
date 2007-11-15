@@ -1,0 +1,28 @@
+﻿.menu_l
+{
+	width: 7px;
+	height: 24px;
+	background-image: url(../Images/MenuBar/menu_l.gif);
+}
+.menu_c
+{
+	background-image: url(../Images/MenuBar/menu_bg.gif);
+	background-repeat: repeat-x
+}
+.menu_r
+{
+	width: 7px;
+	height: 24px;
+	background-image: url(../Images/MenuBar/menu_r.gif);
+}
+.menu_link
+{
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 11px;
+	font-weight: bold;
+}
+.menu_sp
+{
+	color: #80B6EC;
+}
