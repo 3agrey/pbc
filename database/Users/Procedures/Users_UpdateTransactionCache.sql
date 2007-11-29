@@ -15,7 +15,8 @@ create procedure [dbo].[Users_UpdateTransactionCache]
 )
 as
 begin
-	begin transaction
+	return 0;
+	/*begin transaction
 
 	-- update flag
 	update
@@ -50,6 +51,14 @@ begin
 			inner join dbo.fn_Transfers_GetListByUser(@Id) ti on
 				t.[Id] = ti.[Id]
 
+	declare @currDate datetime
+	declare @endDate datetime
+
+	declare @periodType tinyint
+	declare @standardPeriod tinyint
+	declare @customPeriod int
+	declare @amount money
+
 	-- instantiate transactions of periodical transfer
 	declare @transferId int
 	declare transferCursor cursor local fast_forward for
@@ -66,14 +75,6 @@ begin
 	fetch next from transferCursor into @transferId
 	while @@fetch_status = 0
 	begin
-		declare @currDate datetime
-		declare @endDate datetime
-
-		declare @periodType tinyint
-		declare @standardPeriod tinyint
-		declare @customPeriod int
-		declare @amount money
-
 		-- get first date of period
 		select
 			@currDate = [StartDate],
@@ -227,14 +228,7 @@ begin
 	fetch next from transferCursor into @transferId
 	while @@fetch_status = 0
 	begin
-		declare @currDate datetime
-		declare @endDate datetime
-
-		declare @periodType tinyint
-		declare @standardPeriod tinyint
-		declare @customPeriod int
-		declare @amount money
-
+		
 		-- get first date of period
 		select
 			@currDate = [StartDate],
@@ -371,5 +365,6 @@ begin
 	deallocate dateCursor
 
 	commit transaction
+	*/
 end
 go
