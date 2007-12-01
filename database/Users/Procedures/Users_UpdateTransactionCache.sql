@@ -15,8 +15,7 @@ create procedure [dbo].[Users_UpdateTransactionCache]
 )
 as
 begin
-	return 0;
-	/*begin transaction
+	begin transaction
 
 	-- update flag
 	update
@@ -58,7 +57,7 @@ begin
 	declare @standardPeriod tinyint
 	declare @customPeriod int
 	declare @amount money
-
+	
 	-- instantiate transactions of periodical transfer
 	declare @transferId int
 	declare transferCursor cursor local fast_forward for
@@ -214,6 +213,8 @@ begin
 	deallocate transferCursor
 
 	-- instantiate transactions of deposit transfer
+	-- currently not supported
+	/*
 	declare transferCursor cursor local fast_forward for
 		select
 			t.[Id]
@@ -228,7 +229,6 @@ begin
 	fetch next from transferCursor into @transferId
 	while @@fetch_status = 0
 	begin
-		
 		-- get first date of period
 		select
 			@currDate = [StartDate],
@@ -267,6 +267,7 @@ begin
 	end
 	close transferCursor
 	deallocate transferCursor
+	*/
 
 	-- -----------------------------------------------------------------------
 	-- Account State Cache
@@ -365,6 +366,5 @@ begin
 	deallocate dateCursor
 
 	commit transaction
-	*/
 end
 go
