@@ -28,10 +28,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AIM.NCore.DataTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\components\NCore.DataTypes\bin\Release\AIM.NCore.DataTypes.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -60,6 +56,12 @@
     <Compile Include="TransferTypes.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\components\NCore.DataTypes\NCore.DataTypes.csproj">
+      <Project>{6C1E9F73-451A-4618-A874-B06BF40ACB33}</Project>
+      <Name>NCore.DataTypes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -362,6 +362,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\components\NCore.DataTypes\NCore.DataTypes.csproj">
+      <Project>{6C1E9F73-451A-4618-A874-B06BF40ACB33}</Project>
+      <Name>NCore.DataTypes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\core\core.csproj">
       <Project>{C86B4234-8312-4F25-A54C-31B5BE300BF7}</Project>
       <Name>core</Name>
