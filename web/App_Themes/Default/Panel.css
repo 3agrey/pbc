@@ -4,7 +4,7 @@
 {
 	width: 6px;
 	height: 25px;
-	background-image: url(../Images/WindowPanel/window_ul.gif);
+	background-image: url(../../Images/WindowPanel/window_ul.gif);
 	background-position: left;
 }
 .panel_window_u
@@ -18,7 +18,7 @@
 {
 	width: 6px;
 	height: 25px;
-	background-image: url(../Images/WindowPanel/window_ur.gif);
+	background-image: url(../../Images/WindowPanel/window_ur.gif);
 	background-position: right;
 }
 .panel_window_l
@@ -36,7 +36,7 @@
 {
 	width: 6px;
 	height: 6px;
-	background-image: url(../Images/WindowPanel/window_bl.gif);
+	background-image: url(../../Images/WindowPanel/window_bl.gif);
 	background-position: left;
 }
 .panel_window_b
@@ -47,7 +47,7 @@
 {
 	width: 6px;
 	height: 6px;
-	background-image: url(../Images/WindowPanel/window_br.gif);
+	background-image: url(../../Images/WindowPanel/window_br.gif);
 	background-position: right;
 }
 /* Blue */
@@ -55,26 +55,26 @@
 {
 	width: 5px;
 	height: 5px;
-	background-image: url(../Images/WindowPanel/blue_ul.gif);
+	background-image: url(../../Images/WindowPanel/blue_ul.gif);
 	background-repeat: no-repeat;
 }
 .panel_blue_u
 {
 	height: 5px;
-	background-image: url(../Images/WindowPanel/blue_u.gif);
+	background-image: url(../../Images/WindowPanel/blue_u.gif);
 	background-repeat: repeat-x;
 }
 .panel_blue_ur
 {
 	width: 5px;
 	height: 5px;
-	background-image: url(../Images/WindowPanel/blue_ur.gif);
+	background-image: url(../../Images/WindowPanel/blue_ur.gif);
 	background-repeat: no-repeat;
 }
 .panel_blue_l
 {
 	width: 5px;
-	background-image: url(../Images/WindowPanel/blue_l.gif);
+	background-image: url(../../Images/WindowPanel/blue_l.gif);
 	background-repeat: repeat-y;
 }
 .panel_blue_c
@@ -83,27 +83,27 @@
 .panel_blue_r
 {
 	width: 5px;
-	background-image: url(../Images/WindowPanel/blue_r.gif);
+	background-image: url(../../Images/WindowPanel/blue_r.gif);
 	background-repeat: repeat-y;
 }
 .panel_blue_bl
 {
 	width: 5px;
 	height: 5px;
-	background-image: url(../Images/WindowPanel/blue_bl.gif);
+	background-image: url(../../Images/WindowPanel/blue_bl.gif);
 	background-repeat: no-repeat;
 }
 .panel_blue_b
 {
 	height: 5px;
-	background-image: url(../Images/WindowPanel/blue_b.gif);
+	background-image: url(../../Images/WindowPanel/blue_b.gif);
 	background-repeat: repeat-x;
 }
 .panel_blue_br
 {
 	width: 5px;
 	height: 5px;
-	background-image: url(../Images/WindowPanel/blue_br.gif);
+	background-image: url(../../Images/WindowPanel/blue_br.gif);
 	background-repeat: no-repeat;
 }
 /* Gray */
@@ -111,26 +111,26 @@
 {
 	width: 5px;
 	height: 5px;
-	background-image: url(../Images/WindowPanel/gray_ul.gif);
+	background-image: url(../../Images/WindowPanel/gray_ul.gif);
 	background-repeat: no-repeat;
 }
 .panel_gray_u
 {
 	height: 5px;
-	background-image: url(../Images/WindowPanel/gray_u.gif);
+	background-image: url(../../Images/WindowPanel/gray_u.gif);
 	background-repeat: repeat-x;
 }
 .panel_gray_ur
 {
 	width: 5px;
 	height: 5px;
-	background-image: url(../Images/WindowPanel/gray_ur.gif);
+	background-image: url(../../Images/WindowPanel/gray_ur.gif);
 	background-repeat: no-repeat;
 }
 .panel_gray_l
 {
 	width: 5px;
-	background-image: url(../Images/WindowPanel/gray_l.gif);
+	background-image: url(../../Images/WindowPanel/gray_l.gif);
 	background-repeat: repeat-y;
 }
 .panel_gray_c
@@ -139,26 +139,26 @@
 .panel_gray_r
 {
 	width: 5px;
-	background-image: url(../Images/WindowPanel/gray_r.gif);
+	background-image: url(../../Images/WindowPanel/gray_r.gif);
 	background-repeat: repeat-y;
 }
 .panel_gray_bl
 {
 	width: 5px;
 	height: 5px;
-	background-image: url(../Images/WindowPanel/gray_bl.gif);
+	background-image: url(../../Images/WindowPanel/gray_bl.gif);
 	background-repeat: no-repeat;
 }
 .panel_gray_b
 {
 	height: 5px;
-	background-image: url(../Images/WindowPanel/gray_b.gif);
+	background-image: url(../../Images/WindowPanel/gray_b.gif);
 	background-repeat: repeat-x;
 }
 .panel_gray_br
 {
 	width: 5px;
 	height: 5px;
-	background-image: url(../Images/WindowPanel/gray_br.gif);
+	background-image: url(../../Images/WindowPanel/gray_br.gif);
 	background-repeat: no-repeat;
 }

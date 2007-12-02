@@ -13,12 +13,12 @@ body, table, input
 {
 	width: 20px;
 	height: 20px;
-	background-image: url(../Images/PageEdge_UL.gif);
+	background-image: url(../../Images/PageEdge_UL.gif);
 	background-position: center;
 }
 .pageEdge_U
 {
-	background-image: url(../Images/PageEdge_U.gif);
+	background-image: url(../../Images/PageEdge_U.gif);
 	background-position: top;
 	background-repeat: repeat-x;
 }
@@ -26,19 +26,19 @@ body, table, input
 {
 	width: 20px;
 	height: 20px;
-	background-image: url(../Images/PageEdge_UR.gif);
+	background-image: url(../../Images/PageEdge_UR.gif);
 	background-position: center;
 }
 .pageEdge_BL
 {
 	width: 20px;
 	height: 20px;
-	background-image: url(../Images/PageEdge_BL.gif);
+	background-image: url(../../Images/PageEdge_BL.gif);
 	background-position: center;
 }
 .pageEdge_B
 {
-	background-image: url(../Images/PageEdge_B.gif);
+	background-image: url(../../Images/PageEdge_B.gif);
 	background-position: bottom;
 	background-repeat: repeat-x;
 }
@@ -46,12 +46,12 @@ body, table, input
 {
 	width: 20px;
 	height: 20px;
-	background-image: url(../Images/PageEdge_BR.gif);
+	background-image: url(../../Images/PageEdge_BR.gif);
 	background-position: center;
 }
 .pageEdge_L
 {
-	background-image: url(../Images/PageEdge_L.gif);
+	background-image: url(../../Images/PageEdge_L.gif);
 	background-position: left;
 	background-repeat: repeat-y;
 }
@@ -61,7 +61,7 @@ body, table, input
 }
 .pageEdge_R
 {
-	background-image: url(../Images/PageEdge_R.gif);
+	background-image: url(../../Images/PageEdge_R.gif);
 	background-position: right;
 	background-repeat: repeat-y;
 }
