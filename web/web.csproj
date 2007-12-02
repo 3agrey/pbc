@@ -131,7 +131,6 @@
     <Content Include="Controls\Header.ascx" />
     <Content Include="Private\Login.aspx" />
     <Content Include="Private\Logout.aspx" />
-    <Content Include="_Template.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -339,10 +338,6 @@
     <Compile Include="Private\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="_Template.aspx.cs">
-      <DependentUpon>_Template.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -351,9 +346,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="_Template.aspx.designer.cs">
-      <DependentUpon>_Template.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\components\NCore.DataTypes\NCore.DataTypes.csproj">
