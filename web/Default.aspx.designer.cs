@@ -18,32 +18,5 @@ namespace AIM.PBC.Web.Pages {
     /// Auto-generated class.
     /// </remarks>
     public partial class Default {
-        
-        /// <summary>
-        /// theForm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm theForm;
-        
-        /// <summary>
-        /// ctrlHeader control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AIM.PBC.Web.Controls.Header ctrlHeader;
-        
-        /// <summary>
-        /// ctrlFooter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AIM.PBC.Web.Controls.Footer ctrlFooter;
     }
 }

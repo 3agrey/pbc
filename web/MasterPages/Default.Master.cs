@@ -13,9 +13,15 @@ namespace AIM.PBC.Web.MasterPages
 {
 	public partial class Default : System.Web.UI.MasterPage
 	{
+		protected override void OnInit(EventArgs e)
+		{
+			base.OnInit(e);
+			Load += new EventHandler(Page_Load);
+		}
+
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			DataBind();
 		}
 	}
 }

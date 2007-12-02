@@ -1,4 +1,4 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Private.master.cs" Inherits="AIM.PBC.Web.Private.MasterPages.Private" %>
+<%@ Master Language="C#" AutoEventWireup="false" CodeBehind="Private.master.cs" Inherits="AIM.PBC.Web.Private.MasterPages.Private" %>
 
 <%@ Register TagPrefix="uc" TagName="Header" Src="~/Private/Controls/Header.ascx" %>
 <%@ Register TagPrefix="uc" TagName="Footer" Src="~/Private/Controls/Footer.ascx" %>

@@ -6,9 +6,9 @@
 		<td align="center">
 			<table width="780" cellpadding="0" cellspacing="0" border="0">
 				<tr>
-					<td class="pageEdge_UL"><img src="Images/spacer.gif" /></td>
-					<td class="pageEdge_U"><img src="Images/spacer.gif" /></td>
-					<td class="pageEdge_UR"><img src="Images/spacer.gif" /></td>
+					<td class="pageEdge_UL"><img runat="server" src="~/Images/spacer.gif" /></td>
+					<td class="pageEdge_U"><img runat="server" src="~/Images/spacer.gif" /></td>
+					<td class="pageEdge_UR"><img runat="server" src="~/Images/spacer.gif" /></td>
 				</tr>
 				<tr>
 					<td class="pageEdge_L"></td>

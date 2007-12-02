@@ -1,4 +1,5 @@
 using System;
+using System.Resources;
 
 namespace AIM.PBC.Web
 {
@@ -9,14 +10,28 @@ namespace AIM.PBC.Web
 		protected string GetGlobalString (string resourceKey)
 		{
 			const string className = "Global";
-			string result = (string) GetGlobalResourceObject(className, resourceKey);
-			return result;
+			try
+			{
+				string result = (string)GetGlobalResourceObject(className, resourceKey);
+				return result;
+			}
+			catch (MissingManifestResourceException)
+			{
+				return null;
+			}
 		}
 			
 		protected string GetLocalString (string resourceKey)
 		{
-			string result = (string) GetLocalResourceObject(resourceKey);
-			return result;
+			try
+			{
+				string result = (string) GetLocalResourceObject(resourceKey);
+				return result;
+			}
+			catch (InvalidOperationException)
+			{
+				return null;
+			}
 		}
 
 		public virtual string PageTitle
