@@ -25,10 +25,14 @@ namespace AIM.PBC.Web
 		{
 			try
 			{
-				string result = (string) GetLocalResourceObject(resourceKey);
+				string result = (string)GetLocalResourceObject(resourceKey);
 				return result;
 			}
 			catch (InvalidOperationException)
+			{
+				return null;
+			}
+			catch (MissingManifestResourceException)
 			{
 				return null;
 			}
