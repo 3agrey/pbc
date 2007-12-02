@@ -54,8 +54,8 @@ namespace AIM.PBC.Web
 		protected override void OnPreInit(EventArgs e)
 		{
 			Title = String.Format("{0} : {1}", Settings.ApplicationTitle, PageTitle);
-			Theme = "Default";
 			base.OnPreInit(e);
+			Theme = "Default";
 		}
 	}
 }

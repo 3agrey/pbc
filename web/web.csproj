@@ -86,8 +86,6 @@
     <Content Include="Images\WindowPanel\window_br.gif" />
     <Content Include="Images\WindowPanel\window_ul.gif" />
     <Content Include="Images\WindowPanel\window_ur.gif" />
-    <Content Include="Private\Controls\Footer.ascx" />
-    <Content Include="Private\Controls\Header.ascx" />
     <Content Include="Private\Default.aspx" />
     <Content Include="Private\ReportByAccounts.aspx" />
     <Content Include="Private\ReportByTransactions.aspx" />
@@ -127,8 +125,6 @@
     <Content Include="Images\ClientMessage\Error.png" />
     <Content Include="Images\ClientMessage\Info.png" />
     <Content Include="Images\ClientMessage\Warning.png" />
-    <Content Include="Controls\Footer.ascx" />
-    <Content Include="Controls\Header.ascx" />
     <Content Include="Private\Login.aspx" />
     <Content Include="Private\Logout.aspx" />
     <Content Include="Default.aspx" />
@@ -206,20 +202,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Private\Controls\Footer.ascx.cs">
-      <DependentUpon>Footer.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Private\Controls\Footer.ascx.designer.cs">
-      <DependentUpon>Footer.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Private\Controls\Header.ascx.cs">
-      <DependentUpon>Header.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Private\Controls\Header.ascx.designer.cs">
-      <DependentUpon>Header.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Private\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -292,20 +274,6 @@
     <Compile Include="AppCode\Settings.cs" />
     <Compile Include="AppCode\UI\Controls\ClientMessage.cs" />
     <Compile Include="AppCode\UI\Controls\ClientMessageTypes.cs" />
-    <Compile Include="Controls\Footer.ascx.cs">
-      <DependentUpon>Footer.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controls\Footer.ascx.designer.cs">
-      <DependentUpon>Footer.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Header.ascx.cs">
-      <DependentUpon>Header.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controls\Header.ascx.designer.cs">
-      <DependentUpon>Header.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Private\Accounts.aspx.cs">
       <DependentUpon>Accounts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -448,11 +416,17 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\Default\ClientMessage.css" />
+    <Content Include="App_Themes\Default\Default.css" />
+    <Content Include="App_Themes\Default\MenuBar.css" />
+    <Content Include="App_Themes\Default\Panel.css" />
     <Content Include="Private\App_LocalResources\EditDepositTransfer.aspx.ru-RU.resx">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controls\" />
+    <Folder Include="Private\Controls\" />
     <Folder Include="Styles\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
