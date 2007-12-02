@@ -27,6 +27,12 @@ namespace AIM.PBC.Web.Private.Pages
 			}
 		}
 
+
+		public override string PageTitle
+		{
+			get { return OperationText + " Percentage Transfer"; }
+		}
+
 		protected string OperationText
 		{
 			get

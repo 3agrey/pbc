@@ -8,25 +8,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AIM.PBC.Web.Pages {
+namespace AIM.PBC.Web.Private.MasterPages {
     
     
     /// <summary>
-    /// _Template class.
+    /// Private class.
     /// </summary>
     /// <remarks>
     /// Auto-generated class.
     /// </remarks>
-    public partial class _Template {
+    public partial class Private {
         
         /// <summary>
-        /// theForm control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm theForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// ctrlHeader control.
@@ -35,7 +35,16 @@ namespace AIM.PBC.Web.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AIM.PBC.Web.Controls.Header ctrlHeader;
+        protected global::AIM.PBC.Web.Private.Controls.Header ctrlHeader;
+        
+        /// <summary>
+        /// cph control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph;
         
         /// <summary>
         /// ctrlFooter control.
@@ -44,6 +53,6 @@ namespace AIM.PBC.Web.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AIM.PBC.Web.Controls.Footer ctrlFooter;
+        protected global::AIM.PBC.Web.Private.Controls.Footer ctrlFooter;
     }
 }

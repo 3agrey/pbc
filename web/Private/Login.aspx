@@ -1,15 +1,8 @@
-<%@ Page Language="C#" AutoEventWireup="False" Inherits="AIM.PBC.Web.Private.Pages.Login" Codebehind="Login.aspx.cs" %>
+<%@ Page Language="C#" AutoEventWireup="False" MasterPageFile="~/Private/MasterPages/Private.Master" Inherits="AIM.PBC.Web.Private.Pages.Login" Codebehind="Login.aspx.cs" %>
 <%@ Import namespace="AIM.PBC.Web"%>
-<%@ Register TagPrefix="uc" TagName="Head" Src="~/Private/Controls/Head.ascx" %>
-<%@ Register TagPrefix="uc" TagName="Header" Src="~/Private/Controls/Header.ascx" %>
-<%@ Register TagPrefix="uc" TagName="Footer" Src="~/Private/Controls/Footer.ascx" %>
 <%@ Register TagPrefix="cc" Namespace="AIM.PBC.Web.UI.Controls" Assembly="AIM.PBC.Web" %>
-<html>
-<uc:Head ID="ctrlHead" runat="server" PageTitle="Login" />
-<body onload="FocusUsernameBox()">
-    <form id="theForm" runat="server">
-	<uc:Header ID="ctrlHeader" runat="server" />
-	<br />
+
+<asp:Content ID="c" runat="server" ContentPlaceHolderID="cph">
 	<cc:ClientMessage ID="ctrlClientMessage" Runat="server" IsRenderNewLine="true" Width="400" />
 	<cc:Panel runat="server" Title="Login" Width="400" CellPadding="0" CellSpacing="0">
 		<br />
@@ -75,7 +68,4 @@ function DebugLogin (username, password, persistent)
 	oSubmit.click();
 }
 </script>
-	<uc:Footer ID="ctrlFooter" runat="server" />
-    </form>
-</body>
-</html>
+</asp:Content>

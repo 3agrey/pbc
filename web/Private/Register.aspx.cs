@@ -12,6 +12,12 @@ namespace AIM.PBC.Web.Private.Pages
 			RegisterEventHandlers();
 		}
 
+
+		public override string PageTitle
+		{
+			get { return "Register new user"; }
+		}
+
 		private void RegisterEventHandlers ()
 		{
 			cvPage.ServerValidate += new System.Web.UI.WebControls.ServerValidateEventHandler(cvPage_ServerValidate);

@@ -1,0 +1,20 @@
+<%@ Master Language="C#" AutoEventWireup="false" CodeBehind="Default.master.cs" Inherits="AIM.PBC.Web.MasterPages.Default" %>
+
+<%@ Register TagPrefix="uc" TagName="Header" Src="~/Controls/Header.ascx" %>
+<%@ Register TagPrefix="uc" TagName="Footer" Src="~/Controls/Footer.ascx" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+		<uc:Header ID="ctrlHeader" runat="server" />
+        <asp:ContentPlaceHolder ID="cph" runat="server">
+        </asp:ContentPlaceHolder>
+        <uc:Footer ID="ctrlFooter" runat="server" />
+    </form>
+</body>
+</html>

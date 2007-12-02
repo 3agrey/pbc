@@ -1,14 +1,8 @@
-<%@ Page Language="C#" AutoEventWireup="False" CodeBehind="EditPercentageTransfer.aspx.cs" Inherits="AIM.PBC.Web.Private.Pages.EditPercentageTransfer" %>
-<%@ Register TagPrefix="uc" TagName="Head" Src="~/Private/Controls/Head.ascx" %>
-<%@ Register TagPrefix="uc" TagName="Header" Src="~/Private/Controls/Header.ascx" %>
-<%@ Register TagPrefix="uc" TagName="Footer" Src="~/Private/Controls/Footer.ascx" %>
+<%@ Page Language="C#" AutoEventWireup="False" MasterPageFile="~/Private/MasterPages/Private.Master" CodeBehind="EditPercentageTransfer.aspx.cs" Inherits="AIM.PBC.Web.Private.Pages.EditPercentageTransfer" %>
 <%@ Register TagPrefix="cc" Namespace="AIM.PBC.Web.UI.Controls" Assembly="AIM.PBC.Web" %>
 <%@ Register TagPrefix="rad" Namespace="Telerik.WebControls" Assembly="RadCalendar.NET2" %>
-<html>
-<uc:Head ID="ctrlHead" runat="server" PageTitle='<%# OperationText + " Percentage Transfer" %>'/>
-<body>
-    <form id="theForm" runat="server">
-    <uc:Header ID="ctrlHeader" runat="server" />
+
+<asp:Content ID="c" runat="server" ContentPlaceHolderID="cph">
     <cc:ClientMessage ID="ctrlClientMessage" Runat="server" IsRenderNewLine="true" Width="740" />
 	<asp:CustomValidator ID="cvPage" runat="server" Display="None" />
 	<cc:Panel runat="server" Title='<%# OperationText + " Percentage Transfer"%>' Width="740" CellPadding="0" CellSpacing="0">
@@ -92,7 +86,4 @@
 			</asp:PlaceHolder>
 		</table>
 	</cc:Panel>
-    <uc:Footer ID="ctrlFooter" runat="server" />
-    </form>
-</body>
-</html>
+</asp:Content>

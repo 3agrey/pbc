@@ -26,6 +26,11 @@ namespace AIM.PBC.Web.Private.Pages
 			}
 		}
 
+		public override string PageTitle
+		{
+			get { return String.Format("{0} {1}", OperationText, GetLocalString("Transfer")); }
+		}
+
 		protected string OperationText
 		{
 			get

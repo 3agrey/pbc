@@ -25,7 +25,12 @@ namespace AIM.PBC.Web.Private.Pages
 				return result;
 			}
 		}
-		
+
+		public override string PageTitle
+		{
+			get { return OperationText + base.PageTitle; }
+		}
+
 		protected string OperationText
 		{
 			get

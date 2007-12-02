@@ -26,6 +26,12 @@ namespace AIM.PBC.Web.Private.Pages
 			}
 		}
 
+
+		public override string PageTitle
+		{
+			get { return OperationText + " Periodical Transfer"; }
+		}
+
 		protected string OperationText
 		{
 			get

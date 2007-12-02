@@ -13,6 +13,11 @@ namespace AIM.PBC.Web.Private.Pages
 			public const string TransferId = "TransferId";
 		}
 
+		public override string PageTitle
+		{
+			get { return String.Format("{0} {1}", OperationText, GetGlobalString("TransferDeposit")); }
+		}
+
 		protected int ParamTransferId
 		{
 			get

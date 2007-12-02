@@ -15,6 +15,12 @@ namespace AIM.PBC.Web.Private.Pages
 		private void RegisterEventHandlers()
 		{
 			btnSubmit.Click += new EventHandler(btnSubmit_Click);
+			Load += new EventHandler(Page_Load);
+		}
+
+		public override string PageTitle
+		{
+			get { return "Login"; }
 		}
 
 		protected void Page_Load(object sender, EventArgs e)
@@ -24,6 +30,7 @@ namespace AIM.PBC.Web.Private.Pages
 				Response.Redirect("Default.aspx");
 			}
 			DataBind();
+			ClientScript.RegisterStartupScript(GetType(), "onload", "FocusUsernameBox();", true);
 		}
 
 		private void btnSubmit_Click(object sender, EventArgs e)

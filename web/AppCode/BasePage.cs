@@ -1,7 +1,11 @@
+using System;
+
 namespace AIM.PBC.Web
 {
-	public class BasePage : System.Web.UI.Page
+	public abstract class BasePage : System.Web.UI.Page
 	{
+		private string _pageTittle = null;
+
 		protected string GetGlobalString (string resourceKey)
 		{
 			const string className = "Global";
@@ -13,6 +17,30 @@ namespace AIM.PBC.Web
 		{
 			string result = (string) GetLocalResourceObject(resourceKey);
 			return result;
+		}
+
+		public virtual string PageTitle
+		{
+			get
+			{
+				if (String.IsNullOrEmpty(_pageTittle))
+				{
+					string res = GetLocalString("Title");
+					if (String.IsNullOrEmpty(res))
+					{
+						_pageTittle = "Untitled";
+					}
+					_pageTittle = res;
+				}
+				return _pageTittle;
+			}
+		}
+
+		protected override void OnPreInit(EventArgs e)
+		{
+			Title = String.Format("{0} : {1}", Settings.ApplicationTitle, PageTitle);
+			Theme = "Default";
+			base.OnPreInit(e);
 		}
 	}
 }
