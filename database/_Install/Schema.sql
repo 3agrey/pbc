@@ -116,30 +116,6 @@ create table dbo.[PercentageTransfers]
 )
 go
 
-create table dbo.[DepositTransfers]
-(
-	[Id] int not null,
-	[BeginningAmount] money not null,
-	[Percentage] real not null,
-	[StartDate] datetime not null,
-	[Period] int not null,
-	[IncrementPeriodType] tinyint not null,
-	/*
-		1 - Standard Period
-		2 - Custom Period
-	*/
-	[IncrementStandardPeriod] tinyint null,
-	/*
-		1 - Daily
-		2 - Weekly
-		3 - Monthly
-		4 - Yearly
-	*/
-	[IncrementCustomPeriod] int null,
-	[IncrementAmount] money not null
-)
-go
-
 /********************************************************************************************************
 * Table: Transactions
 ********************************************************************************************************/
