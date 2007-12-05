@@ -11,40 +11,40 @@
 	<target name="reinstall" depends="uninstall, install"/>
 
 	<target name="dropDatabase">
-		<exec failonerror="true" program="dba" commandline="-e sa _Uninstall\Database.sql" />
-		<exec failonerror="true" program="dba" commandline="-e sa _Uninstall\Logins.sql" />
+		<exec failonerror="true" program="sqlse" commandline="-e sa _Uninstall\Database.sql" />
+		<exec failonerror="true" program="sqlse" commandline="-e sa _Uninstall\Logins.sql" />
 	</target>
 
 	<target name="createDatabase">
-		<exec failonerror="true" program="dba" commandline="-e sa _Install\Database.sql" />
-		<exec failonerror="true" program="dba" commandline="-e sa _Install\Logins.sql" />
-		<exec failonerror="true" program="dba" commandline="-e sa _Install\Schema.sql" />
-		<exec failonerror="true" program="dba" commandline="-e sa _Install\Views.sql" />
-		<exec failonerror="true" program="dba" commandline="-e sa _Install\Triggers.sql" />
+		<exec failonerror="true" program="sqlse" commandline="-e sa _Install\Database.sql" />
+		<exec failonerror="true" program="sqlse" commandline="-e sa _Install\Logins.sql" />
+		<exec failonerror="true" program="sqlse" commandline="-e sa _Install\Schema.sql" />
+		<exec failonerror="true" program="sqlse" commandline="-e sa _Install\Views.sql" />
+		<exec failonerror="true" program="sqlse" commandline="-e sa _Install\Triggers.sql" />
 	</target>
 	
 	<target name="createFunctions">
-		<exec failonerror="true" program="dba" commandline="-se pbcadmin *\Functions\*.sql"/>
+		<exec failonerror="true" program="sqlse" commandline="-se pbcadmin *\Functions\*.sql"/>
 	</target>
 
 	<target name="createTriggers">
-		<exec failonerror="true" program="dba" commandline="-se pbcadmin *\Triggers\*.sql"/>
+		<exec failonerror="true" program="sqlse" commandline="-se pbcadmin *\Triggers\*.sql"/>
 	</target>
 
 	<target name="createProcedures">
-		<exec failonerror="true" program="dba" commandline="-se pbcadmin *\Procedures\*.sql"/>
+		<exec failonerror="true" program="sqlse" commandline="-se pbcadmin *\Procedures\*.sql"/>
 	</target>
 
 	<target name="grantPermissions">
-		<exec failonerror="true" program="dba" commandline="-e sa _Install\GrantPermissions.sql" />
+		<exec failonerror="true" program="sqlse" commandline="-e sa _Install\GrantPermissions.sql" />
 	</target>
 
 	<target name="installData">
-		<exec failonerror="true" program="dba" commandline="-e sa _Install\Data.sql" />
+		<exec failonerror="true" program="sqlse" commandline="-e sa _Install\Data.sql" />
 	</target>
 
 	<target name="shrinkDatabase">
-		<exec failonerror="true" program="dba" commandline="-e sa _Install\ShrinkDatabase.sql" />
+		<exec failonerror="true" program="sqlse" commandline="-e sa _Install\ShrinkDatabase.sql" />
 	</target>
 
 </project>
