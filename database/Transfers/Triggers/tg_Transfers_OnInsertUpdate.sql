@@ -35,10 +35,13 @@ as
 		where
 			[Id] = @userId
 
-		delete from
-			[Transactions]
+		delete 
+			tr			
+		from
+			[Transactions] tr
+				inner join [v_Transactions] v_tr on tr.Id = v_tr.Id
 		where
-			[UserId] = @userId
+			v_tr.[UserId] = @userId
 
 		delete
 			ast
@@ -75,10 +78,13 @@ as
 		where
 			[Id] = @userId
 
-		delete from
-			[Transactions]
+		delete 
+			tr			
+		from
+			[Transactions] tr
+				inner join [v_Transactions] v_tr on tr.Id = v_tr.Id
 		where
-			[UserId] = @userId
+			v_tr.[UserId] = @userId
 
 		delete
 			ast

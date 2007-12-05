@@ -7,7 +7,7 @@
 	<property name="debug" value="true"/>
 	
 	<target name="uninstall" depends="dropDatabase"/>
-	<target name="install" depends="createDatabase, createViews, createFunctions, createTriggers, createProcedures, grantPermissions, installData, shrinkDatabase"/>
+	<target name="install" depends="createDatabase, createFunctions, createTriggers, createProcedures, grantPermissions, installData, shrinkDatabase"/>
 	<target name="reinstall" depends="uninstall, install"/>
 
 	<target name="dropDatabase">
@@ -19,13 +19,10 @@
 		<exec program="dba" commandline="-e sa _Install\Database.sql" />
 		<exec program="dba" commandline="-e sa _Install\Logins.sql" />
 		<exec program="dba" commandline="-e sa _Install\Schema.sql" />
+		<exec program="dba" commandline="-e sa _Install\Views.sql" />
 		<exec program="dba" commandline="-e sa _Install\Triggers.sql" />
 	</target>
 	
-	<target name="createViews">
-		<exec program="dba" commandline="-e sa _Install\Views.sql" />
-	</target>
-
 	<target name="createFunctions">
 		<exec program="dba" commandline="-se pbcadmin *\Functions\*.sql"/>
 	</target>

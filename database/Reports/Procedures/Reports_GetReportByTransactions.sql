@@ -29,7 +29,7 @@ begin
 	end
 
 	select
-		t.[Name] as [TransferName],
+		tr.[TransferName],
 		case
 			when sa.[Id] is null then 'External'
 			else sa.[Name] 
@@ -41,13 +41,11 @@ begin
 		tr.[Date] as [TransactionDate],
 		tr.[Amount] as [TransactionAmount]
 	from
-		[Transactions] tr
-			inner join [Transfers] t on
-				tr.[TransferId] = t.[Id]
+		[v_Transactions] tr
 			left join [Accounts] sa on
-				t.[SourceAccountId] = sa.[Id]
+				tr.[SourceAccountId] = sa.[Id]
 			left join [Accounts] ta on
-				t.[TargetAccountId] = ta.[Id]
+				tr.[TargetAccountId] = ta.[Id]
 	where
 		tr.[UserId] = @UserId
 	order by

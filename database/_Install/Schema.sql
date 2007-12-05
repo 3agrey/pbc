@@ -122,10 +122,14 @@ go
 create table dbo.[Transactions]
 (
 	[Id] int not null identity(1, 1),
+	/* could be retreived through transfer 
 	[UserId] int not null,
+	*/
 	[TransferId] int not null,
+	/* could be retreived through transfer
 	[SourceAccountId] int null,
 	[TargetAccountId] int null,
+	*/
 	[Date] datetime not null,
 	[Amount] money not null,
 	constraint PK_Transactions primary key ([Id])

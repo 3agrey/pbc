@@ -44,7 +44,7 @@ begin
 		st.[Date],
 		st.[Amount]
 	from
-		[Transfers] t
+		[v_Transfers] t
 			inner join [SingleTransfers] st on
 				t.[Id] = st.[Id]
 			inner join dbo.fn_Transfers_GetListByUser(@Id) ti on
@@ -94,18 +94,12 @@ begin
 			insert into
 				[Transactions]
 			(
-				[UserId],
 				[TransferId],
-				[SourceAccountId],
-				[TargetAccountId],
 				[Date],
 				[Amount]
 			)
 			select
-				@Id,
 				t.[Id],
-				t.[SourceAccountId],
-				t.[TargetAccountId],
 				@currDate,
 				@amount
 			from
@@ -183,18 +177,12 @@ begin
 			insert into
 				[Transactions]
 			(
-				[UserId],
 				[TransferId],
-				[SourceAccountId],
-				[TargetAccountId],
 				[Date],
 				[Amount]
 			)
 			select
-				@Id,
 				@transferId,
-				t.[SourceAccountId],
-				t.[TargetAccountId],
 				@currDate,
 				@total
 			from
@@ -286,7 +274,7 @@ begin
 		select distinct
 			[Date]
 		from
-			[Transactions] t
+			[v_Transactions] t
 		where
 			[UserId] = @Id
 
@@ -318,7 +306,7 @@ begin
 			select
 				@income = isnull(sum([Amount]), 0)
 			from
-				[Transactions] t
+				[v_Transactions] t
 			where
 				[TargetAccountId] = @accountId
 				and [Date] = @date
@@ -327,7 +315,7 @@ begin
 			select
 				@outcome = isnull(sum([Amount]), 0)
 			from
-				[Transactions] t
+				[v_Transactions] t
 			where
 				[SourceAccountId] = @accountId
 				and [Date] = @date
