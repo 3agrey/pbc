@@ -411,6 +411,16 @@
     <Content Include="Private\Images\Remove.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Private\App_LocalResources\Charts.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Private\App_LocalResources\Charts.aspx.ru-RU.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="Private\Controls\" />
   </ItemGroup>
