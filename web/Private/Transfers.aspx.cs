@@ -57,6 +57,8 @@ namespace AIM.PBC.Web.Private.Pages
 				rpTransfers.DataBind();
 				
 				phEmpty.Visible = (list.Count == 0);
+
+				DataBind();
 			}
 		}
 
