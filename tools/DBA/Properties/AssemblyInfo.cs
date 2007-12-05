@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AIM.Tools.DBA")]
+[assembly: AssemblyTitle("AIM.Tools.SqlSE")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Logic Nucleo Foreign Enterprise")]
+[assembly: AssemblyCompany("AIM technologies")]
 [assembly: AssemblyProduct("AIM.Tools.DBA")]
-[assembly: AssemblyCopyright("Copyright © Logic Nucleo Foreign Enterprise 2006")]
+[assembly: AssemblyCopyright("Copyright © AIM technologies 2006")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

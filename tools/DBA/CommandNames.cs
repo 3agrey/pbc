@@ -1,4 +1,4 @@
-namespace AIM.Tools.DBA
+namespace AIM.Tools.SqlSE
 {
 	public class CommandNames
 	{

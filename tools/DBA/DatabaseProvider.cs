@@ -1,7 +1,7 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace AIM.Tools.DBA
+namespace AIM.Tools.SqlSE
 {
 	public class DatabaseProvider
 	{

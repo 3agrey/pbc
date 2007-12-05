@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 
-namespace AIM.Tools.DBA
+namespace AIM.Tools.SqlSE
 {
 	public static class Helpers
 	{

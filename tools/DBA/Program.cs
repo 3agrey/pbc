@@ -1,10 +1,10 @@
 using System;
 
-namespace AIM.Tools.DBA
+namespace AIM.Tools.SqlSE
 {
 	public class Program
 	{
-		public static void Main (string[] args)
+		public static int Main (string[] args)
 		{
 			Task task = TaskFactory.ResolveTask(args);
 			try
@@ -15,7 +15,9 @@ namespace AIM.Tools.DBA
 			{
 				Console.WriteLine("Error occured during execution:");
 				Console.WriteLine(ex.Message);
+				return -1;
 			}
+			return 0;
 		}
 	}
 }

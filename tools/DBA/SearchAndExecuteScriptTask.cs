@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace AIM.Tools.DBA
+namespace AIM.Tools.SqlSE
 {
 	public class SearchAndExecuteScriptTask : Task
 	{

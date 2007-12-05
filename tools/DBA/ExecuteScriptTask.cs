@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Text;
 
-namespace AIM.Tools.DBA
+namespace AIM.Tools.SqlSE
 {
 	public class ExecuteScriptTask : Task
 	{

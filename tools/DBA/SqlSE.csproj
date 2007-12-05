@@ -7,8 +7,8 @@
     <ProjectGuid>{C46BCE86-2FB7-4E0F-B3DC-69810FE8AC17}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AIM.Tools.DBA</RootNamespace>
-    <AssemblyName>dba</AssemblyName>
+    <RootNamespace>AIM.Tools.SqlSE</RootNamespace>
+    <AssemblyName>sqlse</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
