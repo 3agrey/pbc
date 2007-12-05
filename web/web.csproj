@@ -169,13 +169,6 @@
     <Compile Include="Private\ChartByAccounts.aspx.designer.cs">
       <DependentUpon>ChartByAccounts.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Private\EditDepositTransfer.aspx.cs">
-      <DependentUpon>EditDepositTransfer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Private\EditDepositTransfer.aspx.designer.cs">
-      <DependentUpon>EditDepositTransfer.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Private\MasterPages\Private.Master.cs">
       <DependentUpon>Private.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -408,7 +401,6 @@
     <Content Include="Private\App_LocalResources\EditTransfer.aspx.ru-RU.resx">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Private\EditDepositTransfer.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Private\App_LocalResources\EditDepositTransfer.aspx.resx">

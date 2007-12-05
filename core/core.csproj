@@ -37,7 +37,6 @@
     <Compile Include="AccountHashList.cs" />
     <Compile Include="AccountList.cs" />
     <Compile Include="AccountProvider.cs" />
-    <Compile Include="DepositTransfer.cs" />
     <Compile Include="DataTableHelper.cs" />
     <Compile Include="PercentageTransfer.cs" />
     <Compile Include="StandardPeriods.cs" />

@@ -156,9 +156,6 @@
   <data name="PeriodTypeStandard" xml:space="preserve">
     <value>Стандартный</value>
   </data>
-  <data name="TransferDeposit" xml:space="preserve">
-    <value>Депозитный платеж</value>
-  </data>
   <data name="TransferPercentage" xml:space="preserve">
     <value>Платеж с процентной ставкой</value>
   </data>

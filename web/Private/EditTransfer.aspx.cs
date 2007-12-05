@@ -81,7 +81,7 @@ namespace AIM.PBC.Web.Private.Pages
 			rblType.Items.Add(new ListItem(GetGlobalString("TransferSingle"), ((byte) TransferTypes.Single).ToString()));
 			rblType.Items.Add(new ListItem(GetGlobalString("TransferPeriodical"), ((byte) TransferTypes.Periodical).ToString()));
 			rblType.Items.Add(new ListItem(GetGlobalString("TransferPercentage"), ((byte) TransferTypes.Percentage).ToString()));
-			rblType.Items.Add(new ListItem(GetGlobalString("TransferDeposit"), ((byte) TransferTypes.Deposit).ToString()));
+//			rblType.Items.Add(new ListItem(GetGlobalString("TransferDeposit"), ((byte) TransferTypes.Deposit).ToString()));
 			rblType.Items[0].Selected = true;
 		}
 
@@ -99,9 +99,11 @@ namespace AIM.PBC.Web.Private.Pages
 				case TransferTypes.Percentage:
 					Response.Redirect("EditPercentageTransfer.aspx?" + EditPercentageTransfer.PageParameters.TransferId + "=" + ParamTransferId.ToString());
 					break;
-				case TransferTypes.Deposit:
-					Response.Redirect("EditDepositTransfer.aspx?" + EditDepositTransfer.PageParameters.TransferId + "=" + ParamTransferId.ToString());
-					break;
+//				case TransferTypes.Deposit:
+//					Response.Redirect("EditDepositTransfer.aspx?" + EditDepositTransfer.PageParameters.TransferId + "=" + ParamTransferId.ToString());
+//					break;
+				default:
+					throw new NotSupportedException();
 			}
 		}
 

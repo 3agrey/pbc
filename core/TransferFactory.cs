@@ -18,9 +18,9 @@ namespace AIM.PBC.Core
 				case TransferTypes.Percentage:
 					entity = new PercentageTransfer();
 					break;
-				case TransferTypes.Deposit:
-					entity = new DepositTransfer();
-					break;
+//				case TransferTypes.Deposit:
+//					entity = new DepositTransfer();
+//					break;
 				default:
 					throw new NotSupportedException("Transfer Type is not supported");
 			}

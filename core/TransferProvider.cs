@@ -168,24 +168,28 @@ namespace AIM.PBC.Core
 			else if (entityType == typeof(PercentageTransfer))
 			{
 				procedureName += "Percentage";
-				PercentageTransfer actualEntity = (PercentageTransfer) entity;
+				PercentageTransfer actualEntity = (PercentageTransfer)entity;
 				parameterList.Add(new SqlParameter("@Amount", actualEntity.Amount.Value));
 				parameterList.Add(new SqlParameter("@Percentage", actualEntity.Percentage.Value));
 				parameterList.Add(new SqlParameter("@StartDate", actualEntity.StartDate.Value));
 				parameterList.Add(new SqlParameter("@Period", actualEntity.Period.Value));
 			}
-			else if (entityType == typeof(DepositTransfer))
+			//			else if (entityType == typeof(DepositTransfer))
+			//			{
+			//				procedureName += "Deposit";
+			//				DepositTransfer actualEntity = (DepositTransfer) entity;
+			//				parameterList.Add(new SqlParameter("@BeginningAmount", actualEntity.BeginningAmount.Value));
+			//				parameterList.Add(new SqlParameter("@Percentage", actualEntity.Percentage.Value));
+			//				parameterList.Add(new SqlParameter("@StartDate", actualEntity.StartDate.Value));
+			//				parameterList.Add(new SqlParameter("@Period", actualEntity.Period.Value));
+			//				parameterList.Add(new SqlParameter("@IncrementPeriodType", actualEntity.IncrementPeriodType.Value));
+			//				parameterList.Add(new SqlParameter("@IncrementStandardPeriod", actualEntity.IncrementStandardPeriod.NullableValue));
+			//				parameterList.Add(new SqlParameter("@IncrementCustomPeriod", actualEntity.IncrementCustomPeriod.NullableValue));
+			//				parameterList.Add(new SqlParameter("@IncrementAmount", actualEntity.IncrementAmount.Value));
+			//			}
+			else
 			{
-				procedureName += "Deposit";
-				DepositTransfer actualEntity = (DepositTransfer) entity;
-				parameterList.Add(new SqlParameter("@BeginningAmount", actualEntity.BeginningAmount.Value));
-				parameterList.Add(new SqlParameter("@Percentage", actualEntity.Percentage.Value));
-				parameterList.Add(new SqlParameter("@StartDate", actualEntity.StartDate.Value));
-				parameterList.Add(new SqlParameter("@Period", actualEntity.Period.Value));
-				parameterList.Add(new SqlParameter("@IncrementPeriodType", actualEntity.IncrementPeriodType.Value));
-				parameterList.Add(new SqlParameter("@IncrementStandardPeriod", actualEntity.IncrementStandardPeriod.NullableValue));
-				parameterList.Add(new SqlParameter("@IncrementCustomPeriod", actualEntity.IncrementCustomPeriod.NullableValue));
-				parameterList.Add(new SqlParameter("@IncrementAmount", actualEntity.IncrementAmount.Value));
+				throw new NotSupportedException();
 			}
 
 			int id = (int) ExecuteProcedureScalar(procedureName, parameterList);
@@ -232,18 +236,22 @@ namespace AIM.PBC.Core
 				parameterList.Add(new SqlParameter("@StartDate", actualEntity.StartDate.Value));
 				parameterList.Add(new SqlParameter("@Period", actualEntity.Period.Value));
 			}
-			else if (entityType == typeof(DepositTransfer))
+//			else if (entityType == typeof(DepositTransfer))
+//			{
+//				procedureName += "Deposit";
+//				DepositTransfer actualEntity = (DepositTransfer)entity;
+//				parameterList.Add(new SqlParameter("@BeginningAmount", actualEntity.BeginningAmount.Value));
+//				parameterList.Add(new SqlParameter("@Percentage", actualEntity.Percentage.Value));
+//				parameterList.Add(new SqlParameter("@StartDate", actualEntity.StartDate.Value));
+//				parameterList.Add(new SqlParameter("@Period", actualEntity.Period.Value));
+//				parameterList.Add(new SqlParameter("@IncrementPeriodType", actualEntity.IncrementPeriodType.Value));
+//				parameterList.Add(new SqlParameter("@IncrementStandardPeriod", actualEntity.IncrementStandardPeriod.NullableValue));
+//				parameterList.Add(new SqlParameter("@IncrementCustomPeriod", actualEntity.IncrementCustomPeriod.NullableValue));
+//				parameterList.Add(new SqlParameter("@IncrementAmount", actualEntity.IncrementAmount.Value));
+//			}
+			else
 			{
-				procedureName += "Deposit";
-				DepositTransfer actualEntity = (DepositTransfer) entity;
-				parameterList.Add(new SqlParameter("@BeginningAmount", actualEntity.BeginningAmount.Value));
-				parameterList.Add(new SqlParameter("@Percentage", actualEntity.Percentage.Value));
-				parameterList.Add(new SqlParameter("@StartDate", actualEntity.StartDate.Value));
-				parameterList.Add(new SqlParameter("@Period", actualEntity.Period.Value));
-				parameterList.Add(new SqlParameter("@IncrementPeriodType", actualEntity.IncrementPeriodType.Value));
-				parameterList.Add(new SqlParameter("@IncrementStandardPeriod", actualEntity.IncrementStandardPeriod.NullableValue));
-				parameterList.Add(new SqlParameter("@IncrementCustomPeriod", actualEntity.IncrementCustomPeriod.NullableValue));
-				parameterList.Add(new SqlParameter("@IncrementAmount", actualEntity.IncrementAmount.Value));
+				throw new NotSupportedException();
 			}
 
 			ExecuteProcedureNonQuery(procedureName, parameterList);

@@ -156,9 +156,6 @@
   <data name="PeriodTypeStandard" xml:space="preserve">
     <value>Standard</value>
   </data>
-  <data name="TransferDeposit" xml:space="preserve">
-    <value>Deposit Transfer</value>
-  </data>
   <data name="TransferPercentage" xml:space="preserve">
     <value>Percentage Transfer</value>
   </data>
