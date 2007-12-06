@@ -54,6 +54,12 @@ create table dbo.[Accounts]
 )
 go
 
+alter table dbo.[Accounts] add constraint
+	FK_Accounts_Users foreign key (UserId) references dbo.[Users] (Id)
+	on update  cascade 
+	on delete  cascade
+GO
+
 /********************************************************************************************************
 * Table: Transfers
 ********************************************************************************************************/
@@ -74,6 +80,22 @@ create table dbo.[Transfers]
 )
 go
 
+alter table dbo.[Transfers] add constraint
+	FK_Transfers_AccountsSource foreign key (SourceAccountId) references dbo.[Accounts] (Id)
+	on update no action
+	on delete no action
+go
+
+alter table dbo.[Transfers] add constraint
+	FK_Transfers_AccountsTarget foreign key (TargetAccountId) references dbo.[Accounts] (Id)
+	on update no action
+	on delete no action
+go
+
+alter table dbo.[Transfers] add constraint
+	CK_Transfers_SourceOrTargetNotNull check ((isnull(SourceAccountId,TargetAccountId) is not null))
+go
+
 create table dbo.[SingleTransfers]
 (
 	[Id] int not null,
@@ -81,6 +103,12 @@ create table dbo.[SingleTransfers]
 	[Amount] money not null,
 	constraint PK_SingleTransfers primary key ([Id])
 )
+go
+
+alter table dbo.[SingleTransfers] add constraint
+	FK_SingleTransfers_Transfers foreign key (Id) references dbo.[Transfers] (Id)
+	on update cascade 
+	on delete cascade 
 go
 
 create table dbo.[PeriodicalTransfers]
@@ -106,6 +134,12 @@ create table dbo.[PeriodicalTransfers]
 )
 go
 
+alter table dbo.[PeriodicalTransfers] add constraint
+	FK_PeriodicalTransfers_Transfers foreign key (Id) references dbo.[Transfers] (Id)
+	on update cascade 
+	on delete cascade 
+go
+
 create table dbo.[PercentageTransfers]
 (
 	[Id] int not null,
@@ -116,24 +150,29 @@ create table dbo.[PercentageTransfers]
 )
 go
 
+alter table dbo.[PercentageTransfers] add constraint
+	FK_PercentageTransfers_Transfers foreign key (Id) references dbo.[Transfers] (Id)
+	on update cascade 
+	on delete cascade 
+go
+
 /********************************************************************************************************
 * Table: Transactions
 ********************************************************************************************************/
 create table dbo.[Transactions]
 (
 	[Id] int not null identity(1, 1),
-	/* could be retreived through transfer 
-	[UserId] int not null,
-	*/
 	[TransferId] int not null,
-	/* could be retreived through transfer
-	[SourceAccountId] int null,
-	[TargetAccountId] int null,
-	*/
 	[Date] datetime not null,
 	[Amount] money not null,
 	constraint PK_Transactions primary key ([Id])
 )
+go
+
+alter table dbo.[Transactions] add constraint
+	FK_Transactions_Transfers foreign key (TransferId) references dbo.[Transfers] (Id)
+	on update cascade 
+	on delete cascade 
 go
 
 /********************************************************************************************************
@@ -146,4 +185,10 @@ create table dbo.[AccountStates]
 	[Balance] money not null,
 	constraint PK_AccountStates primary key([AccountId], [Date])
 )
+go
+
+alter table dbo.[AccountStates] add constraint
+	FK_AccountStates_Accounts foreign key (AccountId) references dbo.[Accounts] (Id)
+	on update cascade 
+	on delete cascade 
 go
