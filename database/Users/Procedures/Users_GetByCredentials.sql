@@ -31,7 +31,7 @@ begin
 		update
 			[Users]
 		set
-			[Lastlogin] = getdate()
+			[LastLogon] = getdate()
 		where
 			[Id] = @id
 	end

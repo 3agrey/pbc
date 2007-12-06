@@ -1,6 +1,7 @@
 using System.Web;
 using System.Web.Security;
 using AIM.PBC.Core;
+using AIM.PBC.Core.BusinessObjects;
 
 namespace AIM.PBC.Web
 {

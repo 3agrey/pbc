@@ -1,5 +1,8 @@
+using System;
 using System.Data.SqlClient;
 using AIM.NCore.DataTypes;
+using AIM.PBC.Core.BusinessObjects;
+using NHibernate;
 
 namespace AIM.PBC.Core
 {
@@ -44,27 +47,14 @@ namespace AIM.PBC.Core
 		/// </summary>
 		public static User Get (int id)
 		{
-			const string procedureName = Namespace + "_" + "Get";
-			User entity = null;
-			SqlDataReader reader = null;
-			try
+			using (SqlConnection con = new SqlConnection(Settings.ConnectionString))
 			{
-				reader = ExecuteProcedureReader(procedureName,
-					new SqlParameter("@Id", id)
-				);
-				if (reader.Read())
+				using (ISession session = Settings.SessionFactory.OpenSession(con))
 				{
-					entity = new User(reader);
+					con.Open();
+					return session.Load<User>(id);
 				}
 			}
-			finally
-			{
-				if (reader != null && !reader.IsClosed)
-				{
-					reader.Close();
-				}
-			}
-			return entity;
 		}
 		
 		
@@ -73,14 +63,21 @@ namespace AIM.PBC.Core
 		/// </summary>
 		public static int Add (User entity)
 		{
-			const string procedureName = Namespace + "_" + "Add";
-			int id = (int) ExecuteProcedureScalar(procedureName, 
-				new SqlParameter("@Username", entity.Username.Value),
-				new SqlParameter("@Password", entity.Password.Value),
-				new SqlParameter("@Firstname", entity.Firstname.NullableValue),
-				new SqlParameter("@Lastname", entity.Lastname.NullableValue),
-				new SqlParameter("@Email", entity.Email.NullableValue));
-			return id;
+			if (entity == null) throw new ArgumentNullException("entity");
+
+			using(SqlConnection con = new SqlConnection(Settings.ConnectionString))
+			{
+				using (ISession session = Settings.SessionFactory.OpenSession(con))
+				{
+					con.Open();
+					ITransaction transaction = session.BeginTransaction();
+					session.Save(entity);
+					transaction.Commit();
+					//tell somehow to refresh object
+					session.Refresh(entity);
+					return entity.Id;
+				}
+			}
 		}
 	}
 }

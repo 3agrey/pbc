@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+	<class name="AIM.PBC.Core.BusinessObjects.User, AIM.PBC.Core" table="Users"
+		   lazy="false">
+		<id name="Id" type="Int32">
+			<generator class="native" />
+		</id>
+
+		<property name="Username" type="String" length="64" />
+		<property name="Password" type="String" length="64" />
+		<property name="Firstname" type="String" length="32" />
+		<property name="Lastname" type="String" length="32" />
+		<property name="Email" type="String" length="128" />
+		<property name="LastLogon" type="DateTime" />
+		<property name="_created" column="Created"  type="DateTime" update="false" insert="false" access="field" generated="insert" />
+		<property name="_hasTransactionCache" column="HasTransactionCache" type="Boolean" update="false" insert="false" access="field" generated="always" />
+	</class>
+
+</hibernate-mapping>

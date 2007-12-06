@@ -28,7 +28,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NHibernate, Version=1.2.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\components\NHibernate\bin\net-2.0\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -37,7 +42,11 @@
     <Compile Include="AccountHashList.cs" />
     <Compile Include="AccountList.cs" />
     <Compile Include="AccountProvider.cs" />
+    <Compile Include="BusinessObjects\User.cs" />
     <Compile Include="DataTableHelper.cs" />
+    <Compile Include="Exceptions\CoreException.cs" />
+    <Compile Include="Exceptions\NHibernateSectionLoadException.cs" />
+    <Compile Include="Exceptions\PbcException.cs" />
     <Compile Include="PercentageTransfer.cs" />
     <Compile Include="StandardPeriods.cs" />
     <Compile Include="PeriodicalTransfer.cs" />
@@ -53,7 +62,6 @@
     <Compile Include="SqlParameterList.cs" />
     <Compile Include="Transfer.cs" />
     <Compile Include="TransferTypes.cs" />
-    <Compile Include="User.cs" />
     <Compile Include="UserProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +69,12 @@
       <Project>{6C1E9F73-451A-4618-A874-B06BF40ACB33}</Project>
       <Name>NCore.DataTypes</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BusinessObjects\User.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

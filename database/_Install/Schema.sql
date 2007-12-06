@@ -30,9 +30,9 @@ create table dbo.[Users]
 	[Firstname] nvarchar(32) null,
 	[Lastname] nvarchar(32) null,
 	[Email] nvarchar(128) null,
-	[Created] datetime not null,
-	[LastLogin] datetime null,
-	[HasTransactionCache] bit not null,
+	[Created] datetime not null default(getdate()),
+	[LastLogon] datetime null,
+	[HasTransactionCache] bit not null default(0),
 	constraint PK_Users primary key ([Id])
 )
 go

@@ -1,68 +1,74 @@
 using System;
 using System.Data.SqlClient;
-
 using AIM.NCore.DataTypes;
 
-namespace AIM.PBC.Core
+namespace AIM.PBC.Core.BusinessObjects
 {
 	[Serializable]
 	public class User
 	{
-		#region Members
-		private DataInt32 _id;
-		private DataString _username;
-		private DataString _password;
-		private DataString _firstname;
-		private DataString _lastname;
-		private DataString _email;
-		private DataDateTime _created;
-		private DataDateTime _lastLogin;
-		private DataBoolean _hasTransactionCache;
+		private int _id;
+		private string _username;
+		private string _password;
+		private string _firstname;
+		private string _lastname;
+		private string _email;
+		private DateTime _created;
+		private DateTime? _lastLogin;
+		private bool _hasTransactionCache;
 
 		private AccountList _accounts = null;
-		#endregion
+		private string _fullName = null;
 
 		#region Properties
-		public DataInt32 Id
+
+		public int Id
 		{
 			get { return _id; }
 			set { _id = value; }
 		}
-		public DataString Username
+
+		public string Username
 		{
 			get { return _username; }
 			set { _username = value; }
 		}
-		public DataString Password
+
+		public string Password
 		{
 			get { return _password; }
 			set { _password = value; }
 		}
-		public DataString Firstname
+
+		public string Firstname
 		{
 			get { return _firstname; }
 			set { _firstname = value; }
 		}
-		public DataString Lastname
+
+		public string Lastname
 		{
 			get { return _lastname; }
 			set { _lastname = value; }
 		}
-		public DataString Email
+
+		public string Email
 		{
 			get { return _email; }
 			set { _email = value; }
 		}
-		public DataDateTime Created
+
+		public DateTime Created
 		{
 			get { return _created; }
-			set { _created = value; }
 		}
-		public DataDateTime LastLogin
+
+		public DateTime? LastLogon
 		{
 			get { return _lastLogin; }
 			set { _lastLogin = value; }
 		}
+
 		public DataBoolean HasTransactionCache
 		{
 			get { return _hasTransactionCache; }
@@ -72,48 +78,43 @@ namespace AIM.PBC.Core
 		{
 			get
 			{
-				string result = "";
-				if (!_firstname.IsNull)
+				if (_fullName == null)
 				{
-					result += _firstname;
+					_fullName = String.Format("{0} {1}", Firstname, Lastname);
+					_fullName = _fullName.Trim();
+					if (String.IsNullOrEmpty(_fullName))
+					{
+						_fullName = Username;
+					}
 				}
-				if (!_lastname.IsNull)
-				{
-					if (result.Length > 0) result += " ";
-					result += _lastname;
-				}
-
-				if (result.Length == 0)
-				{
-					result = _username;
-				}
-
-				return result;
+				return _fullName;
 			}
 		}
+
 		#endregion
 
 		#region Constructors
+
 		/// <summary>
 		/// Default constructor
 		/// </summary>
-		public User ()
+		public User()
 		{
-			_id = null;
+			_id = default(int);
 			_username = null;
 			_password = null;
 			_firstname = null;
 			_lastname = null;
 			_email = null;
-			_created = null;
+			_created = default(DateTime);
 			_lastLogin = null;
-			_hasTransactionCache = null;
+			_hasTransactionCache = default(bool);
 		}
 
 		/// <summary>
 		/// Constructor. Creates user entity and fills its properties by data from database
 		/// </summary>
-		public User (SqlDataReader reader)
+		public User(SqlDataReader reader)
 		{
 			_id = new DataInt32(reader["Id"]);
 			_username = new DataString(reader["Username"]);
@@ -122,17 +123,20 @@ namespace AIM.PBC.Core
 			_lastname = new DataString(reader["Lastname"]);
 			_email = new DataString(reader["Email"]);
 			_created = new DataDateTime(reader["Created"]);
-			_lastLogin = new DataDateTime(reader["LastLogin"]);
+			_lastLogin = new DataDateTime(reader["LastLogon"]);
 			_hasTransactionCache = new DataBoolean(reader["HasTransactionCache"]);
 		}
+
 		#endregion
 
 		#region Methods
+
 		public AccountList Accounts
 		{
 			get { return _accounts; }
 			set { _accounts = value; }
 		}
+
 		#endregion
 	}
 }

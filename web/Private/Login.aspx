@@ -43,8 +43,6 @@
 	<br />
 	<asp:PlaceHolder ID="phDebugLogin" runat="server" Visible='<%# Settings.IsDebug %>'>
 	<cc:Panel ID="pnlDebugLogin" runat="server" Mode="Gray" Width="400">
-	<a href="#" class="link" onclick="DebugLogin('codec', '1', 'on')">codec</a>
-	&nbsp;|&nbsp;
 	<a href="#" class="link" onclick="DebugLogin('test', '1', 'on')">test</a>
 	<br />
 	</cc:Panel>

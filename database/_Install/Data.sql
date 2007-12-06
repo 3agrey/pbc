@@ -17,8 +17,22 @@ go
 /********************************************************************************************************
 * Users & Accounts
 ********************************************************************************************************/
-exec Users_Add 'test', '1', 'Tester', 'Testerovich', 'test@domain.net'
-exec Users_Add 'codec', '1', 'Vadim', 'Yevsyukov', 'codec@zeos.net'
+insert into [Users]
+(
+	[Username],
+	[Password],
+	[FirstName],
+	[LastName],
+	[Email]
+)
+values
+(
+	'test',
+	'1',
+	'Tester',
+	'Testerovsky',
+	'test@pbc.com'
+)
 go
 
 commit
