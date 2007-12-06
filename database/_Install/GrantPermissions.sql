@@ -31,8 +31,6 @@ grant execute on dbo.[Transfers_UpdatePeriodical] to [pbcweb]
 grant execute on dbo.[Transfers_UpdatePercentage] to [pbcweb]
 grant execute on dbo.[Transfers_UpdateDeposit] to [pbcweb]
 
-grant execute on dbo.[Users_GetByCredentials] to [pbcweb]
-
 grant execute on dbo.[Reports_GetReportByTransactions] to [pbcweb]
 grant execute on dbo.[Reports_GetReportByAccounts] to [pbcweb]
 go
