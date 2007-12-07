@@ -2,7 +2,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using AIM.PBC.Core;
-
+using AIM.PBC.Core.Utilities;
 using Telerik.WebControls;
 
 namespace AIM.PBC.Web.Private.Pages
@@ -38,7 +38,7 @@ namespace AIM.PBC.Web.Private.Pages
 		{
 			DataTable reportData = ReportProvider.GetReportByAccounts(SessionManager.CurrentUser.Id);
 
-			DataTable xAxisItems = DataTableHelper.SelectDistinct(reportData, "Date");
+			DataTable xAxisItems = DataTableUtility.SelectDistinct(reportData, "Date");
 			rcReport.XAxis.Clear();
 			foreach (DataRow row in xAxisItems.Rows)
 			{
@@ -46,7 +46,7 @@ namespace AIM.PBC.Web.Private.Pages
 				rcReport.XAxis.AddItem(date.ToString("MM/dd/yyyy"));
 			}
 
-			DataTable accounts = DataTableHelper.SelectDistinct(reportData, "AccountId");
+			DataTable accounts = DataTableUtility.SelectDistinct(reportData, "AccountId");
 			foreach (DataRow accountRow in accounts.Rows)
 			{
 				int accountId = (int) accountRow["AccountId"];
@@ -56,7 +56,7 @@ namespace AIM.PBC.Web.Private.Pages
 				series.PointMark = ChartPointMark.None;
 				series.ShowLabels = false;
 
-				DataTable dates = DataTableHelper.SelectDistinct(reportData, "Date");
+				DataTable dates = DataTableUtility.SelectDistinct(reportData, "Date");
 				foreach (DataRow dateRow in dates.Rows)
 				{
 					DateTime date = (DateTime) dateRow["Date"];

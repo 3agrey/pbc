@@ -197,7 +197,7 @@ namespace AIM.PBC.Web.UI.Controls
 		}
 		#endregion
 
-		#region DataTableHelper
+		#region DataTableUtility
 		/// <summary>
 		/// Source:
 		/// HOW TO: Implement a DataSet SELECT DISTINCT Helper Class in Visual C# .NET

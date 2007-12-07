@@ -43,7 +43,6 @@
     <Compile Include="AccountList.cs" />
     <Compile Include="AccountProvider.cs" />
     <Compile Include="BusinessObjects\User.cs" />
-    <Compile Include="DataTableHelper.cs" />
     <Compile Include="Exceptions\CoreException.cs" />
     <Compile Include="Exceptions\NHibernateSectionLoadException.cs" />
     <Compile Include="Exceptions\PbcException.cs" />
@@ -63,6 +62,7 @@
     <Compile Include="Transfer.cs" />
     <Compile Include="TransferTypes.cs" />
     <Compile Include="UserProvider.cs" />
+    <Compile Include="Utilities\DataTableUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\components\NCore.DataTypes\NCore.DataTypes.csproj">
@@ -72,9 +72,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BusinessObjects\User.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utilities\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

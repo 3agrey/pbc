@@ -1,9 +1,9 @@
 using System;
 using System.Data;
 
-namespace AIM.PBC.Core
+namespace AIM.PBC.Core.Utilities
 {
-	public static class DataTableHelper
+	public static class DataTableUtility
 	{
 		private static bool ColumnEqual (object a, object b)
 		{
