@@ -1,5 +1,10 @@
+using System;
 using System.Data;
 using System.Data.SqlClient;
+using AIM.PBC.Core.BusinessObjects;
+using AIM.PBC.Core.Exceptions;
+using Iesi.Collections.Generic;
+using NHibernate;
 
 namespace AIM.PBC.Core
 {
@@ -27,53 +32,26 @@ namespace AIM.PBC.Core
 		/// </summary>
 		public static Account Get (int id)
 		{
-			const string procedureName = Namespace + "_" + "Get";
-			Account entity = null;
-			SqlDataReader reader = null;
-			try
+			using (ISession session = Settings.SessionFactory.OpenSession())
 			{
-				reader = ExecuteProcedureReader(procedureName,
-					new SqlParameter("@Id", id)
-				);
-				if (reader.Read())
-				{
-					entity = new Account();
-					entity.LoadFromReader(reader);
-				}
+				return session.Load<Account>(id);
 			}
-			finally
-			{
-				if (reader != null && !reader.IsClosed)
-				{
-					reader.Close();
-				}
-			}
-			return entity;
 		}
 
 		/// <summary>
 		/// Returns account list
 		/// </summary>
-		public static AccountList GetList (int userId)
+		public static ISet<Account> GetList (int userId)
 		{
-			const string procedureName = Namespace + "_" + "GetList";
-			AccountList list;
-			SqlDataReader reader = null;
-			try
+			using (ISession session = Settings.SessionFactory.OpenSession())
 			{
-				reader = ExecuteProcedureReader(procedureName,
-					new SqlParameter("@UserId", userId)
-				);
-				list = new AccountList(reader);
-			}
-			finally
-			{
-				if (reader != null && !reader.IsClosed)
+				User usr = session.Load<User>(userId);
+				if (usr == null)
 				{
-					reader.Close();
+					throw new ConsistencyException(String.Format("Unable to get account list. UserId supplied = {0}", userId));
 				}
+				return usr.Accounts;
 			}
-			return list;
 		}
 
 		/// <summary>
@@ -81,14 +59,17 @@ namespace AIM.PBC.Core
 		/// </summary>
 		public static int Add (Account entity)
 		{
-			const string procedureName = Namespace + "_" + "Add";
-			int id = (int) ExecuteProcedureScalar(procedureName,
-				new SqlParameter("@UserId", entity.UserId.Value),
-				new SqlParameter("@Name", entity.Name.Value),
-				new SqlParameter("@BeginningBalance", entity.BeginningBalance.Value),
-				new SqlParameter("@BeginningBalanceDate", entity.BeginningBalanceDate.Value)
-			);
-			return id;
+			if (entity == null) throw new ArgumentNullException("entity");
+
+			using (ISession session = Settings.SessionFactory.OpenSession())
+			{
+				ITransaction transaction = session.BeginTransaction();
+				session.Save(entity);
+				transaction.Commit();
+				//tell somehow to refresh object
+				session.Refresh(entity);
+				return entity.Id;
+			}
 		}
 
 		/// <summary>
@@ -96,13 +77,14 @@ namespace AIM.PBC.Core
 		/// </summary>
 		public static void Update (Account entity)
 		{
-			const string procedureName = Namespace + "_" + "Update";
-			ExecuteProcedureNonQuery(procedureName,
-				new SqlParameter("@Id", entity.Id.Value),
-				new SqlParameter("@Name", entity.Name.Value),
-				new SqlParameter("@BeginningBalance", entity.BeginningBalance.Value),
-				new SqlParameter("@BeginningBalanceDate", entity.BeginningBalanceDate.Value)
-			);
+			if (entity == null) throw new ArgumentNullException("entity");
+
+			using (ISession session = Settings.SessionFactory.OpenSession())
+			{
+				ITransaction transaction = session.BeginTransaction();
+				session.Flush();
+				transaction.Commit();
+			}
 		}
 	}
 }

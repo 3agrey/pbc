@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using AIM.PBC.Core;
+using AIM.PBC.Core.BusinessObjects;
 using AIM.PBC.Core.Utilities;
 using Telerik.WebControls;
 

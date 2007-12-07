@@ -2,7 +2,9 @@ using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AIM.PBC.Core;
+using AIM.PBC.Core.BusinessObjects;
 using AIM.PBC.Web.UI.Controls;
+using Iesi.Collections.Generic;
 
 namespace AIM.PBC.Web.Private.Pages
 {
@@ -63,7 +65,7 @@ namespace AIM.PBC.Web.Private.Pages
 
 		private void BindAccountSelectors ()
 		{
-			AccountList list = AccountProvider.GetList(SessionManager.CurrentUser.Id);
+			ISet<Account> list = AccountProvider.GetList(SessionManager.CurrentUser.Id);
 			ddlSourceAccount.DataSource = list;
 			ddlSourceAccount.DataTextField = "Name";
 			ddlSourceAccount.DataValueField = "Id";

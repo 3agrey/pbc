@@ -33,6 +33,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\components\NCore.DataTypes\bin\Release\AIM.NCore.DataTypes.dll</HintPath>
     </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\components\NHibernate\bin\net-2.0\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="RadCalendar.Net2, Version=1.7.1.0, Culture=neutral, PublicKeyToken=a1432cd341173140, processorArchitecture=MSIL" />
     <Reference Include="RadChart.Net2, Version=2.6.1.0, Culture=neutral, PublicKeyToken=d14f3dcc8e3e8763, processorArchitecture=MSIL" />
     <Reference Include="RadInput.Net2, Version=1.3.1.0, Culture=neutral, PublicKeyToken=4b5a52e6671b1616, processorArchitecture=MSIL" />

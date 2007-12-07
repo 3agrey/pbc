@@ -1,51 +1,56 @@
 using System;
 using System.Data.SqlClient;
-
 using AIM.NCore.DataTypes;
 
-namespace AIM.PBC.Core
+namespace AIM.PBC.Core.BusinessObjects
 {
 	[Serializable]
 	public class Account
 	{
-		#region Members
-		private DataInt32 _id = null;
-		private DataInt32 _userId = null;
-		private DataString _name = null;
-		private DataDecimal _beginningBalance = null;
-		private DataDateTime _beginningBalanceDate = null;
-		#endregion
+		private int _id;
+		private int _userId;
+		private string _name;
+		private decimal _beginningBalance;
+		private DateTime _beginningBalanceDate;
+		private User _user;
 
-		#region Properties
-		public DataInt32 Id
+		public int Id
 		{
 			get { return _id; }
 			set { _id = value; }
 		}
-		public DataInt32 UserId
+
+		public int UserId
 		{
 			get { return _userId; }
 			set { _userId = value; }
 		}
-		public DataString Name
+
+		public string Name
 		{
 			get { return _name; }
 			set { _name = value; }
 		}
-		public DataDecimal BeginningBalance
+
+		public decimal BeginningBalance
 		{
 			get { return _beginningBalance; }
 			set { _beginningBalance = value; }
 		}
-		public DataDateTime BeginningBalanceDate
+
+		public DateTime BeginningBalanceDate
 		{
 			get { return _beginningBalanceDate; }
 			set { _beginningBalanceDate = value; }
 		}
-		#endregion
 
-		#region LoadFromReader
-		public virtual void LoadFromReader (SqlDataReader reader)
+		public User User
+		{
+			get { return _user; }
+			set { _user = value; }
+		}
+
+		public virtual void LoadFromReader(SqlDataReader reader)
 		{
 			_id = new DataInt32(reader["Id"]);
 			_userId = new DataInt32(reader["UserId"]);
@@ -53,13 +58,10 @@ namespace AIM.PBC.Core
 			_beginningBalance = new DataDecimal(reader["BeginningBalance"]);
 			_beginningBalanceDate = new DataDateTime(reader["BeginningBalanceDate"]);
 		}
-		#endregion
 
-		#region GetHashCode
-		public override int GetHashCode ()
+		public override int GetHashCode()
 		{
 			return _id;
 		}
-		#endregion
 	}
 }

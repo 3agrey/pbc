@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="AIM.PBC.Core" namespace="AIM.PBC.Core.BusinessObjects">
 
-	<class name="AIM.PBC.Core.BusinessObjects.User, AIM.PBC.Core" table="Users"
-		   lazy="false">
+	<class name="User" table="Users" lazy="false">
 		<id name="Id" type="Int32">
 			<generator class="native" />
 		</id>
@@ -16,6 +16,11 @@
 		<property name="LastLogon" type="DateTime" />
 		<property name="_created" column="Created"  type="DateTime" update="false" insert="false" access="field" generated="insert" />
 		<property name="_hasTransactionCache" column="HasTransactionCache" type="Boolean" update="false" insert="false" access="field" generated="always" />
+
+		<set name="Accounts" inverse="true" lazy="true">
+			<key column="UserId"/>
+			<one-to-many class="Account"/>
+		</set>
 	</class>
 
 </hibernate-mapping>

@@ -28,6 +28,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\components\NHibernate\bin\net-2.0\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=1.2.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\components\NHibernate\bin\net-2.0\NHibernate.dll</HintPath>
@@ -38,11 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs" />
-    <Compile Include="AccountHashList.cs" />
-    <Compile Include="AccountList.cs" />
     <Compile Include="AccountProvider.cs" />
+    <Compile Include="BusinessObjects\Account.cs" />
     <Compile Include="BusinessObjects\User.cs" />
+    <Compile Include="Exceptions\ConsistencyException.cs" />
     <Compile Include="Exceptions\CoreException.cs" />
     <Compile Include="Exceptions\NHibernateSectionLoadException.cs" />
     <Compile Include="Exceptions\PbcException.cs" />
@@ -72,6 +75,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BusinessObjects\User.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BusinessObjects\Account.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

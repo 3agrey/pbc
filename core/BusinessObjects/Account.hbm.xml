@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+				assembly="AIM.PBC.Core" namespace="AIM.PBC.Core.BusinessObjects">
+
+	<class name="Account" table="Accounts" lazy="false">
+		<id name="Id" type="Int32">
+			<generator class="native" />
+		</id>
+
+		<property name="UserId" type="Int32" />
+		<property name="Name" type="String" length="64" />
+		<property name="BeginningBalance" type="Decimal" />
+		<property name="BeginningBalanceDate" type="DateTime" />
+
+		<many-to-one name="User" class="User" column="UserId" not-null="true"/>
+	</class>
+
+</hibernate-mapping>

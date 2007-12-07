@@ -1,6 +1,7 @@
 using System;
 using System.Globalization;
 using AIM.PBC.Core;
+using AIM.PBC.Core.BusinessObjects;
 using AIM.PBC.Web.UI.Controls;
 
 namespace AIM.PBC.Web.Private.Pages

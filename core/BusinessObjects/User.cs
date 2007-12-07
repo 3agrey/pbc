@@ -1,6 +1,6 @@
 using System;
-using System.Data.SqlClient;
 using AIM.NCore.DataTypes;
+using Iesi.Collections.Generic;
 
 namespace AIM.PBC.Core.BusinessObjects
 {
@@ -17,10 +17,8 @@ namespace AIM.PBC.Core.BusinessObjects
 		private DateTime? _lastLogin;
 		private bool _hasTransactionCache;
 
-		private AccountList _accounts = null;
+		private ISet<Account> _accounts;
 		private string _fullName = null;
-
-		#region Properties
 
 		public int Id
 		{
@@ -91,52 +89,10 @@ namespace AIM.PBC.Core.BusinessObjects
 			}
 		}
 
-		#endregion
-
-		#region Constructors
-
-		/// <summary>
-		/// Default constructor
-		/// </summary>
-		public User()
-		{
-			_id = default(int);
-			_username = null;
-			_password = null;
-			_firstname = null;
-			_lastname = null;
-			_email = null;
-			_created = default(DateTime);
-			_lastLogin = null;
-			_hasTransactionCache = default(bool);
-		}
-
-		/// <summary>
-		/// Constructor. Creates user entity and fills its properties by data from database
-		/// </summary>
-		public User(SqlDataReader reader)
-		{
-			_id = new DataInt32(reader["Id"]);
-			_username = new DataString(reader["Username"]);
-			_password = new DataString(reader["Password"]);
-			_firstname = new DataString(reader["Firstname"]);
-			_lastname = new DataString(reader["Lastname"]);
-			_email = new DataString(reader["Email"]);
-			_created = new DataDateTime(reader["Created"]);
-			_lastLogin = new DataDateTime(reader["LastLogon"]);
-			_hasTransactionCache = new DataBoolean(reader["HasTransactionCache"]);
-		}
-
-		#endregion
-
-		#region Methods
-
-		public AccountList Accounts
+		public ISet<Account> Accounts
 		{
 			get { return _accounts; }
 			set { _accounts = value; }
 		}
-
-		#endregion
 	}
 }
