@@ -57,9 +57,6 @@ namespace AIM.PBC.Core
 				case TransferTypes.Percentage:
 					procedureName += "Percentage";
 					break;
-				case TransferTypes.Deposit:
-					procedureName += "Deposit";
-					break;
 			}
 			
 			Transfer entity = null;
@@ -174,19 +171,6 @@ namespace AIM.PBC.Core
 				parameterList.Add(new SqlParameter("@StartDate", actualEntity.StartDate.Value));
 				parameterList.Add(new SqlParameter("@Period", actualEntity.Period.Value));
 			}
-			//			else if (entityType == typeof(DepositTransfer))
-			//			{
-			//				procedureName += "Deposit";
-			//				DepositTransfer actualEntity = (DepositTransfer) entity;
-			//				parameterList.Add(new SqlParameter("@BeginningAmount", actualEntity.BeginningAmount.Value));
-			//				parameterList.Add(new SqlParameter("@Percentage", actualEntity.Percentage.Value));
-			//				parameterList.Add(new SqlParameter("@StartDate", actualEntity.StartDate.Value));
-			//				parameterList.Add(new SqlParameter("@Period", actualEntity.Period.Value));
-			//				parameterList.Add(new SqlParameter("@IncrementPeriodType", actualEntity.IncrementPeriodType.Value));
-			//				parameterList.Add(new SqlParameter("@IncrementStandardPeriod", actualEntity.IncrementStandardPeriod.NullableValue));
-			//				parameterList.Add(new SqlParameter("@IncrementCustomPeriod", actualEntity.IncrementCustomPeriod.NullableValue));
-			//				parameterList.Add(new SqlParameter("@IncrementAmount", actualEntity.IncrementAmount.Value));
-			//			}
 			else
 			{
 				throw new NotSupportedException();

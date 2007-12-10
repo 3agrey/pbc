@@ -4,7 +4,6 @@ namespace AIM.PBC.Core
 	{
 		Single = 1,
 		Periodical = 2,
-		Percentage = 3,
-		Deposit = 4
+		Percentage = 3
 	}
 }
