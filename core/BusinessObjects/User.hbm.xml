@@ -17,7 +17,7 @@
 		<property name="_created" column="Created"  type="DateTime" update="false" insert="false" access="field" generated="insert" />
 		<property name="_hasTransactionCache" column="HasTransactionCache" type="Boolean" update="false" insert="false" access="field" generated="always" />
 
-		<set name="Accounts" inverse="true" lazy="true">
+		<set name="Accounts" inverse="true" lazy="false">
 			<key column="UserId"/>
 			<one-to-many class="Account"/>
 		</set>
