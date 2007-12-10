@@ -15,7 +15,7 @@ namespace AIM.PBC.Core
 
 		private static string _connectionString;
 		private static bool _isDebug;
-		private static ISessionFactory _sessionFactory;
+		private static readonly ISessionFactory _sessionFactory;
 
 		/// <summary>
 		/// Static constructor
@@ -26,10 +26,16 @@ namespace AIM.PBC.Core
 			_connectionString = "";
 			_isDebug = false;
 
-//			Configuration cfg = new Configuration();
-//			cfg.AddAssembly(Assembly.GetCallingAssembly());
-//			cfg.AddAssembly(Assembly.GetExecutingAssembly());
-//			_sessionFactory = cfg.BuildSessionFactory();
+			Configuration cfg = new Configuration();
+			IDictionary section = ConfigurationManager.GetSection(NhibernateSectionName) as IDictionary;
+			if (section == null)
+			{
+				throw new NHibernateSectionLoadException();
+			}
+			cfg.AddProperties(section);
+			cfg.AddAssembly(typeof(Settings).Assembly);
+
+			_sessionFactory = cfg.BuildSessionFactory();
 		}
 
 		/// <summary>
@@ -57,16 +63,6 @@ namespace AIM.PBC.Core
 		{
 			get
 			{
-				Configuration cfg = new Configuration();
-				IDictionary section = ConfigurationManager.GetSection(NhibernateSectionName) as IDictionary;
-				if (section == null)
-				{
-					throw new NHibernateSectionLoadException();
-				}
-				cfg.AddProperties(section);
-				cfg.AddAssembly(typeof(Settings).Assembly);
-				
-				_sessionFactory = cfg.BuildSessionFactory();
 				return _sessionFactory;
 			}
 		}
