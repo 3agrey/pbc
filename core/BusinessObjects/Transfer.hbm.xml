@@ -8,8 +8,6 @@
 			<generator class="native" />
 		</id>
 
-		<property name="SourceAccountId" type="Int32" />
-		<property name="TargetAccountId" type="Int32" />
 		<property name="Name" type="String" length="64" />
 		<property name="Amount" type="Decimal"/>
 		<property name="_type" column="Type" type="Byte" access="field" />
