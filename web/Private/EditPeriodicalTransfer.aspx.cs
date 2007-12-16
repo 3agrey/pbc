@@ -252,7 +252,7 @@ namespace AIM.PBC.Web.Private.Pages
 			if(entity.PeriodType == PeriodTypes.Standard)
 			{
 				SelectStandardPeriod();
-				rblStandardPeriod.Items.FindByValue(entity.StandardPeriod.ToString()).Selected = true;
+				rblStandardPeriod.Items.FindByValue(((byte)entity.StandardPeriod).ToString()).Selected = true;
 			}
 			else
 			{
