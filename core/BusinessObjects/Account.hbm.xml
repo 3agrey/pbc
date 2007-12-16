@@ -14,14 +14,17 @@
 
 		<many-to-one name="User" class="User" column="UserId" not-null="true"/>
 
+		<!--
 		<set name="TransfersFrom" inverse="true" lazy="false">
 			<key column="SourceAccountId"/>
 			<one-to-many class="Transfer"/>
 		</set>
+		
 		<set name="TransfersTo" inverse="true" lazy="false">
 			<key column="TargetAccountId"/>
 			<one-to-many class="Transfer"/>
 		</set>
+		-->
 	</class>
 
 </hibernate-mapping>

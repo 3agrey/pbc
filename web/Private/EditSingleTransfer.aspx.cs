@@ -105,16 +105,16 @@ namespace AIM.PBC.Web.Private.Pages
 		private void cvPage_ServerValidate (object source, ServerValidateEventArgs args)
 		{
 			// accounts
-			if (ddlSourceAccount.SelectedAccountValue == ddlSourceAccount.EmptyValue)
+			if (!ddlSourceAccount.HasSelectedAccount)
 			{
 				ctrlClientMessage.Messages.Add("Please select 'Source Account'");
 			}
-			if (ddlTargetAccount.SelectedAccountValue == ddlTargetAccount.EmptyValue)
+			if (!ddlTargetAccount.HasSelectedAccount)
 			{
 				ctrlClientMessage.Messages.Add("Please select 'Target Account'");
 			}
-			if ((ddlSourceAccount.SelectedAccountValue == ddlSourceAccount.ExternalAccountValue) &&
-			    (ddlTargetAccount.SelectedAccountValue == ddlTargetAccount.ExternalAccountValue))
+			if ((!ddlSourceAccount.HasSelectedAccount) &&
+			    (!ddlTargetAccount.HasSelectedAccount))
 			{
 				ctrlClientMessage.Messages.Add("Only one account can be 'External'");
 			}
@@ -153,22 +153,10 @@ namespace AIM.PBC.Web.Private.Pages
 			if (Page.IsValid)
 			{
 				SingleTransfer entity = (SingleTransfer) TransferProvider.Get(ParamTransferId, TransferTypes.Single);
-				if (ddlSourceAccount.SelectedAccountValue == 0)
-				{
-					entity.SourceAccountId = null;
-				}
-				else
-				{
-					entity.SourceAccountId = ddlSourceAccount.SelectedAccountValue;
-				}
-				if (ddlTargetAccount.SelectedAccountValue == 0)
-				{
-					entity.TargetAccountId = null;
-				}
-				else
-				{
-					entity.TargetAccountId = ddlTargetAccount.SelectedAccountValue;
-				}
+				
+				entity.SourceAccount = ddlSourceAccount.SelectedAccount;
+				entity.TargetAccount = ddlTargetAccount.SelectedAccount;
+				
 				entity.Name = tbName.Text;
 				entity.Amount = decimal.Parse(tbAmount.Text);
 				entity.Date = dpTransactionDate.SelectedDate;
@@ -187,22 +175,10 @@ namespace AIM.PBC.Web.Private.Pages
 			if (Page.IsValid)
 			{
 				SingleTransfer entity = new SingleTransfer();
-				if (ddlSourceAccount.SelectedAccountValue == 0)
-				{
-					entity.SourceAccountId = null;
-				}
-				else
-				{
-					entity.SourceAccountId = ddlSourceAccount.SelectedAccountValue;
-				}
-				if (ddlTargetAccount.SelectedAccountValue == 0)
-				{
-					entity.TargetAccountId = null;
-				}
-				else
-				{
-					entity.TargetAccountId = ddlTargetAccount.SelectedAccountValue;
-				}
+
+				entity.SourceAccount = ddlSourceAccount.SelectedAccount;
+				entity.TargetAccount = ddlTargetAccount.SelectedAccount;
+				
 				entity.Name = tbName.Text;
 				entity.Amount = decimal.Parse(tbAmount.Text);
 				entity.Date = dpTransactionDate.SelectedDate;
@@ -214,22 +190,10 @@ namespace AIM.PBC.Web.Private.Pages
 		private void InitEditOperation ()
 		{
 			SingleTransfer entity = (SingleTransfer) TransferProvider.Get(ParamTransferId, TransferTypes.Single);
-			if (entity.SourceAccountId != null)
-			{
-				ddlSourceAccount.Items.FindByValue(entity.SourceAccountId.ToString()).Selected = true;
-			}
-			else
-			{
-				ddlSourceAccount.Items.FindByValue(ddlSourceAccount.ExternalAccountValue.ToString()).Selected = true;
-			}
-			if (entity.TargetAccountId != null)
-			{
-				ddlTargetAccount.Items.FindByValue(entity.TargetAccountId.ToString()).Selected = true;
-			}
-			else
-			{
-				ddlTargetAccount.Items.FindByValue(ddlTargetAccount.ExternalAccountValue.ToString()).Selected = true;
-			}
+			
+			ddlSourceAccount.SelectedAccount = entity.SourceAccount;
+			ddlTargetAccount.SelectedAccount = entity.TargetAccount;
+			
 			tbName.Text = entity.Name;
 			tbAmount.Text = entity.Amount.ToString();
 			dpTransactionDate.SelectedDate = entity.Date;

@@ -1,5 +1,7 @@
 using System;
 using System.Web.UI.WebControls;
+using AIM.PBC.Core;
+using AIM.PBC.Core.BusinessObjects;
 
 namespace AIM.PBC.Web.UI.Controls
 {
@@ -47,17 +49,35 @@ namespace AIM.PBC.Web.UI.Controls
 			get { return _externalAccountText; }
 			set { _externalAccountText = value; }
 		}
+
+		public bool HasSelectedAccount
+		{
+			get { return int.Parse(SelectedValue) != EmptyValue; }
+		}
 		
-		public int SelectedAccountValue
+		public Account SelectedAccount
 		{
 			get
 			{
-				int result = _emptyValue;
 				if (SelectedIndex != -1)
 				{
-					result = int.Parse(SelectedValue);
+					int value = int.Parse(SelectedValue);
+					return AccountProvider.Get(value);
 				}
-				return result;
+				return null;
+			}
+			set
+			{
+				int valueInt;
+				if (value == null)
+				{
+					valueInt = ExternalAccountValue;
+				}
+				else
+				{
+					valueInt = value.Id;
+				}
+				Items.FindByValue(valueInt.ToString()).Selected = true;
 			}
 		}
 
