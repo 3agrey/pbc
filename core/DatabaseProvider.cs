@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
-using AIM.NCore.DataTypes;
 
 namespace AIM.PBC.Core
 {

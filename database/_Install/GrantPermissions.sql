@@ -9,8 +9,6 @@ use [PBC]
 go
 
 -- procedures
-grant execute on dbo.[Accounts_GetStatistic] to [pbcweb]
-
 grant execute on dbo.[Reports_GetReportByTransactions] to [pbcweb]
 grant execute on dbo.[Reports_GetReportByAccounts] to [pbcweb]
 go

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using AIM.PBC.Core.BusinessObjects;
 using AIM.PBC.Core.Exceptions;

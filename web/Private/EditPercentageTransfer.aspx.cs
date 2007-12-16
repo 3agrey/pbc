@@ -1,10 +1,9 @@
 using System;
-using System.Web.UI;
+using System.Collections.ObjectModel;
 using System.Web.UI.WebControls;
 using AIM.PBC.Core;
 using AIM.PBC.Core.BusinessObjects;
 using AIM.PBC.Web.UI.Controls;
-using Iesi.Collections.Generic;
 
 namespace AIM.PBC.Web.Private.Pages
 {
@@ -28,7 +27,6 @@ namespace AIM.PBC.Web.Private.Pages
 				return result;
 			}
 		}
-
 
 		public override string PageTitle
 		{
@@ -65,7 +63,7 @@ namespace AIM.PBC.Web.Private.Pages
 
 		private void BindAccountSelectors ()
 		{
-			ISet<Account> list = AccountProvider.GetList(SessionManager.CurrentUser.Id);
+			ReadOnlyCollection<Account> list = AccountProvider.GetList(SessionManager.CurrentUser.Id);
 			ddlSourceAccount.DataSource = list;
 			ddlSourceAccount.DataTextField = "Name";
 			ddlSourceAccount.DataValueField = "Id";

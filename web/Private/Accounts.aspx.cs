@@ -1,6 +1,7 @@
 using System;
-using System.Data;
+using System.Collections.ObjectModel;
 using AIM.PBC.Core;
+using AIM.PBC.Core.BusinessObjects;
 
 namespace AIM.PBC.Web.Private.Pages
 {
@@ -25,10 +26,10 @@ namespace AIM.PBC.Web.Private.Pages
 			if (!IsPostBack)
 			{
 				int userId = SessionManager.CurrentUser.Id;
-				DataTable accountsStat = AccountProvider.GetStatistic(userId);
+				ReadOnlyCollection<Account> accountsStat = AccountProvider.GetList(userId);
 				rpAccounts.DataSource = accountsStat;
 				rpAccounts.DataBind();
-				phEmpty.Visible = accountsStat.Rows.Count == 0;
+				phEmpty.Visible = accountsStat.Count == 0;
 			}
 		}
 
