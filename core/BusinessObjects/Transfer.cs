@@ -3,7 +3,7 @@ using System;
 namespace AIM.PBC.Core.BusinessObjects
 {
 	[Serializable]
-	public class Transfer
+	public class Transfer : PbcObject
 	{
 		private int _id;
 		private int? _sourceAccountId;
@@ -15,7 +15,7 @@ namespace AIM.PBC.Core.BusinessObjects
 		private Account _sourceAccount;
 		private Account _targetAccount;
 
-		public int Id
+		public override int Id
 		{
 			get { return _id; }
 			set { _id = value; }

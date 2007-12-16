@@ -1,11 +1,10 @@
 using System;
-using AIM.NCore.DataTypes;
 using Iesi.Collections.Generic;
 
 namespace AIM.PBC.Core.BusinessObjects
 {
 	[Serializable]
-	public class User
+	public class User : PbcObject
 	{
 		private int _id;
 		private string _username;
@@ -20,7 +19,7 @@ namespace AIM.PBC.Core.BusinessObjects
 		private ISet<Account> _accounts;
 		private string _fullName = null;
 
-		public int Id
+		public override int Id
 		{
 			get { return _id; }
 			set { _id = value; }
@@ -67,7 +66,7 @@ namespace AIM.PBC.Core.BusinessObjects
 			set { _lastLogin = value; }
 		}
 
-		public DataBoolean HasTransactionCache
+		public bool HasTransactionCache
 		{
 			get { return _hasTransactionCache; }
 		}

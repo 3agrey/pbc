@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="AccountProvider.cs" />
     <Compile Include="BusinessObjects\Account.cs" />
+    <Compile Include="BusinessObjects\PbcObject.cs" />
     <Compile Include="BusinessObjects\PercentageTransfer.cs" />
     <Compile Include="BusinessObjects\PeriodicalTransfer.cs" />
     <Compile Include="BusinessObjects\SingleTransfer.cs" />
@@ -66,12 +67,6 @@
     <Compile Include="UserProvider.cs" />
     <Compile Include="Utilities\CollectionUtility.cs" />
     <Compile Include="Utilities\DataTableUtility.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\components\NCore.DataTypes\NCore.DataTypes.csproj">
-      <Project>{6C1E9F73-451A-4618-A874-B06BF40ACB33}</Project>
-      <Name>NCore.DataTypes</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BusinessObjects\User.hbm.xml" />

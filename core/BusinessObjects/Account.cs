@@ -4,7 +4,7 @@ using Iesi.Collections.Generic;
 namespace AIM.PBC.Core.BusinessObjects
 {
 	[Serializable]
-	public class Account
+	public class Account : PbcObject
 	{
 		private int _id;
 		private string _name;
@@ -14,7 +14,7 @@ namespace AIM.PBC.Core.BusinessObjects
 		private ISet<Account> _transfersFrom;
 		private ISet<Account> _transfersTo;
 
-		public int Id
+		public override int Id
 		{
 			get { return _id; }
 			set { _id = value; }
