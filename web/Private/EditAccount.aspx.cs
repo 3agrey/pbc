@@ -126,10 +126,11 @@ namespace AIM.PBC.Web.Private.Pages
 			if (Page.IsValid)
 			{
 				Account entity = new Account();
-				entity.UserId = SessionManager.CurrentUser.Id;
+				//entity.UserId = SessionManager.CurrentUser.Id;
 				entity.Name = tbName.Text;
 				entity.BeginningBalance = decimal.Parse(tbBeginningBalance.Text);
 				entity.BeginningBalanceDate = dpBeginningBalanceDate.SelectedDate;
+				entity.User = SessionManager.CurrentUser;
 				AccountProvider.Add(entity);
 				Response.Redirect("Accounts.aspx");
 			}

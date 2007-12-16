@@ -8,7 +8,6 @@
 			<generator class="native" />
 		</id>
 
-		<property name="UserId" type="Int32" />
 		<property name="Name" type="String" length="64" />
 		<property name="BeginningBalance" type="Decimal" />
 		<property name="BeginningBalanceDate" type="DateTime" />
@@ -19,7 +18,7 @@
 			<key column="SourceAccountId"/>
 			<one-to-many class="Transfer"/>
 		</set>
-		<set name="TransferTo" inverse="true" lazy="false">
+		<set name="TransfersTo" inverse="true" lazy="false">
 			<key column="TargetAccountId"/>
 			<one-to-many class="Transfer"/>
 		</set>

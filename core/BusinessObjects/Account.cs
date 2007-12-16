@@ -7,7 +7,6 @@ namespace AIM.PBC.Core.BusinessObjects
 	public class Account
 	{
 		private int _id;
-		private int _userId;
 		private string _name;
 		private decimal _beginningBalance;
 		private DateTime _beginningBalanceDate;
@@ -19,12 +18,6 @@ namespace AIM.PBC.Core.BusinessObjects
 		{
 			get { return _id; }
 			set { _id = value; }
-		}
-
-		public int UserId
-		{
-			get { return _userId; }
-			set { _userId = value; }
 		}
 
 		public string Name

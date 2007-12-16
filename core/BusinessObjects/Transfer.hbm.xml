@@ -12,7 +12,7 @@
 		<property name="TargetAccountId" type="Int32" />
 		<property name="Name" type="String" length="64" />
 		<property name="Amount" type="Decimal"/>
-		<property name="_type" type="Byte" access="field" />
+		<property name="_type" column="Type" type="Byte" access="field" />
 
 		<many-to-one name="SourceAccount" class="Account" column="SourceAccountId" not-null="false"/>
 		<many-to-one name="TargetAccount" class="Account" column="TargetAccountId" not-null="false"/>
@@ -25,8 +25,8 @@
 			<key column="Id"/>
 			<property name="StartDate" type="DateTime"/>
 			<property name="EndDate" type="DateTime"/>
-			<property name="_periodType" type="Byte" access="field" />
-			<property name="_standardPeriod" type="Byte" access="field" />
+			<property name="_periodType" column="PeriodType" type="Byte" access="field" />
+			<property name="_standardPeriod" column="StandardPeriod" type="Byte" access="field" />
 			<property name="CustomPeriod" type="Int32" />
 		</joined-subclass>
 		<joined-subclass name="PercentageTransfer" table="PercentageTransfers" lazy="false">
