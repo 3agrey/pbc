@@ -1,5 +1,6 @@
 using System;
 using AIM.PBC.Web;
+using AIM.PBC.Web.AppCode;
 
 namespace AIM.PBC.Web.Private.Pages
 {

@@ -1,9 +1,10 @@
 using System;
 using System.Resources;
+using System.Web.UI;
 
-namespace AIM.PBC.Web
+namespace AIM.PBC.Web.AppCode
 {
-	public abstract class BasePage : System.Web.UI.Page
+	public abstract class BasePage : Page
 	{
 		private string _pageTittle = null;
 

@@ -3,6 +3,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AIM.PBC.Core;
 using AIM.PBC.Core.BusinessObjects;
+using AIM.PBC.Web.AppCode;
 
 namespace AIM.PBC.Web.Private.Pages
 {

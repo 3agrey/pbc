@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using System.Web.UI.WebControls;
 using AIM.PBC.Core;
+using AIM.PBC.Web.AppCode;
 
 namespace AIM.PBC.Web.Private.Pages
 {

@@ -2,6 +2,7 @@ using System;
 using System.Collections.ObjectModel;
 using AIM.PBC.Core;
 using AIM.PBC.Core.BusinessObjects;
+using AIM.PBC.Web.AppCode;
 
 namespace AIM.PBC.Web.Private.Pages
 {
