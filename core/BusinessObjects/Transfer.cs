@@ -6,6 +6,8 @@ namespace AIM.PBC.Core.BusinessObjects
 	public class Transfer
 	{
 		private int _id;
+		private int? _sourceAccountId;
+		private int? _targetAccountId;
 		private string _name;
 		private decimal _amount;
 		private byte _type;
@@ -17,6 +19,18 @@ namespace AIM.PBC.Core.BusinessObjects
 		{
 			get { return _id; }
 			set { _id = value; }
+		}
+
+		public int? SourceAccountId
+		{
+			get { return _sourceAccountId; }
+			set { _sourceAccountId = value; }
+		}
+
+		public int? TargetAccountId
+		{
+			get { return _targetAccountId; }
+			set { _targetAccountId = value; }
 		}
 
 		public string Name
