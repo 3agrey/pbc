@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="AIM.PBC.Core" namespace="AIM.PBC.Core.BusinessObjects">
+
+	<class name="Transfer" table="Transfers" lazy="false">
+		<id name="Id" type="Int32">
+			<generator class="native" />
+		</id>
+
+		<property name="SourceAccountId" type="Int32" />
+		<property name="TargetAccountId" type="Int32" />
+		<property name="Name" type="String" length="64" />
+		<property name="Amount" type="Decimal"/>
+		<property name="_type" type="Byte" access="field" />
+
+		<many-to-one name="SourceAccount" class="Account" column="SourceAccountId" not-null="false"/>
+		<many-to-one name="TargetAccount" class="Account" column="TargetAccountId" not-null="false"/>
+
+		<joined-subclass name="SingleTransfer" table="SingleTransfers" lazy="false">
+			<key column="Id"/>
+			<property name="Date" type="DateTime"/>
+		</joined-subclass>
+		<joined-subclass name="PeriodicalTransfer" table="PeriodicalTransfers" lazy="false">
+			<key column="Id"/>
+			<property name="StartDate" type="DateTime"/>
+			<property name="EndDate" type="DateTime"/>
+			<property name="_periodType" type="Byte" access="field" />
+			<property name="_standardPeriod" type="Byte" access="field" />
+			<property name="CustomPeriod" type="Int32" />
+		</joined-subclass>
+		<joined-subclass name="PercentageTransfer" table="PercentageTransfers" lazy="false">
+			<key column="Id"/>
+			<property name="StartDate" type="DateTime"/>
+			<property name="Percentage" type="Single" />
+			<property name="Period" type="Int32" />
+		</joined-subclass>
+	</class>
+
+</hibernate-mapping>

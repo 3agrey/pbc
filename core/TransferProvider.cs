@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using AIM.PBC.Core.BusinessObjects;
+using AIM.PBC.Core.Exceptions;
 using AIM.PBC.Core.Utilities;
 using NHibernate;
 using NHibernate.Expression;
@@ -40,8 +41,19 @@ namespace AIM.PBC.Core
 		{
 			using (ISession session = Settings.SessionFactory.OpenSession())
 			{
-				//todo: implement ownership of account.
-				throw new NotImplementedException();
+				User owner = session.Load<User>(userId);
+				if (owner == null)
+				{
+					throw new ConsistencyException(String.Format("Unable to get transfer list. UserId supplied = {0}", userId));
+				}
+				
+				ICriteria cr = session.CreateCriteria(typeof(Transfer)).
+					Add(
+						Expression.Or(
+										Expression.InG("SourceAccount", owner.Accounts), 
+										Expression.InG("TargetAccount", owner.Accounts)));
+				
+				return CollectionUtility.ToReadOnly(cr.List<Transfer>());
 			}
 		}
 
@@ -53,7 +65,10 @@ namespace AIM.PBC.Core
 			using (ISession session = Settings.SessionFactory.OpenSession())
 			{
 				ICriteria cr = session.CreateCriteria(typeof(Transfer)).
-					Add(Expression.Or(Expression.Eq("SourceAccountId", accountId), Expression.Eq("TargetAccountId", accountId)));
+					Add(
+						Expression.Or(
+										Expression.Eq("SourceAccountId", accountId), 
+										Expression.Eq("TargetAccountId", accountId)));
 				return CollectionUtility.ToReadOnly(cr.List<Transfer>());
 			}
 			

@@ -1,6 +1,5 @@
 using System;
-using System.Data.SqlClient;
-using AIM.NCore.DataTypes;
+using Iesi.Collections.Generic;
 
 namespace AIM.PBC.Core.BusinessObjects
 {
@@ -13,6 +12,8 @@ namespace AIM.PBC.Core.BusinessObjects
 		private decimal _beginningBalance;
 		private DateTime _beginningBalanceDate;
 		private User _user;
+		private ISet<Account> _transfersFrom;
+		private ISet<Account> _transfersTo;
 
 		public int Id
 		{
@@ -50,13 +51,16 @@ namespace AIM.PBC.Core.BusinessObjects
 			set { _user = value; }
 		}
 
-		public virtual void LoadFromReader(SqlDataReader reader)
+		public ISet<Account> TransfersFrom
 		{
-			_id = new DataInt32(reader["Id"]);
-			_userId = new DataInt32(reader["UserId"]);
-			_name = new DataString(reader["Name"]);
-			_beginningBalance = new DataDecimal(reader["BeginningBalance"]);
-			_beginningBalanceDate = new DataDateTime(reader["BeginningBalanceDate"]);
+			get { return _transfersFrom; }
+			set { _transfersFrom = value; }
+		}
+
+		public ISet<Account> TransfersTo
+		{
+			get { return _transfersTo; }
+			set { _transfersTo = value; }
 		}
 
 		public override int GetHashCode()
