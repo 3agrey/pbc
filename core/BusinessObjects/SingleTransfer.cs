@@ -12,5 +12,10 @@ namespace AIM.PBC.Core.BusinessObjects
 			get { return _date; }
 			set { _date = value; }
 		}
+
+		public SingleTransfer()
+		{
+			Type = TransferTypes.Single;
+		}
 	}
 }

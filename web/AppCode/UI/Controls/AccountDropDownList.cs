@@ -50,19 +50,28 @@ namespace AIM.PBC.Web.UI.Controls
 			set { _externalAccountText = value; }
 		}
 
+		public new int SelectedValue
+		{
+			get { return int.Parse(base.SelectedValue); }
+			set { base.SelectedValue = value.ToString(); }
+		}
+
 		public bool HasSelectedAccount
 		{
-			get { return int.Parse(SelectedValue) != EmptyValue; }
+			get { return SelectedIndex != EmptyValue; }
 		}
 		
 		public Account SelectedAccount
 		{
 			get
 			{
-				if (SelectedIndex != -1)
+				if (SelectedValue == ExternalAccountValue)
 				{
-					int value = int.Parse(SelectedValue);
-					return AccountProvider.Get(value);
+					return null;
+				}
+				else if (HasSelectedAccount)
+				{
+					return AccountProvider.Get(SelectedValue);
 				}
 				return null;
 			}

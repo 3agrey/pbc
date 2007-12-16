@@ -26,5 +26,10 @@ namespace AIM.PBC.Core.BusinessObjects
 			get { return _period; }
 			set { _period = value; }
 		}
+
+		public PercentageTransfer()
+		{
+			Type = TransferTypes.Percentage;
+		}
 	}
 }

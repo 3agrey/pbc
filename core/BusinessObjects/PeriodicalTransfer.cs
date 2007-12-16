@@ -40,5 +40,10 @@ namespace AIM.PBC.Core.BusinessObjects
 			get { return _customPeriod; }
 			set { _customPeriod = value; }
 		}
+
+		public PeriodicalTransfer()
+		{
+			Type = TransferTypes.Periodical;
+		}
 	}
 }

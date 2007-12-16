@@ -29,22 +29,16 @@ begin
 	insert into
 		[Transactions]
 	(
-		[UserId],
 		[TransferId],
-		[SourceAccountId],
-		[TargetAccountId],
 		[Date],
 		[Amount]
 	)
 	select
-		@Id,
 		t.[Id],
-		t.[SourceAccountId],
-		t.[TargetAccountId],
 		st.[Date],
-		st.[Amount]
+		t.[Amount]
 	from
-		[v_Transfers] t
+		[Transfers] t
 			inner join [SingleTransfers] st on
 				t.[Id] = st.[Id]
 			inner join dbo.fn_Transfers_GetListByUser(@Id) ti on
