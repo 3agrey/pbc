@@ -2,6 +2,7 @@ using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AIM.PBC.Core;
+using AIM.PBC.Core.BusinessObjects;
 
 namespace AIM.PBC.Web.Private.Pages
 {
@@ -87,7 +88,7 @@ namespace AIM.PBC.Web.Private.Pages
 		private void InitEditOperation ()
 		{
 			Transfer selectedTransfer = TransferProvider.Get(ParamTransferId);
-			switch ((TransferTypes) selectedTransfer.Type.Value)
+			switch (selectedTransfer.Type)
 			{
 				case TransferTypes.Single:
 					Response.Redirect("EditSingleTransfer.aspx?" + EditSingleTransfer.PageParameters.TransferId + "=" + ParamTransferId.ToString());

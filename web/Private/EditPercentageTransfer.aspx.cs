@@ -244,7 +244,7 @@ namespace AIM.PBC.Web.Private.Pages
 		private void InitEditOperation ()
 		{
 			PercentageTransfer entity = (PercentageTransfer) TransferProvider.Get(ParamTransferId, TransferTypes.Percentage);
-			if (!entity.SourceAccountId.IsNull)
+			if (entity.SourceAccountId != null)
 			{
 				ddlSourceAccount.Items.FindByValue(entity.SourceAccountId.ToString()).Selected = true;
 			}
@@ -252,7 +252,7 @@ namespace AIM.PBC.Web.Private.Pages
 			{
 				ddlSourceAccount.Items.FindByValue(ddlSourceAccount.ExternalAccountValue.ToString()).Selected = true;
 			}
-			if (!entity.TargetAccountId.IsNull)
+			if (entity.TargetAccountId != null)
 			{
 				ddlTargetAccount.Items.FindByValue(entity.TargetAccountId.ToString()).Selected = true;
 			}

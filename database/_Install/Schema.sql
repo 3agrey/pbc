@@ -69,6 +69,7 @@ create table dbo.[Transfers]
 	[SourceAccountId] int null,
 	[TargetAccountId] int null,
 	[Name] nvarchar(64) not null,
+	[Amount] money not null,
 	[Type] tinyint not null,
 	/*
 		1 - Single Transfer
@@ -100,7 +101,6 @@ create table dbo.[SingleTransfers]
 (
 	[Id] int not null,
 	[Date] datetime not null,
-	[Amount] money not null,
 	constraint PK_SingleTransfers primary key ([Id])
 )
 go
@@ -129,7 +129,6 @@ create table dbo.[PeriodicalTransfers]
 		4 - Yearly
 	*/
 	[CustomPeriod] int null,
-	[Amount] money not null,
 	constraint PK_PeriodicalTransfers primary key ([Id])
 )
 go
@@ -143,7 +142,6 @@ go
 create table dbo.[PercentageTransfers]
 (
 	[Id] int not null,
-	[Amount] money not null,
 	[Percentage] real not null,
 	[StartDate] datetime not null,
 	[Period] int not null

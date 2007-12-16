@@ -1,6 +1,8 @@
 using System;
+using System.Collections.ObjectModel;
 using System.Web.UI;
 using AIM.PBC.Core;
+using AIM.PBC.Core.BusinessObjects;
 
 namespace AIM.PBC.Web.Private.Pages
 {
@@ -43,7 +45,7 @@ namespace AIM.PBC.Web.Private.Pages
 			if (!IsPostBack)
 			{
 				int userId = SessionManager.CurrentUser.Id;
-				TransferList list;
+				ReadOnlyCollection<Transfer> list;
 				if (AccountId != -1)
 				{
 					list = TransferProvider.GetListByAccount(AccountId);

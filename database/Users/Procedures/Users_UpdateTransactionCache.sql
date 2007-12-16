@@ -83,9 +83,10 @@ begin
 			@customPeriod = [CustomPeriod],
 			@amount = [Amount]
 		from 
-			[PeriodicalTransfers]
+			[PeriodicalTransfers] pt
+				inner join [Transfers] t on pt.Id = t.Id
 		where
-			[Id] = @transferId
+			pt.[Id] = @transferId
 		
 		while @currDate <= @endDate
 		begin
@@ -155,9 +156,10 @@ begin
 			@currDate = [StartDate],
 			@period = [Period]
 		from 
-			[PercentageTransfers]
+			[PercentageTransfers] pt
+				inner join [Transfers] t on pt.Id = t.Id
 		where
-			[Id] = @transferId
+			pt.[Id] = @transferId
 
 		-- calculate month base
 		declare @base money

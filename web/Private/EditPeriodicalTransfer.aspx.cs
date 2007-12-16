@@ -203,12 +203,12 @@ namespace AIM.PBC.Web.Private.Pages
 				entity.EndDate = dpEndDate.SelectedDate;
 				if (rblPeriodType.SelectedValue == ((byte) PeriodTypes.Standard).ToString())
 				{
-					entity.PeriodType = (byte) PeriodTypes.Standard;
-					entity.StandardPeriod = byte.Parse(rblStandardPeriod.SelectedValue);
+					entity.PeriodType = PeriodTypes.Standard;
+					entity.StandardPeriod = (StandardPeriods) Enum.Parse(typeof(StandardPeriods), rblStandardPeriod.SelectedValue);
 				}
 				else
 				{
-					entity.PeriodType = (byte) PeriodTypes.Custom;
+					entity.PeriodType = PeriodTypes.Custom;
 					entity.CustomPeriod = int.Parse(tbCustomPeriod.Text);
 				}
 				TransferProvider.Update(entity);
@@ -248,12 +248,12 @@ namespace AIM.PBC.Web.Private.Pages
 				entity.EndDate = dpEndDate.SelectedDate;
 				if(rblPeriodType.SelectedValue == ((byte)PeriodTypes.Standard).ToString())
 				{
-					entity.PeriodType = (byte)PeriodTypes.Standard;
-					entity.StandardPeriod = byte.Parse(rblStandardPeriod.SelectedValue);
+					entity.PeriodType = PeriodTypes.Standard;
+					entity.StandardPeriod = (StandardPeriods)Enum.Parse(typeof(StandardPeriods), rblStandardPeriod.SelectedValue);
 				}
 				else
 				{
-					entity.PeriodType = (byte) PeriodTypes.Custom;
+					entity.PeriodType = PeriodTypes.Custom;
 					entity.CustomPeriod = int.Parse(tbCustomPeriod.Text);
 				}
 				TransferProvider.Add(entity);
@@ -264,7 +264,7 @@ namespace AIM.PBC.Web.Private.Pages
 		private void InitEditOperation ()
 		{
 			PeriodicalTransfer entity = (PeriodicalTransfer) TransferProvider.Get(ParamTransferId, TransferTypes.Periodical);
-			if (!entity.SourceAccountId.IsNull)
+			if (entity.SourceAccountId != null)
 			{
 				ddlSourceAccount.Items.FindByValue(entity.SourceAccountId.ToString()).Selected = true;
 			}
@@ -272,7 +272,7 @@ namespace AIM.PBC.Web.Private.Pages
 			{
 				ddlSourceAccount.Items.FindByValue(ddlSourceAccount.ExternalAccountValue.ToString()).Selected = true;
 			}
-			if (!entity.TargetAccountId.IsNull)
+			if (entity.TargetAccountId != null)
 			{
 				ddlTargetAccount.Items.FindByValue(entity.TargetAccountId.ToString()).Selected = true;
 			}
@@ -284,7 +284,7 @@ namespace AIM.PBC.Web.Private.Pages
 			tbAmount.Text = entity.Amount.ToString();
 			dpStartDate.SelectedDate = entity.StartDate;
 			dpEndDate.SelectedDate = entity.EndDate;
-			if(entity.PeriodType == (byte)PeriodTypes.Standard)
+			if(entity.PeriodType == PeriodTypes.Standard)
 			{
 				SelectStandardPeriod();
 				rblStandardPeriod.Items.FindByValue(entity.StandardPeriod.ToString()).Selected = true;
