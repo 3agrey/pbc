@@ -4,7 +4,7 @@
 
 <asp:Content ID="c" runat="server" ContentPlaceHolderID="cph">
 	<cc:ClientMessage ID="ctrlClientMessage" Runat="server" IsRenderNewLine="true" Width="400" />
-	<cc:Panel runat="server" Title="Login" Width="400" CellPadding="0" CellSpacing="0">
+	<aim:Panel runat="server" Title="Login" Width="400" CellPadding="0" CellSpacing="0">
 		<br />
 		<img src="Images/Locked.png" />
 		<br /><br />
@@ -39,13 +39,13 @@
 				</td>
 			</tr>
 		</table>
-	</cc:Panel>
+	</aim:Panel>
 	<br />
 	<asp:PlaceHolder ID="phDebugLogin" runat="server" Visible='<%# Settings.IsDebug %>'>
-	<cc:Panel ID="pnlDebugLogin" runat="server" Mode="Gray" Width="400">
+	<aim:Panel ID="pnlDebugLogin" runat="server" Mode="Gray" Width="400">
 	<a href="#" class="link" onclick="DebugLogin('test', '1', 'on')">test</a>
 	<br />
-	</cc:Panel>
+	</aim:Panel>
 	</asp:PlaceHolder>
 <script language="javascript">
 function FocusUsernameBox ()

@@ -1,4 +1,4 @@
-namespace AIM.PBC.Web.UI.Controls
+namespace Aim.Web.Controls
 {
 	public enum PanelMode
 	{

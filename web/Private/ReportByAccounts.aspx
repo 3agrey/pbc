@@ -2,9 +2,9 @@
 <%@ Register TagPrefix="cc" Namespace="AIM.PBC.Web.UI.Controls" Assembly="AIM.PBC.Web" %>
 
 <asp:Content ID="c" runat="server" ContentPlaceHolderID="cph">
-    <cc:Panel runat="server" Title="Report by Transactions" Width="740" CellPadding="0" CellSpacing="0">
+    <aim:Panel runat="server" Title="Report by Transactions" Width="740" CellPadding="0" CellSpacing="0">
 		<br />
 		<cc:HtmlPivotGrid id="pgReport" runat="server" CellPadding="3" CellSpacing="0" Width="100%" />
 		<br />
-    </cc:Panel>
+    </aim:Panel>
 </asp:Content>

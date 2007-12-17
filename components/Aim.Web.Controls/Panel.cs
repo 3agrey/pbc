@@ -1,8 +1,9 @@
 using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Aim.Web.Controls;
 
-namespace AIM.PBC.Web.UI.Controls
+namespace Aim.Web.Controls
 {
 	public class Panel : Control
 	{

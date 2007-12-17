@@ -5,7 +5,7 @@
 <asp:Content ID="c" runat="server" ContentPlaceHolderID="cph">
     <cc:ClientMessage ID="ctrlClientMessage" Runat="server" IsRenderNewLine="true" Width="740" />
 	<asp:CustomValidator ID="cvPage" runat="server" Display="None" />
-	<cc:Panel runat="server" Title='<%# OperationText + " Single Transfer"%>' Width="740" CellPadding="0" CellSpacing="0">
+	<aim:Panel runat="server" Title='<%# OperationText + " Single Transfer"%>' Width="740" CellPadding="0" CellSpacing="0">
 		<table border="0" cellpadding="5" cellspacing="0">
 			<tr>
 				<td align="right">
@@ -73,5 +73,5 @@
 			</tr>
 			</asp:PlaceHolder>
 		</table>
-	</cc:Panel>
+	</aim:Panel>
 </asp:Content>

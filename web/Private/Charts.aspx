@@ -2,7 +2,7 @@
 <%@ Register TagPrefix="cc" Namespace="AIM.PBC.Web.UI.Controls" Assembly="AIM.PBC.Web" %>
 
 <asp:Content ID="c" runat="server" ContentPlaceHolderID="cph">
-	<cc:Panel runat="server" Title='<%# GetLocalString("ChartsPanelTitle") %>' Width="740" CellPadding="0" CellSpacing="0">
+	<aim:Panel runat="server" Title='<%# GetLocalString("ChartsPanelTitle") %>' Width="740" CellPadding="0" CellSpacing="0">
 		<table border="0" cellpadding="5" cellspacing="0" style="width: 100%; height: 100%">
 			<tr>
 				<td>
@@ -10,5 +10,5 @@
 				</td>
 			</tr>
 		</table>
-    </cc:Panel>
+    </aim:Panel>
 </asp:Content>

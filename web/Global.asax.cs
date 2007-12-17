@@ -1,5 +1,6 @@
 using System;
 using System.Web;
+using Panel=Aim.Web.Controls.Panel;
 
 namespace AIM.PBC.Web
 {
@@ -13,7 +14,7 @@ namespace AIM.PBC.Web
 			
 			// Init controls
 			AIM.PBC.Web.UI.Controls.ClientMessage.ImagesDir = "~/Images/ClientMessage/";
-			AIM.PBC.Web.UI.Controls.Panel.ImagesDir = "~/Images/WindowPanel/";
+			Panel.ImagesDir = "~/Images/WindowPanel/";
 			AIM.PBC.Web.UI.Controls.MenuBar.ImagesDir = "~/Images/MenuBar/";
 		}
 		

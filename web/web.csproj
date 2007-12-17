@@ -29,10 +29,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AIM.NCore.DataTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\components\NCore.DataTypes\bin\Release\AIM.NCore.DataTypes.dll</HintPath>
-    </Reference>
     <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\components\NHibernate\bin\net-2.0\Iesi.Collections.dll</HintPath>
@@ -194,8 +190,6 @@
     <Compile Include="AppCode\UI\Controls\MenuBar.cs" />
     <Compile Include="AppCode\UI\Controls\MenuItem.cs" />
     <Compile Include="AppCode\UI\Controls\MenuItemList.cs" />
-    <Compile Include="AppCode\UI\Controls\Panel.cs" />
-    <Compile Include="AppCode\UI\Controls\PanelMode.cs" />
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
@@ -313,6 +307,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\components\Aim.Web.Controls\Aim.Web.Controls.csproj">
+      <Project>{2BB1C76B-0513-474F-9CE0-342A24100F6A}</Project>
+      <Name>Aim.Web.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\core\core.csproj">
       <Project>{C86B4234-8312-4F25-A54C-31B5BE300BF7}</Project>
       <Name>core</Name>
