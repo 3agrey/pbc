@@ -90,7 +90,7 @@ namespace AIM.PBC.Web.Private.Pages
 
 		private void InitEditOperation ()
 		{
-			Account entity = AccountProvider.Get(ParamAccountId);
+			Account entity = AccountProvider.Get<Account>(ParamAccountId);
 			tbName.Text = entity.Name;
 			tbBeginningBalance.Text = entity.BeginningBalance.ToString();
 			dpBeginningBalanceDate.SelectedDate = entity.BeginningBalanceDate;
@@ -146,7 +146,7 @@ namespace AIM.PBC.Web.Private.Pages
 		{
 			if (Page.IsValid)
 			{
-				Account entity = AccountProvider.Get(ParamAccountId);
+				Account entity = AccountProvider.Get<Account>(ParamAccountId);
 				entity.Name = tbName.Text;
 				entity.BeginningBalance = decimal.Parse(tbBeginningBalance.Text);
 				entity.BeginningBalanceDate = dpBeginningBalanceDate.SelectedDate;

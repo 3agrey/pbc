@@ -8,19 +8,8 @@ using NHibernate.Expression;
 
 namespace AIM.PBC.Core
 {
-	public class TransferProvider : DatabaseProvider
+	public class TransferProvider : NhibernateDatabaseProvider
 	{
-		/// <summary>
-		/// Returns Transfer
-		/// </summary>
-		public static Transfer Get (int id)
-		{
-			using (ISession session = Settings.SessionFactory.OpenSession())
-			{
-				return session.Load<Transfer>(id);
-			}
-		}
-
 		/// <summary>
 		/// Returns Transfer
 		/// </summary>
@@ -69,41 +58,7 @@ namespace AIM.PBC.Core
 										Expression.Eq("SourceAccountId", accountId), 
 										Expression.Eq("TargetAccountId", accountId)));
 				return CollectionUtility.ToReadOnly(cr.List<Transfer>());
-			}
-			
-		}
-
-		/// <summary>
-		/// Add new Transfer
-		/// </summary>
-		public static int Add (Transfer entity)
-		{
-			if (entity == null) throw new ArgumentNullException("entity");
-
-			using (ISession session = Settings.SessionFactory.OpenSession())
-			{
-				ITransaction transaction = session.BeginTransaction();
-				session.Save(entity);
-				transaction.Commit();
-				//tell somehow to refresh object
-				session.Refresh(entity);
-				return entity.Id;
-			}
-		}
-
-		/// <summary>
-		/// Updates transfer
-		/// </summary>
-		public static void Update (Transfer entity)
-		{
-			if (entity == null) throw new ArgumentNullException("entity");
-
-			using (ISession session = Settings.SessionFactory.OpenSession())
-			{
-				ITransaction transaction = session.BeginTransaction();
-				session.Flush();
-				transaction.Commit();
-			}
+			}	
 		}
 	}
 }

@@ -71,7 +71,7 @@ namespace AIM.PBC.Web.UI.Controls
 				}
 				else if (HasSelectedAccount)
 				{
-					return AccountProvider.Get(SelectedValue);
+					return AccountProvider.Get<Account>(SelectedValue);
 				}
 				return null;
 			}

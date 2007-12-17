@@ -54,6 +54,7 @@
     <Compile Include="Exceptions\CoreException.cs" />
     <Compile Include="Exceptions\NHibernateSectionLoadException.cs" />
     <Compile Include="Exceptions\PbcException.cs" />
+    <Compile Include="NhibernateDatabaseProvider.cs" />
     <Compile Include="StandardPeriods.cs" />
     <Compile Include="PeriodTypes.cs" />
     <Compile Include="ReportProvider.cs" />

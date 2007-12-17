@@ -52,7 +52,7 @@ namespace AIM.PBC.Web.Private.Pages
 			foreach (DataRow accountRow in accounts.Rows)
 			{
 				int accountId = (int) accountRow["AccountId"];
-				Account account = AccountProvider.Get(accountId);
+				Account account = AccountProvider.Get<Account>(accountId);
 
 				ChartSeries series = new ChartSeries(account.Name, _currentColor, ChartSeriesType.Line);
 				series.PointMark = ChartPointMark.None;

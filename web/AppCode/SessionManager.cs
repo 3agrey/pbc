@@ -24,7 +24,7 @@ namespace AIM.PBC.Web
 					if (entity == null)
 					{
 						int id = int.Parse(HttpContext.Current.User.Identity.Name);
-						entity = UserProvider.Get(id);
+						entity = UserProvider.Get<User>(id);
 						if (entity != null)
 						{
 							// restore session

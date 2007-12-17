@@ -5,7 +5,7 @@ using NHibernate.Expression;
 
 namespace AIM.PBC.Core
 {
-	public class UserProvider : DatabaseProvider
+	public class UserProvider : NhibernateDatabaseProvider
 	{
 		/// <summary>
 		/// Returns User by credentials
@@ -26,35 +26,6 @@ namespace AIM.PBC.Core
 				}
 			}
 			return null;
-		}
-
-		/// <summary>
-		/// Returns User
-		/// </summary>
-		public static User Get (int id)
-		{
-			using (ISession session = Settings.SessionFactory.OpenSession())
-			{
-				return session.Load<User>(id);
-			}
-		}
-		
-		/// <summary>
-		/// Creates new user
-		/// </summary>
-		public static int Add (User entity)
-		{
-			if (entity == null) throw new ArgumentNullException("entity");
-
-			using (ISession session = Settings.SessionFactory.OpenSession())
-			{
-				ITransaction transaction = session.BeginTransaction();
-				session.Save(entity);
-				transaction.Commit();
-				//tell somehow to refresh object
-				session.Refresh(entity);
-				return entity.Id;
-			}
 		}
 	}
 }

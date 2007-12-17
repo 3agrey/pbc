@@ -88,7 +88,7 @@ namespace AIM.PBC.Web.Private.Pages
 
 		private void InitEditOperation ()
 		{
-			Transfer selectedTransfer = TransferProvider.Get(ParamTransferId);
+			Transfer selectedTransfer = TransferProvider.Get<Transfer>(ParamTransferId);
 			switch (selectedTransfer.Type)
 			{
 				case TransferTypes.Single:
