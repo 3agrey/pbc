@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web", "web\web.csproj", "{7
 		Release.AspNetCompiler.Debug = "False"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aim.Web.Controls", "components\Aim.Web.Controls\Aim.Web.Controls.csproj", "{2BB1C76B-0513-474F-9CE0-342A24100F6A}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,10 @@ Global
 		{7B742887-D6BE-427F-9539-7B3FA2E30F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B742887-D6BE-427F-9539-7B3FA2E30F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B742887-D6BE-427F-9539-7B3FA2E30F13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BB1C76B-0513-474F-9CE0-342A24100F6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB1C76B-0513-474F-9CE0-342A24100F6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB1C76B-0513-474F-9CE0-342A24100F6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB1C76B-0513-474F-9CE0-342A24100F6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
