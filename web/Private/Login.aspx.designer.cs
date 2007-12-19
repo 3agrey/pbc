@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Panel=Aim.Web.Controls.Panel;
-
 namespace AIM.PBC.Web.Private.Pages {
     
     
@@ -82,6 +80,6 @@ namespace AIM.PBC.Web.Private.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected Panel pnlDebugLogin;
+        protected global::Aim.Web.Controls.Panel pnlDebugLogin;
     }
 }

@@ -42,7 +42,7 @@
 	</aim:Panel>
 	<br />
 	<asp:PlaceHolder ID="phDebugLogin" runat="server" Visible='<%# Settings.IsDebug %>'>
-	<aim:Panel ID="pnlDebugLogin" runat="server" Mode="Gray" Width="400">
+	<aim:Panel ID="pnlDebugLogin" runat="server" Mode="Grey" Width="400">
 	<a href="#" class="link" onclick="DebugLogin('test', '1', 'on')">test</a>
 	<br />
 	</aim:Panel>

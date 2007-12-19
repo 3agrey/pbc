@@ -106,59 +106,59 @@
 	background-image: url(../../Images/WindowPanel/blue_br.gif);
 	background-repeat: no-repeat;
 }
-/* Gray */
-.panel_gray_ul
+/* grey */
+.panel_grey_ul
 {
 	width: 5px;
 	height: 5px;
-	background-image: url(../../Images/WindowPanel/gray_ul.gif);
+	background-image: url(../../Images/WindowPanel/grey_ul.gif);
 	background-repeat: no-repeat;
 }
-.panel_gray_u
+.panel_grey_u
 {
 	height: 5px;
-	background-image: url(../../Images/WindowPanel/gray_u.gif);
+	background-image: url(../../Images/WindowPanel/grey_u.gif);
 	background-repeat: repeat-x;
 }
-.panel_gray_ur
+.panel_grey_ur
 {
 	width: 5px;
 	height: 5px;
-	background-image: url(../../Images/WindowPanel/gray_ur.gif);
+	background-image: url(../../Images/WindowPanel/grey_ur.gif);
 	background-repeat: no-repeat;
 }
-.panel_gray_l
+.panel_grey_l
 {
 	width: 5px;
-	background-image: url(../../Images/WindowPanel/gray_l.gif);
+	background-image: url(../../Images/WindowPanel/grey_l.gif);
 	background-repeat: repeat-y;
 }
-.panel_gray_c
+.panel_grey_c
 {
 }
-.panel_gray_r
+.panel_grey_r
 {
 	width: 5px;
-	background-image: url(../../Images/WindowPanel/gray_r.gif);
+	background-image: url(../../Images/WindowPanel/grey_r.gif);
 	background-repeat: repeat-y;
 }
-.panel_gray_bl
+.panel_grey_bl
 {
 	width: 5px;
 	height: 5px;
-	background-image: url(../../Images/WindowPanel/gray_bl.gif);
+	background-image: url(../../Images/WindowPanel/grey_bl.gif);
 	background-repeat: no-repeat;
 }
-.panel_gray_b
+.panel_grey_b
 {
 	height: 5px;
-	background-image: url(../../Images/WindowPanel/gray_b.gif);
+	background-image: url(../../Images/WindowPanel/grey_b.gif);
 	background-repeat: repeat-x;
 }
-.panel_gray_br
+.panel_grey_br
 {
 	width: 5px;
 	height: 5px;
-	background-image: url(../../Images/WindowPanel/gray_br.gif);
+	background-image: url(../../Images/WindowPanel/grey_br.gif);
 	background-repeat: no-repeat;
 }

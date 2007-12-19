@@ -4,6 +4,6 @@ namespace Aim.Web.Controls
 	{
 		Window,
 		Blue,
-		Gray
+		Grey
 	}
 }
