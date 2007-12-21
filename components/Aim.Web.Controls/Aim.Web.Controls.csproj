@@ -49,6 +49,29 @@
   <ItemGroup>
     <EmbeddedResource Include="Styles\Panel.css" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Panel\blue_b.gif" />
+    <EmbeddedResource Include="Images\Panel\blue_bl.gif" />
+    <EmbeddedResource Include="Images\Panel\blue_br.gif" />
+    <EmbeddedResource Include="Images\Panel\blue_l.gif" />
+    <EmbeddedResource Include="Images\Panel\blue_r.gif" />
+    <EmbeddedResource Include="Images\Panel\blue_u.gif" />
+    <EmbeddedResource Include="Images\Panel\blue_ul.gif" />
+    <EmbeddedResource Include="Images\Panel\blue_ur.gif" />
+    <EmbeddedResource Include="Images\Panel\grey_b.gif" />
+    <EmbeddedResource Include="Images\Panel\grey_bl.gif" />
+    <EmbeddedResource Include="Images\Panel\grey_br.gif" />
+    <EmbeddedResource Include="Images\Panel\grey_l.gif" />
+    <EmbeddedResource Include="Images\Panel\grey_r.gif" />
+    <EmbeddedResource Include="Images\Panel\grey_u.gif" />
+    <EmbeddedResource Include="Images\Panel\grey_ul.gif" />
+    <EmbeddedResource Include="Images\Panel\grey_ur.gif" />
+    <EmbeddedResource Include="Images\Panel\spacer.gif" />
+    <EmbeddedResource Include="Images\Panel\window_bl.gif" />
+    <EmbeddedResource Include="Images\Panel\window_br.gif" />
+    <EmbeddedResource Include="Images\Panel\window_ul.gif" />
+    <EmbeddedResource Include="Images\Panel\window_ur.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
