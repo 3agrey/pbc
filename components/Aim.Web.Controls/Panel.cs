@@ -1,11 +1,24 @@
+using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Aim.Web.Controls;
 using Aim.Web.Controls.Panels;
+using Aim.Web.Controls.Utilities;
+using Panel=Aim.Web.Controls.Panel;
+
+#region Assembly Resource Attribute
+
+[assembly: WebResource(Panel.PANEL_STYLE_NAMESPACE, ContentTypes.TEXT_CSS)]
+
+#endregion 
 
 namespace Aim.Web.Controls
 {
 	public class Panel : Control
 	{
+		public const string PANEL_STYLE_NAMESPACE = "Aim.Web.Controls.Styles.Panel.css";
+		private const string PANEL_CSS_SCRIPT_KEY = "Panel_css";
+
 		public static string ImagesDir;
 
 		private string _title = "Untitled";
@@ -69,6 +82,23 @@ namespace Aim.Web.Controls
 					_renderer = PanelFactory.CreateRenderer(this);
 				}
 				return _renderer;
+			}
+		}
+
+		private ClientScriptManager ClientScript
+		{
+			get { return Page.ClientScript; }
+		}
+
+		protected override void OnInit(EventArgs e)
+		{
+			base.OnInit(e);
+
+			if (!ClientScript.IsClientScriptBlockRegistered(GetType(), PANEL_CSS_SCRIPT_KEY))
+			{
+				ClientScript.RegisterClientScriptBlock(GetType(), PANEL_CSS_SCRIPT_KEY, String.Empty);
+				string cssUrl = ClientScript.GetWebResourceUrl(GetType(), PANEL_STYLE_NAMESPACE);
+				WebUtility.AddStyleSheet(Page, cssUrl);
 			}
 		}
 

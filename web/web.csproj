@@ -396,7 +396,6 @@
     <Content Include="App_Themes\Default\ClientMessage.css" />
     <Content Include="App_Themes\Default\Default.css" />
     <Content Include="App_Themes\Default\MenuBar.css" />
-    <Content Include="App_Themes\Default\Panel.css" />
     <Content Include="Private\Images\Edit.png" />
     <Content Include="Private\Images\Remove.png" />
   </ItemGroup>

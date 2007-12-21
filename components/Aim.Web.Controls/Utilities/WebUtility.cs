@@ -13,14 +13,14 @@ namespace Aim.Web.Controls.Utilities
 			HtmlLink cssLink = new HtmlLink();
 			cssLink.Href = path;
 			cssLink.Attributes.Add("rel", "stylesheet");
-			cssLink.Attributes.Add("type", "text/css");
+			cssLink.Attributes.Add("type", ContentTypes.TEXT_CSS);
 			return cssLink;
 		}
 
-		public static HtmlLink CreateStyleSheet(Page page, string path)
+		public static void AddStyleSheet(Page page, string path)
 		{
-			string url = page.ResolveUrl(path);
-			return CreateStyleSheet(url);
+			HtmlLink css = CreateStyleSheet(path);
+			page.Header.Controls.Add(css);
 		}
 	}
 }
